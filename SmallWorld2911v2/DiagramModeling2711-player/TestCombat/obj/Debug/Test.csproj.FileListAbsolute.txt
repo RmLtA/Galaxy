@@ -1,0 +1,7 @@
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\TestCombat.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\TestCombat.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.pdb

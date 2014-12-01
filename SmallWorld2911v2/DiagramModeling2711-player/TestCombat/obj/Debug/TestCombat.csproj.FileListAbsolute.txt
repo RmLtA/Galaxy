@@ -1,0 +1,35 @@
+E:\4INFO\POO\DiagramModeling\TestCombat\obj\Debug\TestCombat.csprojResolveAssemblyReference.cache
+E:\4INFO\POO\DiagramModeling\TestCombat\bin\Debug\TestCombat.dll
+E:\4INFO\POO\DiagramModeling\TestCombat\bin\Debug\TestCombat.pdb
+E:\4INFO\POO\DiagramModeling\TestCombat\bin\Debug\PROJECTUML.dll
+E:\4INFO\POO\DiagramModeling\TestCombat\bin\Debug\PROJECTUML.pdb
+E:\4INFO\POO\DiagramModeling\TestCombat\obj\Debug\TestCombat.dll
+E:\4INFO\POO\DiagramModeling\TestCombat\obj\Debug\TestCombat.pdb
+E:\4INFO\POO\DiagramModeling2711\TestCombat\bin\Debug\TestCombat.dll
+E:\4INFO\POO\DiagramModeling2711\TestCombat\bin\Debug\TestCombat.pdb
+E:\4INFO\POO\DiagramModeling2711\TestCombat\bin\Debug\PROJECTUML.dll
+E:\4INFO\POO\DiagramModeling2711\TestCombat\bin\Debug\PROJECTUML.pdb
+E:\4INFO\POO\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.csprojResolveAssemblyReference.cache
+E:\4INFO\POO\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.dll
+E:\4INFO\POO\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\TestCombat.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\TestCombat.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711\TestCombat\obj\Debug\TestCombat.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711 -player\TestCombat\bin\Debug\TestCombat.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711 -player\TestCombat\bin\Debug\TestCombat.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711 -player\TestCombat\bin\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711 -player\TestCombat\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711 -player\TestCombat\obj\Debug\TestCombat.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711 -player\TestCombat\obj\Debug\TestCombat.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\DiagramModeling2711 -player\TestCombat\obj\Debug\TestCombat.pdb
+E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\TestCombat.dll
+E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\TestCombat.pdb
+E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\PROJECTUML.dll
+E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\PROJECTUML.pdb
+E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\obj\Debug\TestCombat.csprojResolveAssemblyReference.cache
+E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\obj\Debug\TestCombat.dll
+E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\obj\Debug\TestCombat.pdb
