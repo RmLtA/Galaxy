@@ -9,6 +9,9 @@ namespace PROJECTUML
     {
         public ElfUnitImpl()
         {
+            AttackPoint = 2;
+            LifePoint = 5;
+            DefensePoint = 1;
             
         }
     }

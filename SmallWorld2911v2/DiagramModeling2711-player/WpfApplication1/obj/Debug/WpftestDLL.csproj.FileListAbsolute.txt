@@ -30,3 +30,6 @@ E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\WpfApplication1\bin\Deb
 E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\WpfApplication1\bin\Debug\WpfApplication1.pdb
 E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\WpfApplication1\bin\Debug\Wrapper.dll
 E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\WpfApplication1\bin\Debug\Wrapper.pdb
+E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\WpfApplication1\obj\Debug\WpfApplication1.exe
+E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\WpfApplication1\obj\Debug\WpfApplication1.pdb

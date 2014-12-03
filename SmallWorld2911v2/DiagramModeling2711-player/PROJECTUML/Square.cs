@@ -8,7 +8,7 @@ namespace PROJECTUML
     public abstract class SquareImpl : Square
     { // liste unité 
 
-        public List<Unit> UnitImpl
+        public List<Unit> ListUnitImpl
         {
             get
             {
@@ -22,6 +22,12 @@ namespace PROJECTUML
 
     public interface Square
     {
-        void addInSquare(List<Unit> l2);
+        List<Unit> ListUnitImpl { get; set; }
+        void addInSquare(List<Unit> l);
+
+        Unit returnUnitBestLife();
+        Unit returnUnitBestDefense();
+
+        
     }
 }

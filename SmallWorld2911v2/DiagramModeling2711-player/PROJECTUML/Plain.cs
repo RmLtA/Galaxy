@@ -14,7 +14,42 @@ namespace PROJECTUML
 
         public void addInSquare(List<Unit> l){
             //ajout un par un sur la liste de case 
-            UnitImpl.Add(l[0]);
+            ListUnitImpl.Add(l[0]);
+        }
+
+        /*Non testé*/
+        public Unit returnUnitBestLife()
+        {
+            int max=0;
+            for (int i = 1; i < ListUnitImpl.Count; i++)
+            {
+                if (ListUnitImpl[i-1].LifePoint < ListUnitImpl[i].LifePoint)
+                {
+                    max= i;
+                }
+                else
+                {
+                    max=i-1;
+                }
+            }
+                return ListUnitImpl[max];
+        }
+
+        public Unit returnUnitBestDefense()
+        {
+            int max = 0;
+            for (int i = 1; i < ListUnitImpl.Count; i++)
+            {
+                if (ListUnitImpl[i - 1].DefensePoint < ListUnitImpl[i].DefensePoint)
+                {
+                    max = i;
+                }
+                else
+                {
+                    max = i - 1;
+                }
+            }
+            return ListUnitImpl[max];
         }
     }
 

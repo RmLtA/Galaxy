@@ -65,13 +65,13 @@
   <Class Name="PROJECTUML.UnitImpl">
     <Position X="8" Y="5.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAIAFAAQAAAAAAAkAAAAAAAQAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAABAgCAIAFIEQAAAAAAAmAAAAAAAQEAAIA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.ElfUnitImpl">
-    <Position X="7" Y="10" Width="1.5" />
+    <Position X="7" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ElfUnit.cs</FileName>
@@ -79,7 +79,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.OrcUnitImpl">
-    <Position X="8.75" Y="10" Width="1.5" />
+    <Position X="8.75" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OrcUnit.cs</FileName>
@@ -87,7 +87,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.NainUnitImpl">
-    <Position X="10.5" Y="10" Width="1.5" />
+    <Position X="10.5" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NainsUnit.cs</FileName>
@@ -162,8 +162,8 @@
     <AssociationLine Name="Plain" Type="PROJECTUML.PlainImpl" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="16.75" Y="7.625" />
-        <Point X="14.906" Y="7.625" />
-        <Point X="14.906" Y="10" />
+        <Point X="15.177" Y="7.625" />
+        <Point X="15.177" Y="10" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -194,9 +194,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.PlainImpl">
-    <Position X="13.75" Y="10" Width="1.5" />
+    <Position X="13.25" Y="10" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Plain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -204,7 +204,7 @@
   <Class Name="PROJECTUML.MapImpl">
     <Position X="14.5" Y="0.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AABAABAAABAAAAAQRAABAAAAAAAIEgABAAAAQAAAAAA=</HashCode>
+      <HashCode>AABAABAAABAAAAAQBAABAAAAAAAYEgABAAAAQAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -215,11 +215,11 @@
   <Class Name="PROJECTUML.SquareImpl">
     <Position X="13" Y="5.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="UnitImpl" />
+      <Property Name="ListUnitImpl" />
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
@@ -256,7 +256,7 @@
   <Interface Name="PROJECTUML.Unit">
     <Position X="33.25" Y="6.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAFAAQAAAAAAAkAAAAAAAQAAAIA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -312,7 +312,7 @@
   <Interface Name="PROJECTUML.Square">
     <Position X="34" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAJAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
   </Interface>

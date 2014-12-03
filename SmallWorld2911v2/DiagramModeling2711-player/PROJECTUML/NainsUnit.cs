@@ -9,6 +9,9 @@ namespace PROJECTUML
     {
         public NainUnitImpl()
         {
+            AttackPoint = 2;
+            LifePoint = 5;
+            DefensePoint = 1;
             throw new System.NotImplementedException();
         }
     }

@@ -11,7 +11,7 @@ namespace PROJECTUML
         private int _TurnNumber;
         private int _UnitNumber;
         private int _SquareNumber;
-        private Square[,] MatSquare;
+        private Square[,] BoardGame;
         public int TurnNumber
         {
             get { return _TurnNumber; }
@@ -37,7 +37,7 @@ namespace PROJECTUML
                 SquareNumber = 5;
 
                 //cette matrice est à créé dans la librairie C++
-                MatSquare=new SquareImpl[SquareNumber,SquareNumber];
+                BoardGame=new SquareImpl[SquareNumber,SquareNumber];
 
                 SquareFactory factoryCase = new SquareFactoryImpl();
                 factoryCase.createDesert();
@@ -46,12 +46,11 @@ namespace PROJECTUML
                     for (int j = 0; j < SquareNumber; j++)
                     {
                         //générer aussi les autres types de cases --> même nombre 
-                        MatSquare[i, j] = factoryCase.createDesert();
+                        BoardGame[i, j] = factoryCase.createDesert();
                     
                     }
                 }
 
-                //création de la liste des cases
             }
 
             /* version Petite*/
@@ -76,10 +75,11 @@ namespace PROJECTUML
 
         }
 
-        public void addPlayers(List<Unit> l1, List<Unit> l2)
+        public void placeUnits(List<Unit> l1, List<Unit> l2)
         {
-            MatSquare[0,0].addInSquare(l1);
-            MatSquare[0, 0].addInSquare(l2);
+            //position : mettre les peuples bien loin les uns des autres
+            BoardGame[0,0].addInSquare(l1);
+            BoardGame[5,5].addInSquare(l2);
         }
 
         public SquareFactoryImpl SquareFactory
@@ -93,28 +93,47 @@ namespace PROJECTUML
             }
         }
 
-      
-       
 
-
-
+        /*Non testé*/
         public int chooseNbCombat(int row, int column)
         {
+            Square s = BoardGame[row, column];
+            Unit u = s.returnUnitBestLife();
+
+            Random random = new Random();
+            int result = random.Next(3, u.LifePoint+2);
+
+            return result;
             throw new System.NotImplementedException();
         }
-
+        
+        /*Non testé*/
         public bool juxtaposedSquare(Unit u, int row, int column)
         {
+            // les cases sont juxtaposées si elles sont sur la même ligne mais à i et i+1eme colonne
+            if (u.Row == row)
+            {
+                if ((column == u.Column+1) || (column == u.Column-1))
+                {
+                    return true;
+                }
+            }
+            return false;
             throw new System.NotImplementedException();
         }
 
+        /*Non testé*/
         public Unit unitBestDefense(int row, int column)
         {
+            Square s = BoardGame[row, column];
+            return s.returnUnitBestDefense();
+
             throw new System.NotImplementedException();
         }
 
         public void upDateMap(Unit u, int row, int column)
         {
+            // appel de la fonction move(x,y) de Unit
             throw new System.NotImplementedException();
         }
     }
