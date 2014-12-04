@@ -25,11 +25,38 @@ namespace WpfApplication1
         unsafe public MainWindow()
         {
             //InitializeComponent();
-            WrapperAlgo algo = new WrapperAlgo();
-            int t = algo.computeFoo();
-                System.Console.WriteLine(t);
-                System.Console.ReadLine();
+            WrapperAlgo wrapper = new WrapperAlgo();
+            int** t = wrapper.tabMap();
+            wrapper.affiche();
+            System.Console.ReadLine();
 
+
+            //     GamePlay engine;
+            //     Map map;
+            ////  
+            ////Rectangle selectedVisual;
+
+
+            ///// <summary>
+            ///// Construction de la fenetre (référencé dans le App.xaml)
+            ///// </summary>
+            //public MainWithEvents()
+            //{
+            //    InitializeComponent();
+            //    engine = new Game.Gameplay.NewGamePlayImpl();
+            //}
+
+
+            ///// <summary>
+            ///// Réaction à l'evt "la fenetre est construite" (référencé dans le MainWithEvents.xaml)
+            ///// </summary>
+            ///// <param name="sender">la fenetre </param>
+            ///// <param name="e"> l'evt : la fentere est construite</param>
+            //private void Window_Loaded(object sender, RoutedEventArgs e)
+            //{
+            //    // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
+            //    map = engine._Map;
+            //}
         }
     }
 }

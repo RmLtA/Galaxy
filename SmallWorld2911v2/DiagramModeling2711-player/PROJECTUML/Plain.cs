@@ -12,9 +12,12 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        public void addInSquare(List<Unit> l){
-            //ajout un par un sur la liste de case 
-            UnitImpl.Add(l[0]);
+        public void addInSquare(List<Unit> l)
+        {
+            for (int i = 0; i < l.Count; i++) // Loop through List with for
+            {
+                UnitImpl.Add(l[i]);
+            }
         }
     }
 

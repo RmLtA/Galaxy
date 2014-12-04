@@ -7,6 +7,7 @@ namespace PROJECTUML
 {
     public interface Nain : People
     {
+        void addUnit(int nbUnit);
         NainUnit createUnit();
     }
 }

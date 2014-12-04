@@ -11,6 +11,17 @@ namespace PROJECTUML
         private int _Map;
         private string _Name;
         private int _People;
+
+        public People _PeopleImpl
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
         public bool Turn
         {
             get { return _Turn; }
@@ -44,9 +55,9 @@ namespace PROJECTUML
             
 
             Name= name;
-            _Turn = false;
-            _Map = map;
-            _People = people;
+            Turn = false;
+            Map = map;
+            People = people;
 
             PeopleFactory fact = new PeopleFactoryImpl();
             _PeopleImpl = fact.createPeople(people);
@@ -60,16 +71,7 @@ namespace PROJECTUML
         public PlayerImpl()
         {
         }
-        public People _PeopleImpl
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+       
     }
 
      
@@ -79,9 +81,10 @@ namespace PROJECTUML
         int Map { get; set; }
         bool Turn { get; set; }
         string Name { get; set; }
+        People _PeopleImpl { get; set; }
 
         void addUnitPlayer(int nbUnit);
 
-        object ListUnit { get; set; }
+        
     }
 }

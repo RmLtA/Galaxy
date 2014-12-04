@@ -33,7 +33,7 @@ namespace PROJECTUML
              p2.addUnitPlayer(m.UnitNumber);
              l.Add(p1);
              l.Add(p2);
-             m.addPlayers(p1.ListUnit,p2.ListUnit);
+             m.addPlayers(p1._PeopleImpl.ListUnit,p2._PeopleImpl.ListUnit);
 
             //placer sur la map les unites de joueurs 
             GamePlay p = new GamePlayImpl(m, l);

@@ -12,8 +12,7 @@ namespace PROJECTUML
          */
         public NainImpl()
         {
-            _ListUnit = new List<Unit>();
-            _ListUnit.Add(createUnit());
+            ListUnit = new List<Unit>();
         }
 
         /**
@@ -23,6 +22,13 @@ namespace PROJECTUML
         {    
             return new NainUnitImpl();
             throw new System.NotImplementedException();
+        }
+        public void addUnit(int nbUnit)
+        {
+            for (int i = 0; i < nbUnit; i++)
+            {
+                ListUnit.Add(createUnit());
+            }
         }
     }
 }

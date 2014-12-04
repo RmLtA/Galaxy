@@ -27,7 +27,7 @@ namespace PROJECTUML
             get { return _SquareNumber; }
             set { _SquareNumber = value; }
         }
-        public MapImpl(int map)
+        public unsafe  MapImpl(int map,int ** tab)
         {
             /* version Demo*/
             if (map == 0)
@@ -37,19 +37,6 @@ namespace PROJECTUML
                 SquareNumber = 5;
 
                 //cette matrice est à créé dans la librairie C++
-                MatSquare=new SquareImpl[SquareNumber,SquareNumber];
-
-                SquareFactory factoryCase = new SquareFactoryImpl();
-                factoryCase.createDesert();
-                for (int i = 0; i < SquareNumber; i++)
-                {
-                    for (int j = 0; j < SquareNumber; j++)
-                    {
-                        //générer aussi les autres types de cases --> même nombre 
-                        MatSquare[i, j] = factoryCase.createDesert();
-                    
-                    }
-                }
 
                 //création de la liste des cases
             }
@@ -73,6 +60,26 @@ namespace PROJECTUML
 
                 //création de la liste des cases
             }
+            MatSquare = new SquareImpl[SquareNumber, SquareNumber];
+
+            SquareFactory factoryCase = new SquareFactoryImpl();
+            factoryCase.createDesert();
+            for (int i = 0; i < SquareNumber; i++)
+            {
+                for (int j = 0; j < SquareNumber; j++)
+                {
+                    //générer aussi les autres types de cases --> même nombre
+                    if (tab[i, j] == 0) MatSquare[i, j] = factoryCase.createDesert();
+                    else
+                    {
+                        if (tab[i, j] == 1)
+                            MatSquare[i, j] = factoryCase.createPlain();
+                        else
+                            MatSquare[i, j] = factoryCase.createForest();
+                    }
+                }
+            }
+
 
         }
 
@@ -82,22 +89,7 @@ namespace PROJECTUML
             MatSquare[0, 0].addInSquare(l2);
         }
 
-        public SquareFactoryImpl SquareFactory
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
       
-       
-
-
-
         public int chooseNbCombat(int row, int column)
         {
             throw new System.NotImplementedException();
@@ -144,6 +136,8 @@ namespace PROJECTUML
         Unit unitBestDefense(int row, int column);
 
         void upDateMap(Unit u, int row, int column);
+
+        void addPlayers(List<Unit> l1, List<Unit> l2);
 
 
     }

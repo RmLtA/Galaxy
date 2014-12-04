@@ -13,3 +13,8 @@ E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PR
 E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb
 E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.dll
 E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.pdb
