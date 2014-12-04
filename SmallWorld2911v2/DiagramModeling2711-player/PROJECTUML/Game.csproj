@@ -44,6 +44,7 @@
     <Compile Include="Desert.cs" />
     <Compile Include="Elf.cs" />
     <Compile Include="ElfUnit.cs" />
+    <Compile Include="ElfUnit_2.cs" />
     <Compile Include="Forest.cs" />
     <Compile Include="GamePlay.cs" />
     <Compile Include="GamePlayBuilder.cs" />
@@ -54,8 +55,6 @@
     <Compile Include="MapStrategy.cs" />
     <Compile Include="MapStrategyImpl.cs" />
     <Compile Include="Nain.cs" />
-    <Compile Include="Nains.cs" />
-    <Compile Include="NainsUnit.cs" />
     <Compile Include="NainUnit.cs" />
     <Compile Include="New.cs" />
     <Compile Include="NewGamePlay.cs" />

@@ -12,9 +12,13 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        public void addInSquare(List<Unit> l){
-            //ajout un par un sur la liste de case 
-            ListUnitImpl.Add(l[0]);
+        /*Non testé*/
+        public void addInSquare(List<Unit> l)
+        {
+            for (int i = 0; i < l.Count; i++) 
+            {
+                ListUnitImpl.Add(l[i]);
+            }
         }
 
         /*Non testé*/
@@ -55,5 +59,8 @@ namespace PROJECTUML
 
     public interface Plain : Square
     {
+        void addInSquare(List<Unit> l);
+        Unit returnUnitBestLife();
+        Unit returnUnitBestDefense();
     }
 }

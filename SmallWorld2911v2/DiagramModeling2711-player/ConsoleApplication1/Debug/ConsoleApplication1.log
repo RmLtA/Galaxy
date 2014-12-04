@@ -1,15 +1,17 @@
-﻿La génération a démarré 01/12/2014 16:42:39.
-     1>Projet "E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 04/12/2014 08:55:06.
+     1>Projet "E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" sur le nœud 2 (Build cible(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (codeC++Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Algo.cpp
          Algo.cpp
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\Debug\ConsoleApplication1.lib" /NOLOGO Debug\Algo.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\Debug\ConsoleApplication1.lib" /NOLOGO Debug\Algo.obj
          Debug\stdafx.obj
-         ConsoleApplication1.vcxproj -> E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\Debug\ConsoleApplication1.lib
-     1>Génération du projet "E:\4INFO\POO\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" terminée (Build cible(s)).
+         ConsoleApplication1.vcxproj -> E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\Debug\ConsoleApplication1.lib
+     1>Génération du projet "E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:01.11
+Temps écoulé 00:00:02.82

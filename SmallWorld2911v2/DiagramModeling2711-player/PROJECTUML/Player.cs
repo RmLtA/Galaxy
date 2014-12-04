@@ -33,6 +33,17 @@ namespace PROJECTUML
             set { _Name = "Ordi"; } //mis par défaut pour compiler }
         }
 
+        public People _PeopleImpl
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         /**
          * \brief      Constructor of a player   
          * \param    name   name of the player
@@ -60,16 +71,7 @@ namespace PROJECTUML
         public PlayerImpl()
         {
         }
-        public People _PeopleImpl
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+
     }
 
      
@@ -78,6 +80,8 @@ namespace PROJECTUML
         int People { get; set; }
         int Map { get; set; }
         bool Turn { get; set; }
+
+        People _PeopleImpl { get; set; }
         string Name { get; set; }
 
         void addUnitPlayer(int nbUnit);

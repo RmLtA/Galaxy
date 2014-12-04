@@ -24,10 +24,19 @@ namespace PROJECTUML
             return new OrcUnitImpl();
             throw new System.NotImplementedException();
         }
+
+        public void addUnit(int nbUnit)
+        {
+            for (int i = 0; i < nbUnit; i++)
+            {
+                _ListUnit.Add(createUnit());
+            }
+        }
     }
 
     public interface Orc : People
     {
         OrcUnit createUnit();
+        void addUnit(int nbUnit);
     }
 }

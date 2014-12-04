@@ -29,11 +29,15 @@ namespace PROJECTUML
             //à récupérer parmi les infos demander
              //ajout vérifiaction de choix entr les 2 map différents
              Map m = createMap(l[0].Map);
+
+            //emplissag des unités dans la liste d'un peuple
              p1.addUnitPlayer(m.UnitNumber);
              p2.addUnitPlayer(m.UnitNumber);
              l.Add(p1);
              l.Add(p2);
-             m.addPlayers(p1.ListUnit,p2.ListUnit);
+
+            //placement des unites sur la Map
+             m.placeUnits(p1._PeopleImpl._ListUnit, p2._PeopleImpl._ListUnit);
 
             //placer sur la map les unites de joueurs 
             GamePlay p = new GamePlayImpl(m, l);

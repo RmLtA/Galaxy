@@ -13,6 +13,8 @@ namespace PROJECTUML
             set;
         }
 
+
+
         public PROJECTUML.Unit createUnit()
         {
             throw new NotImplementedException();
@@ -30,7 +32,7 @@ namespace PROJECTUML
         PROJECTUML.Unit createUnit();
 
         void addUnit(int nbUnit);
-
+        List<Unit> _ListUnit { get; set; }
       
     }
 }

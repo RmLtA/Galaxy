@@ -39,14 +39,14 @@ namespace PROJECTUML
                 //cette matrice est à créé dans la librairie C++
                 BoardGame=new SquareImpl[SquareNumber,SquareNumber];
 
-                SquareFactory factoryCase = new SquareFactoryImpl();
-                factoryCase.createDesert();
+                SquareFactory factory = new SquareFactoryImpl();
+                factory.createDesert();
                 for (int i = 0; i < SquareNumber; i++)
                 {
                     for (int j = 0; j < SquareNumber; j++)
                     {
                         //générer aussi les autres types de cases --> même nombre 
-                        BoardGame[i, j] = factoryCase.createDesert();
+                        BoardGame[i, j] = factory.createDesert();
                     
                     }
                 }
@@ -163,7 +163,7 @@ namespace PROJECTUML
         Unit unitBestDefense(int row, int column);
 
         void upDateMap(Unit u, int row, int column);
-
+        void placeUnits(List<Unit> l1, List<Unit> l2);
 
     }
 }

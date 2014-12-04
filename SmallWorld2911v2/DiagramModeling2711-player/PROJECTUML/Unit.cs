@@ -14,6 +14,7 @@ namespace PROJECTUML
         private int _Column;
         private int _Row;
 
+        //on fixe les points de déplacement à combien?
         public int MovePoint
         {
             get { return _MovePoint; }
@@ -60,6 +61,10 @@ namespace PROJECTUML
             //vérifier d'abord les points nécessaires pour un déplacement
 
             //vérifier le type de la case --> changement du point de déplacement
+
+            // une case rapporte un point par défaut
+
+            //selon le type de l'unité le coût du déplacement change
             throw new System.NotImplementedException();
         }
 
