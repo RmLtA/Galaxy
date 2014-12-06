@@ -1,9 +1,16 @@
-﻿La génération a démarré 04/12/2014 08:19:40.
+﻿La génération a démarré 04/12/2014 08:25:42.
      1>Projet "C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" sur le nœud 2 (Build cible(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (codeC++Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(238,5): error MSB3061: Impossible de supprimer le fichier "Debug\ConsoleApplication1.pch". Le processus ne peut pas accéder au fichier 'C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\Debug\ConsoleApplication1.pch', car il est en cours d'utilisation par un autre processus.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Algo.cpp AlgoMaps.cpp
+         AlgoMaps.cpp
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\sal.h(2381): error C2144: erreur de syntaxe : 'int' doit être précédé de ';'
+         Algo.cpp
+         Génération de code en cours...
      1>Génération du projet "C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
 
 ÉCHEC de la build.
 
-Temps écoulé 00:00:00.17
+Temps écoulé 00:00:07.93
