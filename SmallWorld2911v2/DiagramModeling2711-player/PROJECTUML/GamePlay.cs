@@ -71,7 +71,7 @@ namespace PROJECTUML
     {
     
         /*void createGamePlay();*/
-       
+        MapImpl _Map { get; set; }
         void gotoNextPlayer();
 
         void stop();

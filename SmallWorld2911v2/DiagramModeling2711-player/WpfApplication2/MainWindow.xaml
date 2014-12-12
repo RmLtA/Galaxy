@@ -1,0 +1,10 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GameMenu" Height="350" Width="525">
+    <Grid>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="142,70,0,0" VerticalAlignment="Top" Width="212" Click="Button_Click"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="142,189,0,0" VerticalAlignment="Top" Width="212" Click="exit"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="142,121,0,0" VerticalAlignment="Top" Width="212"/>
+    </Grid>
+</Window>

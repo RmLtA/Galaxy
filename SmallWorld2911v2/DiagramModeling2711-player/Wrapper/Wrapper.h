@@ -2,7 +2,7 @@
 #ifndef __WRAPPER__
 #define __WRAPPER__
 
-#include "C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\AlgoMaps.h"
+#include "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\AlgoMaps.h"
 //#include "E:\4INFO\POO\DiagramModeling2711\Debug\ConsoleApplication1.lib"
 #pragma comment(lib, "ConsoleApplication1.lib")
 

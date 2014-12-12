@@ -8,7 +8,7 @@ namespace PROJECTUML
     public abstract class GamePlayBuilderImpl : GamePlayBuilder
     {
 
-        public GamePlay start(Player p1, Player p2)
+        public GamePlay start()
         {
             throw new System.NotImplementedException();
         }

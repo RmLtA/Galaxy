@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using WrapperN;
 
 namespace PROJECTUML
 {
@@ -11,7 +12,13 @@ namespace PROJECTUML
         private int _TurnNumber;
         private int _UnitNumber;
         private int _SquareNumber;
-        private Square[,] MatSquare;
+        private Square[,] _MatSquare;
+
+        public Square[,] MatSquare
+        {
+            get { return _MatSquare; }
+            set { _MatSquare = value; }
+        }
         public int TurnNumber
         {
             get { return _TurnNumber; }
@@ -27,8 +34,10 @@ namespace PROJECTUML
             get { return _SquareNumber; }
             set { _SquareNumber = value; }
         }
-        public unsafe  MapImpl(int map,int ** tab)
+        public unsafe  MapImpl(int map)
         {
+            WrapperAlgo wrapper = new WrapperAlgo();
+          
             /* version Demo*/
             if (map == 0)
             {
@@ -61,7 +70,7 @@ namespace PROJECTUML
                 //création de la liste des cases
             }
             MatSquare = new SquareImpl[SquareNumber, SquareNumber];
-
+            int** tab = wrapper.tabMap(SquareNumber);
             SquareFactory factoryCase = new SquareFactoryImpl();
             factoryCase.createDesert();
             for (int i = 0; i < SquareNumber; i++)
@@ -69,10 +78,10 @@ namespace PROJECTUML
                 for (int j = 0; j < SquareNumber; j++)
                 {
                     //générer aussi les autres types de cases --> même nombre
-                    if (tab[i, j] == 0) MatSquare[i, j] = factoryCase.createDesert();
+                    if (tab[i][j] == 0) MatSquare[i, j] = factoryCase.createDesert();
                     else
                     {
-                        if (tab[i, j] == 1)
+                        if (tab[i][j] == 1)
                             MatSquare[i, j] = factoryCase.createPlain();
                         else
                             MatSquare[i, j] = factoryCase.createForest();
@@ -125,6 +134,11 @@ namespace PROJECTUML
             set;
         }
         int SquareNumber
+        {
+            get;
+            set;
+        }
+        Square[,] MatSquare
         {
             get;
             set;

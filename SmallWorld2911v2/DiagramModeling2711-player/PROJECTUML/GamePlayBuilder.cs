@@ -8,7 +8,7 @@ namespace PROJECTUML
     public interface GamePlayBuilder
     {
     
-        GamePlay start(Player p1, Player p2);
+        GamePlay start();
 
         void fillInSquare();
     }

@@ -1,11 +1,17 @@
-﻿La génération a démarré 04/12/2014 08:25:50.
-     1>Projet "C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\Wrapper\Wrapper.vcxproj" sur le nœud 2 (Build cible(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Wrapper.cpp
-         Wrapper.cpp
-     1>c:\users\romdhane\galaxy\smallworld2911v2\diagrammodeling2711-player\wrapper\Wrapper.h(9): error C2143: erreur de syntaxe : absence de ';' avant 'using'
-     1>Génération du projet "C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\Wrapper\Wrapper.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+﻿La génération a démarré 04/12/2014 08:53:41.
+     1>Projet "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\Wrapper\Wrapper.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>Le projet "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\Wrapper\Wrapper.vcxproj" (1) génère "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" (2:3) sur le nœud 2 (GetResolvedLinkLibs cible(s)).
+     2>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (codeC++Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     2>Génération du projet "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\ConsoleApplication1\ConsoleApplication1.vcxproj" terminée (GetResolvedLinkLibs cible(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\Debug\Wrapper.dll" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\Debug\Wrapper.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Debug\Wrapper.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+         "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\Debug\ConsoleApplication1.lib"
+     1>ConsoleApplication1.lib(AlgoMaps.obj) : warning LNK4075: ' /EDITANDCONTINUE' ignorÚ Ó cause de la spÚcification '/OPT:LBR'
+     1>ConsoleApplication1.lib(AlgoMaps.obj) : error LNK2019: symbole externe non rÚsolu "public: __thiscall AlgoMaps::AlgoMaps(void)" (??0AlgoMaps@@QAE@XZ) rÚfÚrencÚ dans la fonction "class AlgoMaps * __cdecl Algo_new(void)" (?Algo_new@@YAPAVAlgoMaps@@XZ)
+     1>C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\Debug\Wrapper.dll : fatal error LNK1120: 1 externes non rÚsolus
+     1>Génération du projet "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v2\DiagramModeling2711-player\Wrapper\Wrapper.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
 
 ÉCHEC de la build.
 
-Temps écoulé 00:00:01.05
+Temps écoulé 00:00:03.23

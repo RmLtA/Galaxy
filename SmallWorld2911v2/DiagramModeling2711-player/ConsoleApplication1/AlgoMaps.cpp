@@ -3,18 +3,12 @@
 #include <iostream>
 using namespace std;
 
-AlgoMaps::AlgoMaps(int N)
-{
-	int i;
-	Ncases = N;
-	tab = new int*[Ncases];                     // l'allocation de la matrice
-	for (i = 0; i<Ncases; i++){
-		tab[i] = new int[Ncases];
-	}
+
+AlgoMaps::AlgoMaps(){
+	tab = new int*[];
 }
 
-
-int** AlgoMaps::tabMap(){
+int** AlgoMaps::tabMap(int Ncases ){
 	int i;
 	int j;
 	for (i = 0; i<Ncases; i++){
@@ -30,7 +24,7 @@ int** AlgoMaps::tabMap(){
 	}									// remplissage  de la matrice avec des entiers : 0->foret ,1->plaine,2->deser
 	return tab;
 }
-void AlgoMaps:: AfficheMatrice(){     // fonction qui permet d'afficher une matrice entrée en parametre
+void AlgoMaps:: AfficheMatrice(int Ncases){     // fonction qui permet d'afficher une matrice entrée en parametre
 	int i, j;
 	for (i = 0; i<Ncases; i++){
 		for (j = 0; j<Ncases; j++){ cout << tab[i][j] << "   "; }
@@ -40,9 +34,10 @@ void AlgoMaps:: AfficheMatrice(){     // fonction qui permet d'afficher une matr
 AlgoMaps::~AlgoMaps()
 {
 }
+
 AlgoMaps* Algo_new(){ return new AlgoMaps(); }
 void Algo_deletee(AlgoMaps* algo){ delete algo; }
-int** Algo_tabMap(AlgoMaps* algo){ return algo->tabMap(); };
-void algo_affiche(AlgoMaps* algo){ algo->AfficheMatrice(); };
+int** Algo_tabMap(AlgoMaps* algo,int Ncases){ return algo->tabMap(Ncases); };
+void algo_affiche(AlgoMaps* algo,int Ncases){ algo->AfficheMatrice(Ncases); };
 
 

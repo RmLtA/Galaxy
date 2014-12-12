@@ -18,3 +18,11 @@ C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\
 C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb
 C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.dll
 C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap - Copie\DiagramModeling2711-player\PROJECTUML\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap\DiagramModeling2711-player\PROJECTUML\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap\DiagramModeling2711-player\PROJECTUML\bin\Debug\Projet1.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap\DiagramModeling2711-player\PROJECTUML\bin\Debug\Projet1.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMap\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb
