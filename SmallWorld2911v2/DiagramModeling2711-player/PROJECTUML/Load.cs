@@ -7,7 +7,10 @@ namespace PROJECTUML
 {
     public class LoadGamePlayImpl : GamePlayBuilderImpl, LoadGamePlay
     {
-        public GamePlay start(Player p1, Player p2)
+        public LoadGamePlayImpl(){
+
+        }
+        public GamePlay start()
         {
             throw new System.NotImplementedException();
         }

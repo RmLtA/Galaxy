@@ -11,7 +11,7 @@ namespace PROJECTUML
         private int _TurnNumber;
         private int _UnitNumber;
         private int _SquareNumber;
-        private Square[,] BoardGame;
+        private Square[,] _BoardGame;
         public int TurnNumber
         {
             get { return _TurnNumber; }
@@ -26,6 +26,12 @@ namespace PROJECTUML
         {
             get { return _SquareNumber; }
             set { _SquareNumber = value; }
+        }
+
+        public Square[,] BoardGame
+        {
+            get { return _BoardGame; }
+            set { _BoardGame = value; }
         }
         public MapImpl(int map)
         {
@@ -75,6 +81,9 @@ namespace PROJECTUML
 
         }
 
+        /**
+         * \brief    place the ilst of units on the board game 
+         */
         public void placeUnits(List<Unit> l1, List<Unit> l2)
         {
             //position : mettre les peuples bien loin les uns des autres
@@ -94,7 +103,10 @@ namespace PROJECTUML
         }
 
 
-        /*Non testé*/
+        /**
+         * \brief    return the number of Combats in function of the square attacked 
+         * \return   int number of combat 
+         */
         public int chooseNbCombat(int row, int column)
         {
             Square s = BoardGame[row, column];
@@ -106,8 +118,11 @@ namespace PROJECTUML
             return result;
             throw new System.NotImplementedException();
         }
-        
-        /*Non testé*/
+
+        /**
+         * \brief    return true if the square of the unit u is juxtaposed to the square[row,column]
+         * \return   bool juxtaposed 
+         */
         public bool juxtaposedSquare(Unit u, int row, int column)
         {
             // les cases sont juxtaposées si elles sont sur la même ligne mais à i et i+1eme colonne
@@ -122,13 +137,25 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        /*Non testé*/
+        /**
+         * \brief    return the unit which have the best DefensePoint in a square of the BoardGame[row,column]
+         * \return   Unit 
+         */
         public Unit unitBestDefense(int row, int column)
         {
             Square s = BoardGame[row, column];
             return s.returnUnitBestDefense();
 
             throw new System.NotImplementedException();
+        }
+
+        /**
+         * \brief    return the square[row,column]
+         * \return   Square
+         */
+        public Square returnSquare(int row, int column)
+        {
+            return BoardGame[row, column];
         }
 
         public void upDateMap(Unit u, int row, int column)
@@ -164,6 +191,8 @@ namespace PROJECTUML
 
         void upDateMap(Unit u, int row, int column);
         void placeUnits(List<Unit> l1, List<Unit> l2);
+
+        Square returnSquare(int row, int column);
 
     }
 }

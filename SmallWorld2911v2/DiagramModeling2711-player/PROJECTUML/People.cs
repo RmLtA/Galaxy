@@ -7,10 +7,15 @@ namespace PROJECTUML
 {
     public abstract class PeopleImpl : People
     {
-        protected List<Unit> _ListUnit
+        public List<Unit> ListUnit
         {
-            get;
-            set;
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
         }
 
 
@@ -24,6 +29,13 @@ namespace PROJECTUML
         {
             throw new NotImplementedException();
         }
+
+
+
+        public PeopleImpl()
+        {
+            // TODO: Complete member initialization
+        }
     }
 
     public interface People
@@ -32,7 +44,7 @@ namespace PROJECTUML
         PROJECTUML.Unit createUnit();
 
         void addUnit(int nbUnit);
-        List<Unit> _ListUnit { get; set; }
+        List<Unit> ListUnit { get; set; }
       
     }
 }

@@ -21,7 +21,10 @@ namespace PROJECTUML
             }
         }
 
-        /*Non testé*/
+        /**
+         * \brief    return the unit which have the best LifePoint in a square (which ave a list of units)
+         * \return   Unit 
+         */
         public Unit returnUnitBestLife()
         {
             int max=0;
@@ -39,6 +42,10 @@ namespace PROJECTUML
                 return ListUnitImpl[max];
         }
 
+        /**
+         * \brief    return the unit which have the best DefensePoint in a square (which ave a list of units)
+         * \return   Unit 
+         */
         public Unit returnUnitBestDefense()
         {
             int max = 0;

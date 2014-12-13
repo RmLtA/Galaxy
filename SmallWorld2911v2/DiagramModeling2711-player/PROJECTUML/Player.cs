@@ -14,23 +14,23 @@ namespace PROJECTUML
         public bool Turn
         {
             get { return _Turn; }
-            set { _Turn = false; }// mis par défaut pour compiler}
+            set { _Turn = value; }
         }
         public int Map
         {
             get { return _Map; }
-            set { _Map = 0; }// mis par défaut pour compiler}
+            set { _Map = value; }
 
         }
         public int People
         {
             get { return _People; }
-            set { _People = 0;  }//mis par défaut pour compiler
+            set { _People = value;  }
         }    
         public string Name
         {
             get { return _Name; }
-            set { _Name = "Ordi"; } //mis par défaut pour compiler }
+            set { _Name = value; } 
         }
 
         public People _PeopleImpl
@@ -86,6 +86,6 @@ namespace PROJECTUML
 
         void addUnitPlayer(int nbUnit);
 
-        object ListUnit { get; set; }
+     
     }
 }

@@ -14,41 +14,41 @@ namespace PROJECTUML
         private int _Column;
         private int _Row;
 
-        //on fixe les points de déplacement à combien?
+        
         public int MovePoint
         {
             get { return _MovePoint; }
-            set { _MovePoint = 0; }// mis par défaut pour compiler}
+            set { _MovePoint = value; }
         }
 
         public int LifePoint
         {
             get { return _LifePoint; }
-            set { _LifePoint = 0; }// mis par défaut pour compiler}
+            set { _LifePoint = value; }
         }
 
         public int DefensePoint
         {
             get { return _DefensePoint; }
-            set { _DefensePoint = 0; }// mis par défaut pour compiler}
+            set { _DefensePoint = value; }
         }
 
         public int AttackPoint
         {
             get { return _AttackPoint; }
-            set { _AttackPoint = 0; }// mis par défaut pour compiler}
+            set { _AttackPoint = value; }
         }
 
         public int Column
         {
             get { return _Column; }
-            set { _Column = 0; }// mis par défaut pour compiler}
+            set { _Column = value; }
         }
 
         public int Row
         {
             get { return _Row; }
-            set { _Row = 0; }// mis par défaut pour compiler}
+            set { _Row = value; }
         }
 
         public bool engageCombat(Unit u, Unit ue)
@@ -72,17 +72,15 @@ namespace PROJECTUML
         {
             throw new System.NotImplementedException();
         }
+
+
     }
 
     public interface Unit
-    {//vérifie si les cases sont juxtapossé et le nombre de point de déplacemnt !=0
-                                    // vérifie si la case c a bien une unité deffensive , si oui , elle appelle une fois engageCombat
-                                       //sinon elle récupére le nombre de combat et repéte enagercombat tant que une des unités n'a plus de vie 
+    {
+        void move(int row, int column);// renouvelle la liste des unit d'une case .
 
-                                    // puis voir le diagramme de sequence d'un tour
-        void move(int row, int column);// renouvellel la liste des unit"x d'une case .
-
-        Boolean engageCombat(Unit u, Unit ue);
+        bool engageCombat(Unit u_attack, Unit u_defense);
 
         int DefensePoint { get; set; }
         int LifePoint { get; set; }

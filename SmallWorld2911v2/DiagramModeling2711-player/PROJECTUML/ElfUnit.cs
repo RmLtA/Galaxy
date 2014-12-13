@@ -16,27 +16,46 @@ namespace PROJECTUML
             
         }
 
-        /*Non testé*/
+        /**
+         * \brief    calculates the percentage of chance that attacking unit wins against a defensive unit
+         * \return   bool win 
+         */
         public bool engageCombat(Unit u_attack, Unit u_defense)
         {
-            double purcent = 0;
+            double percent = 0;
+            int LifePointTotal = 5;
+            double percentLife_u_attack = 0;
+            double percentLife_u_defense = 0;
+            double attack = 0;
+            double defense = 0;
+
+            //re-calcul des points d'attaque
+            percentLife_u_attack = (100 * u_attack.LifePoint) / LifePointTotal;
+            attack = u_attack.AttackPoint * percentLife_u_attack;
+
+            percentLife_u_defense = (100 * u_defense.LifePoint) / LifePointTotal;
+            defense = u_defense.AttackPoint * percentLife_u_attack;
+
             //egalité en attaque et en défense
-            if (u_attack.AttackPoint == u_defense.AttackPoint)
+            if (attack == defense)
             {
-                //50% de chance de perdre une vie --> le calcul des points de vie entre en compte ???
-                purcent = 50 / 100;
+                //deux unités égales ont 50% de chance de gagner
+                percent = 50 / 100;
             }
             else
             {
-                purcent = (u_attack.AttackPoint / u_defense.DefensePoint) * 0.5;
-                purcent = 0.5 * purcent;
-            
+                percent = (attack / defense) * 0.5;
+                percent = 0.5 * percent;
+
             }
 
-            if (purcent > 0.5)
+            if (percent > 0.5)
             {
+                //l'attaquant a gagné
                 return true;
             }
+
+            //l'attaquant a perdu ou les deux adversaire sont à égalité, il n'y a pas de gagnant
             return false;
             throw new System.NotImplementedException();
         }

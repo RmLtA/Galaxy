@@ -56,8 +56,44 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        public void startCombat(Unit u, int row, int column)
+        /**
+         * \brief    return true if the attacking unit winned against unit(s) in the square[row,column]
+         * \return   bool winned 
+         */
+        public bool startCombat(Unit u, int row, int column)
         {
+            //vérification du nombre de point de déplacement
+            if (u.MovePoint < 1)
+            {
+                return false;
+            }
+            else
+            {
+                //vérification si les cases sont juxtaposées.
+                if (_Map.juxtaposedSquare(u, row, column))
+                {
+                    //choisir le nombre de combats
+                    if (_Map.returnSquare(row, column).ListUnitImpl.Count == 1)
+                    {
+                        return u.engageCombat(u, _Map.returnSquare(row, column).ListUnitImpl[0]);
+                    }
+                    else
+                    {
+                        int index = 0;
+                        int nbCombat = _Map.chooseNbCombat(row, column);
+                        bool result = false;
+                        while (nbCombat > 0)
+                        {
+                            u.engageCombat(u, _Map.returnSquare(row, column).ListUnitImpl[index]);
+                            index++;
+                            nbCombat--;
+                        }
+                        return result; 
+                    }
+                }
+            }
+            
+            
             throw new System.NotImplementedException();
         }
 
@@ -69,14 +105,15 @@ namespace PROJECTUML
 
     public interface GamePlay
     {
-    
-        /*void createGamePlay();*/
+        MapImpl _Map { get; set; }
+
+        List<Player> _ListPlayer { get; set; }
        
         void gotoNextPlayer();
 
         void stop();
 
-        void startCombat(Unit u, int row, int column);
+        bool startCombat(Unit u, int row, int column);
 
         void registerGamePlay();
 

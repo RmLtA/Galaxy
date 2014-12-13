@@ -12,8 +12,7 @@ namespace PROJECTUML
          */
          public OrcImpl()
         {
-            _ListUnit = new List<Unit>();
-            _ListUnit.Add(createUnit());
+            ListUnit = new List<Unit>();
         }
 
          /**
@@ -29,7 +28,7 @@ namespace PROJECTUML
         {
             for (int i = 0; i < nbUnit; i++)
             {
-                _ListUnit.Add(createUnit());
+                ListUnit.Add(createUnit());
             }
         }
     }

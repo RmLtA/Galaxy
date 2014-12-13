@@ -12,14 +12,13 @@ namespace PROJECTUML
          */
         public NainImpl()
         {
-            _ListUnit = new List<Unit>();
-            _ListUnit.Add(createUnit());
+            ListUnit = new List<Unit>();
         }
 
         /**
            * \brief   return a Nain people  
            */
-        public ElfUnit createUnit()
+        public NainUnit createUnit()
         {
             return new NainUnitImpl();
             throw new System.NotImplementedException();
@@ -29,14 +28,14 @@ namespace PROJECTUML
         {
             for (int i = 0; i < nbUnit; i++)
             {
-                _ListUnit.Add(createUnit());
+                ListUnit.Add(createUnit());
             }
         }
     }
 
     public interface Nain : People
     {
-        ElfUnit createUnit();
+        NainUnit createUnit();
         void addUnit(int nbUnit);
     }
 }
