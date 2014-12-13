@@ -1,8 +1,63 @@
 ﻿<Window x:Class="WpfApplication2.Window2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Window2" Height="300" Width="300">
+        Title="Hex Map" Height="350" Width="525"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--<Menu Name="gameMenu" Grid.ColumnSpan="3" Width="100" Height="22" 
+              HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <MenuItem Header="_Game">
+                <MenuItem Header="_New Map" Name="menu_new"
+                          Click="menu_new_Click"/>
+                <MenuItem Header="_Draw Hexes" Name="menu_load"
+                          Click="drawHexes_Click"/>
+                <Separator />
+                <MenuItem Header="_Exit" Name="menu_exit"
+                          Click="menu_exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Configure" >
+                <MenuItem Header="Set Hex Count" Click="setHexes_Click">
+                    
+                </MenuItem>
+            </MenuItem>
+        </Menu>-->
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Button Name="button1"  Height="35" Width="45" Click="menu_new_Click">
+                <TextBlock>New<LineBreak/>Map</TextBlock>
+            </Button>
+            <Button Height="39" Name="button3" Width="43" 
+                   >
+                <TextBlock>Set<LineBreak/>Hexes</TextBlock>
+            </Button>
+            <Button Name="drawHexes" Height="40" Click="drawHexes_Click" Width="45">
+                <TextBlock Height="34">Draw<LineBreak />Hexes</TextBlock>
+            </Button>
+            <Button Content="Exit" Height="26" Name="button2" Width="44" 
+                    Click="menu_exit_Click"/>
+        </StackPanel>
+        <ScrollViewer Name="mapScroller" Grid.Row="1" Grid.Column="1" 
+                      HorizontalScrollBarVisibility="Auto"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="top"
+                      Width="700" Height="500" >
+            <Canvas Name="mapCanvas" Width="1100" Height="1000" >
+            </Canvas>
+        </ScrollViewer>
+        <TextBlock Name="mapText" Grid.Column="1" 
+                   Width="274" Height="24" Margin="124,4,0,0" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Text="Map is mouse-draggable, hexes are clickable" 
+                   />
+        <Border BorderBrush="Black" BorderThickness="1" 
+                Grid.Column="1" Height="18" HorizontalAlignment="Left" 
+                Margin="124,4,0,0" Name="border1" VerticalAlignment="Top" Width="281" />
     </Grid>
 </Window>
