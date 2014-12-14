@@ -9,7 +9,6 @@ namespace PROJECTUML
     {
         public SmallImpl()
         {
-            throw new System.NotImplementedException();
         }
     
         public Map execute()

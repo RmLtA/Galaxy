@@ -56,15 +56,13 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
+        /**
+         * \brief    change the position of the unit
+         * \param   x row
+         * \param   y column
+         */
         public void move(int x, int y)
         {
-            //vérifier d'abord les points nécessaires pour un déplacement
-
-            //vérifier le type de la case --> changement du point de déplacement
-
-            // une case rapporte un point par défaut
-
-            //selon le type de l'unité le coût du déplacement change
             throw new System.NotImplementedException();
         }
 
@@ -78,7 +76,7 @@ namespace PROJECTUML
 
     public interface Unit
     {
-        void move(int row, int column);// renouvelle la liste des unit d'une case .
+        void move(int row, int column);
 
         bool engageCombat(Unit u_attack, Unit u_defense);
 

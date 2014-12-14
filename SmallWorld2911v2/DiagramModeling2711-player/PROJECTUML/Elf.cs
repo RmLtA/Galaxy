@@ -24,6 +24,10 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
+        /**
+         * \brief   add units to the people
+         * \param nbUNit umber of units
+         */
         public void addUnit(int nbUnit)
         {
             for (int i = 0; i < nbUnit; i++)

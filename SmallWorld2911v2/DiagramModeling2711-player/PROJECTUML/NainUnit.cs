@@ -59,9 +59,27 @@ namespace PROJECTUML
             return false;
             throw new System.NotImplementedException();
         }
+
+        /**
+         * \brief    change the position of the unit
+         * \param   x row
+         * \param   y column
+         */
+        public void move(int x, int y)
+        {
+
+            if (MovePoint >= 1)
+            {
+                Row = x;
+                Column = y;
+            }
+            throw new System.NotImplementedException();
+        }
+
     }
     public interface NainUnit : Unit
     {
         bool engageCombat(Unit u_attack, Unit u_defense);
+        void move(int x, int y);
     }
 }

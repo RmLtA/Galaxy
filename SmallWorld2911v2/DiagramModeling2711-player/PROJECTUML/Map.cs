@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using WrapperSmallWorld;
 
 namespace PROJECTUML
 {
@@ -33,63 +34,6 @@ namespace PROJECTUML
             get { return _BoardGame; }
             set { _BoardGame = value; }
         }
-        public MapImpl(int map)
-        {
-            /* version Demo*/
-            if (map == 0)
-            {
-                TurnNumber = 5;
-                UnitNumber = 4;
-                SquareNumber = 5;
-
-                //cette matrice est à créé dans la librairie C++
-                BoardGame=new SquareImpl[SquareNumber,SquareNumber];
-
-                SquareFactory factory = new SquareFactoryImpl();
-                factory.createDesert();
-                for (int i = 0; i < SquareNumber; i++)
-                {
-                    for (int j = 0; j < SquareNumber; j++)
-                    {
-                        //générer aussi les autres types de cases --> même nombre 
-                        BoardGame[i, j] = factory.createDesert();
-                    
-                    }
-                }
-
-            }
-
-            /* version Petite*/
-            if (map == 1)
-            {
-                TurnNumber = 20;
-                UnitNumber = 6;
-                SquareNumber = 10;
-
-                //création de la liste des cases
-            }
-
-            /* version Normal*/
-            if (map == 2)
-            {
-                TurnNumber = 30;
-                UnitNumber = 8;
-                SquareNumber = 15;
-
-                //création de la liste des cases
-            }
-
-        }
-
-        /**
-         * \brief    place the ilst of units on the board game 
-         */
-        public void placeUnits(List<Unit> l1, List<Unit> l2)
-        {
-            //position : mettre les peuples bien loin les uns des autres
-            BoardGame[0,0].addInSquare(l1);
-            BoardGame[5,5].addInSquare(l2);
-        }
 
         public SquareFactoryImpl SquareFactory
         {
@@ -100,6 +44,86 @@ namespace PROJECTUML
             set
             {
             }
+        }
+
+        public unsafe MapImpl()
+        {
+
+        }
+
+        /**
+         * \brief    Constructor of the Map
+         * \param   map : Demo : 0; Petite : 1; Normal : 2
+         */
+        public unsafe MapImpl(int map)
+        {
+            WrapperAlgo wrapper = new WrapperAlgo();
+            
+            switch (map)
+            {
+                /* version Demo*/
+                case 0:
+                    TurnNumber = 5;
+                    UnitNumber = 4;
+                    SquareNumber = 5;
+                    break;
+
+
+                /* version Petite*/
+                case 1:
+                    TurnNumber = 20;
+                    UnitNumber = 6;
+                    SquareNumber = 10;
+                    break;
+
+                /* version Normal*/
+                case 2:
+                    TurnNumber = 30;
+                    UnitNumber = 8;
+                    SquareNumber = 15;
+                    break;
+            }
+
+
+            BoardGame = new SquareImpl[SquareNumber, SquareNumber];
+            int** tab = wrapper.fillMap(SquareNumber);
+
+            SquareFactory factory = new SquareFactoryImpl();
+            factory.createDesert();
+            for (int i = 0; i < SquareNumber; i++)
+            {
+                for (int j = 0; j < SquareNumber; j++)
+                {
+                    int square = tab[i][j];
+                    switch (square)
+                    {
+                        case 0:
+                            BoardGame[i, j] = factory.createDesert();
+                            break;
+
+                        case 1:
+                            BoardGame[i, j] = factory.createPlain();
+                            break;
+
+                        case 2:
+                            BoardGame[i, j] = factory.createForest();
+                            break;
+
+                    }
+                }
+            }
+
+        }
+
+        /**
+         * \brief    place the list of units on the board game 
+         * \param   l1 the people's units of the player 1
+         * \param   l2 the people's units of the player 2
+         */
+        public void placeUnits(List<Unit> l1, List<Unit> l2)
+        {
+            BoardGame[0,0].addInSquare(l1);
+            BoardGame[SquareNumber, SquareNumber].addInSquare(l2);
         }
 
 
@@ -158,9 +182,15 @@ namespace PROJECTUML
             return BoardGame[row, column];
         }
 
+        /**
+        * \brief    Move the units
+        * \param    u the unit to move
+         * \param   row
+         * \param   column
+        */
         public void upDateMap(Unit u, int row, int column)
         {
-            // appel de la fonction move(x,y) de Unit
+            u.move(row, column);
             throw new System.NotImplementedException();
         }
     }

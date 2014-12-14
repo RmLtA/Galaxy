@@ -18,9 +18,13 @@ namespace PROJECTUML
             {
             }
         }
+
+        /**
+         * \brief    add the units in the list of unit of a square
+         */
         public void addInSquare(List<Unit> l)
         {
-            for (int i = 0; i < l.Count; i++) // Loop through List with for
+            for (int i = 0; i < l.Count; i++) 
             {
                 ListUnitImpl.Add(l[i]);
             }

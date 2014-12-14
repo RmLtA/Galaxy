@@ -9,7 +9,6 @@ namespace PROJECTUML
     {
         public NormalImpl()
         {
-            throw new System.NotImplementedException();
         }
     
         public Map execute()

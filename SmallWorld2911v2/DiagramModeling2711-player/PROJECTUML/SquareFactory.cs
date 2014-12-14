@@ -11,10 +11,11 @@ namespace PROJECTUML
         {
             get
             {
-                throw new System.NotImplementedException();
+                return Forest;
             }
             set
             {
+                Forest = value;
             }
         }
 
@@ -22,10 +23,11 @@ namespace PROJECTUML
         {
             get
             {
-                throw new System.NotImplementedException();
+                return Desert;
             }
             set
             {
+                Desert = value;
             }
         }
 
@@ -33,10 +35,11 @@ namespace PROJECTUML
         {
             get
             {
-                throw new System.NotImplementedException();
+                return Plain;
             }
             set
             {
+                Plain = value;
             }
         }
 

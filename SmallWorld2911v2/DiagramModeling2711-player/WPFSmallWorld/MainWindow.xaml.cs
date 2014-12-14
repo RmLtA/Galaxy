@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PROJECTUML;
 
 namespace WPFSmallWorld
 {
@@ -20,9 +21,36 @@ namespace WPFSmallWorld
     /// </summary>
     public partial class MainWindow : Window
     {
+        private aHexMap myMap;
+
         public MainWindow()
         {
             InitializeComponent();
+            setupMap();
+
+        }
+
+        private void Loaded_Window(object sender, RoutedEventArgs e)
+        {
+            int size = 6;
+            if (myMap != null)
+                myMap.configureMap(size, size);
+            myMap.drawHexes();
+        }
+
+        private void menu_exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void setupMap()
+        {
+            myMap = new aHexMap(mapText, mapScroller);
+            mapCanvas.Children.Add(myMap);
         }
     }
+
+
+
+   
 }

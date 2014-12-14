@@ -18,3 +18,5 @@ E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUM
 E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb
 E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.dll
 E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.pdb
+E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\WrapperSmallWorld.dll
+E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\WrapperSmallWorld.pdb

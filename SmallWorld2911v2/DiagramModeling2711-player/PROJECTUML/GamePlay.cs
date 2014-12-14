@@ -46,8 +46,21 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
+        /**
+         * \brief    decides the next turn   
+         */
         public void gotoNextPlayer()
         {
+            if (_ListPlayer[0].Turn == false)
+            {
+                _ListPlayer[0].Turn = true;
+                _ListPlayer[1].Turn = false;
+            }
+            else
+            {
+                _ListPlayer[1].Turn = true;
+                _ListPlayer[0].Turn = false;
+            }
             throw new System.NotImplementedException();
         }
 
@@ -97,8 +110,62 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        public void moveUnitOrder(Unit u, int column, int row)
+
+        /**
+         * \brief    change the position of the unit and calculate the bonus and the malus
+         * \param   u unit
+         * \param   row
+         * \param column
+         */
+        public void moveUnitOrder(Unit u, int row, int column)
         {
+            Square s;
+            if (u.MovePoint >= 1)
+            {
+                s = _Map.returnSquare(row, column);
+                if (u is ElfUnit)
+                {
+                    if (s is Forest)
+                    {
+                        u.MovePoint = u.MovePoint / 2;
+                    }
+                    if (s is Desert)
+                    {
+                        u.MovePoint = u.MovePoint * 2;
+                    }
+                    if (s is Plain)
+                    {
+                        u.MovePoint = u.MovePoint - 1 ;
+                    }
+                }
+
+                if (u is OrcUnit)
+                {
+                    if (s is Desert)
+                    {
+                        u.MovePoint = u.MovePoint - 1;
+                    }
+                    if (s is Plain)
+                    {
+                        u.MovePoint = u.MovePoint / 2;
+                    }
+                }
+
+                if (u is NainUnit)
+                {
+                    if (s is Desert)
+                    {
+                        u.MovePoint = u.MovePoint - 1;
+                    }
+                    if (s is Plain)
+                    {
+                        u.MovePoint = u.MovePoint / 2;
+                    }
+                }
+
+                u.move(row, column);
+            }
+
             throw new System.NotImplementedException();
         }
     }
@@ -117,7 +184,7 @@ namespace PROJECTUML
 
         void registerGamePlay();
 
-        void moveUnitOrder(Unit u, int column, int row);
+        void moveUnitOrder(Unit u, int row, int column);
 
       
     }

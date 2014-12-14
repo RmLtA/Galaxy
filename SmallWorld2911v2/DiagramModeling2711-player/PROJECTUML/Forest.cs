@@ -12,7 +12,9 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        /*Non testé*/
+        /**
+         * \brief    add the units in the list of unit of a square
+         */
         public void addInSquare(List<Unit> l)
         {
             for (int i = 0; i < l.Count; i++)

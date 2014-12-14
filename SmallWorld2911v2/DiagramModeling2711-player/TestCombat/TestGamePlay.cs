@@ -28,9 +28,9 @@ namespace TestCombat
             //récupération des peuples
             //récupération de la liste d'unités pour pouvoir être manipulée pour les tests pour le combat
             List<Unit> l_unit1 = new List<Unit>();
-            l_unit1 = l[0]._PeopleImpl.ListUnit;
+            l_unit1 = l[0].PeopleImpl.ListUnit;
             List<Unit> l_unit2 = new List<Unit>();
-            l_unit2 = l[1]._PeopleImpl.ListUnit;
+            l_unit2 = l[1].PeopleImpl.ListUnit;
             
             //Test de placeUnits
             newgame._Map.placeUnits(l_unit1, l_unit2);

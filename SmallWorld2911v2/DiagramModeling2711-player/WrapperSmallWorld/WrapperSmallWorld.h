@@ -14,10 +14,10 @@ namespace WrapperSmallWorld{
 		AlgoMap* algo;
 
 	public:
-		WrapperAlgo(){ algo = Algo_new(); /*attention c'est le constructeur par défaut qui a été appelé */}
+		WrapperAlgo(){ algo = Algo_new();}
 		~WrapperAlgo(){ Algo_delete(algo); }
-		int** fillMap(){ return algo->fillMap(); }
-		void display(){ algo->displayMatrix(); }
+		int** fillMap(int nb){ return algo->fillMap(nb); }
+		void display(int nb){ algo->displayMatrix(nb); }
 	};
 }
 

@@ -21,14 +21,17 @@ namespace PROJECTUML
             
             //demande des informations aux joueurs via l'interface graphique
             List<Player> l = new List<Player>();
+            
             Player p1 = createPlayer("nour", 0, 0);
             Player p2 = createPlayer("marc", 0, 1);
-          
+
 
 
             //à récupérer parmi les infos demander
-             //ajout vérifiaction de choix entr les 2 map différents
-             Map m = createMap(l[0].Map);
+            //ajout vérifiaction de choix entr les 2 map différents
+            Map m = createMap(0);
+
+            
 
             //remplissage des unités dans la liste d'un peuple
              p1.addUnitPlayer(m.UnitNumber);
@@ -36,8 +39,10 @@ namespace PROJECTUML
              l.Add(p1);
              l.Add(p2);
 
+             
+
             //placement des unites sur la Map
-             m.placeUnits(p1._PeopleImpl.ListUnit, p2._PeopleImpl.ListUnit);
+             m.placeUnits(p1.PeopleImpl.ListUnit, p2.PeopleImpl.ListUnit);
 
             //placer sur la map les unites de joueurs 
             GamePlay p = new GamePlayImpl(m, l);
@@ -75,6 +80,13 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
+
+        /**
+         * \brief    Create a Player 
+         * \param   name
+         * \param   map
+         * \param   people
+         */
         public Player createPlayer(string name, int map, int people) 
         {
 
@@ -82,7 +94,7 @@ namespace PROJECTUML
 
         }
 
-        
+        /* ça sert pour Load Game */ 
         public void fillInSquare()
         {
             throw new System.NotImplementedException();

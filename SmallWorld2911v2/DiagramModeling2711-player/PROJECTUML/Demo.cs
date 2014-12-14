@@ -10,7 +10,6 @@ namespace PROJECTUML
         public DemoImpl()
         {
            
-            throw new System.NotImplementedException();
         }
     
         public Map execute()

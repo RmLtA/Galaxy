@@ -10,6 +10,6 @@ Class WrapperSmallWorld.WrapperAlgo: AutoLayout, AnsiClass, Class, Public, Befor
   Interfaces:
     System.IDisposable
   Methods:
-    fillMap(): PrivateScope, Public, HideBySig
-    display(): PrivateScope, Public, HideBySig
+    fillMap(Int32): PrivateScope, Public, HideBySig
+    display(Int32): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

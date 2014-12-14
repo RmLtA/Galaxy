@@ -33,7 +33,7 @@ namespace PROJECTUML
             set { _Name = value; } 
         }
 
-        public People _PeopleImpl
+        public People PeopleImpl
         {
             get
             {
@@ -42,6 +42,13 @@ namespace PROJECTUML
             set
             {
             }
+        }
+
+        /**
+         * \brief      Default constructor  
+         */ 
+        public PlayerImpl()
+        {
         }
 
         /**
@@ -60,17 +67,19 @@ namespace PROJECTUML
             _People = people;
 
             PeopleFactory fact = new PeopleFactoryImpl();
-            _PeopleImpl = fact.createPeople(people);
+            PeopleImpl = fact.createPeople(people);
             
         }
 
+        /**
+         * \brief      Add the correct number of the units tothe people of the player  
+         * \param    nbUnit   number of the units
+         */
         public void addUnitPlayer(int nbUnit)
         {
-            _PeopleImpl.addUnit(nbUnit);
+            PeopleImpl.addUnit(nbUnit);
         }
-        public PlayerImpl()
-        {
-        }
+
 
     }
 
@@ -81,9 +90,8 @@ namespace PROJECTUML
         int Map { get; set; }
         bool Turn { get; set; }
 
-        People _PeopleImpl { get; set; }
+        People PeopleImpl { get; set; }
         string Name { get; set; }
-
         void addUnitPlayer(int nbUnit);
 
      
