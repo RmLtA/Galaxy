@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9C6B13B-ACBB-4B6D-AE78-E69AB14E27AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PROJECTUML</RootNamespace>
+    <AssemblyName>PROJECTUML</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Map\Demo.cs" />
+    <Compile Include="Map\Desert.cs" />
+    <Compile Include="People\Elf.cs" />
+    <Compile Include="People\ElfUnit.cs" />
+    <Compile Include="Map\Forest.cs" />
+    <Compile Include="game\GamePlayBuilder.cs" />
+    <Compile Include="game\GamePlay.cs" />
+    <Compile Include="game\GamePlayMonito.cs" />
+    <Compile Include="game\Load.cs" />
+    <Compile Include="game\LoadGamePlay.cs" />
+    <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\MapStrategy.cs" />
+    <Compile Include="Map\MapStrategyImpl.cs" />
+    <Compile Include="People\Nain.cs" />
+    <Compile Include="People\Nains.cs" />
+    <Compile Include="Player\NainsUnit.cs" />
+    <Compile Include="Player\NainUnit.cs" />
+    <Compile Include="game\New.cs" />
+    <Compile Include="game\NewGamePlay.cs" />
+    <Compile Include="Map\Normal.cs" />
+    <Compile Include="People\Orc.cs" />
+    <Compile Include="Player\OrcUnit.cs" />
+    <Compile Include="People\People.cs" />
+    <Compile Include="People\PeopleFactory.cs" />
+    <Compile Include="Map\Plain.cs" />
+    <Compile Include="Player\Player.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Map\Small.cs" />
+    <Compile Include="Map\Square.cs" />
+    <Compile Include="Map\SquareFactory.cs" />
+    <Compile Include="Player\Unit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projet1\Projet1.vcxproj">
+      <Project>{0bf9d463-a221-4912-8cb8-eb333c6f2eea}</Project>
+      <Name>Projet1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
