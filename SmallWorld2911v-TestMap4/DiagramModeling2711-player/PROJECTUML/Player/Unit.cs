@@ -11,8 +11,14 @@ namespace PROJECTUML
         private int LifePoint;
         private int DefensePoint;
         private int AttackPoint;
-        private int Column;
-        private int Row;
+        private int _Column;
+        private int _Row;
+        public int Column
+        {
+            get{return _Column ;}
+            set { _Column = value; }
+        }
+        public int Row { get { return _Row; } set { _Row = value; } }
 
         public bool engageCombat(Unit u, Unit ue)
         {
@@ -37,7 +43,8 @@ namespace PROJECTUML
 
                                     // puis voir le diagramme de sequence d'un tour
         void move(int row, int column);// renouvellel la liste des unit"x d'une case .
-
+        int Row { get; set; }
+        int Column { get; set; }
         Boolean engageCombat(Unit u, Unit ue);
     }
 }

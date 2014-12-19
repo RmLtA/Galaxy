@@ -70,13 +70,13 @@ namespace WpfApplication3
         public void addUnitHex(int Nbre){
 
             EllipseGeometry myEllipseGeometry = new EllipseGeometry();
-            //for (int i = 0; i < Nbre; i++)
-            //{
-                myEllipseGeometry.Center = new Point(myLeft,myHeight);
+            for (int i = 0; i < Nbre; i++)
+            {
+                myEllipseGeometry.Center = new Point(myLeft+i*5,myHeight+i*5);
                 myEllipseGeometry.RadiusX = 5;
                 myEllipseGeometry.RadiusY = 5;
                 pg.AddGeometry(myEllipseGeometry);
-            //}
+            }
     
         }
         

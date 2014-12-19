@@ -40,3 +40,10 @@ C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v-TestMap4\DiagramMo
 C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\obj\Debug\Game.csprojResolveAssemblyReference.cache
 C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.dll
 C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\bin\Debug\librabyWrapper.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\bin\Debug\librabyWrapper.pdb
+C:\Users\Romdhane\Desktop\Nouveau dossier\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Desktop\Nouveau dossier\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Desktop\Nouveau dossier\SmallWorld2911v-TestMap4\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb

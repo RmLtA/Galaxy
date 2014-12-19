@@ -23,8 +23,8 @@ namespace WpfApplication3
 
         int hexCols = 20;
         int hexRows = 20;
-        const int HEX_WIDTH = 50;
-        const int HEX_HEIGHT = 50;
+        const int HEX_WIDTH = 100;
+        const int HEX_HEIGHT = 100;
         const int HEX_GAP = 5;
 
         public aHexMap(TextBlock tb, ScrollViewer scroller)

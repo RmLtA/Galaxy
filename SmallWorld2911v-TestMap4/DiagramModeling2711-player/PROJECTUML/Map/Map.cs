@@ -107,8 +107,18 @@ namespace PROJECTUML
         {
             MatSquare[0,0].addInSquare(l1);
             MatSquare[4,4].addInSquare(l2);
-        }
 
+            for (int i=0;i<l1.Count;i++){
+            l1[i].Column=0;
+            l1[i].Row=0;
+            }
+
+            for (int i=0;i<l2.Count;i++){
+            l2[i].Column=4;
+            l2[i].Row=4;
+            }
+        }
+        
       
         public int chooseNbCombat(int row, int column)
         {

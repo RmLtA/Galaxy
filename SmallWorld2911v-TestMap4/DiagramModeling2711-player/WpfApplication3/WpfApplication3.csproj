@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Hex.cs" />
     <Compile Include="Select_players.xaml.cs">
       <DependentUpon>Select_players.xaml</DependentUpon>
     </Compile>
