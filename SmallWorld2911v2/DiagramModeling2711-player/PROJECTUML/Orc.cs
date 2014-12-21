@@ -21,7 +21,7 @@ namespace PROJECTUML
         public OrcUnit createUnit()
         {
             return new OrcUnitImpl();
-            throw new System.NotImplementedException();
+
         }
 
         /**

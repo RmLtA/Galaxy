@@ -21,7 +21,7 @@ namespace PROJECTUML
         public ElfUnit createUnit()
         {
             return new ElfUnitImpl();
-            throw new System.NotImplementedException();
+
         }
 
         /**

@@ -40,5 +40,5 @@ E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestComba
 E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\PROJECTUML.dll
 E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\PROJECTUML.pdb
 E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\obj\Debug\TestCombat.pdb
-E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\WrapperSmallWorld.dll
-E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\WrapperSmallWorld.pdb
+E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\WrapperCpp.dll
+E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\TestCombat\bin\Debug\WrapperCpp.pdb

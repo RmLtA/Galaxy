@@ -8,41 +8,41 @@ namespace PROJECTUML
     public class PlayerImpl : Player
     {
         private bool _Turn;
-        private int _Map;
         private string _Name;
-        private int _People;
+        private int _NbUnit;
+        private People _PeoplePlayer;
+
+        public People PeoplePlayer
+        {
+            get
+            {
+                return _PeoplePlayer;
+            }
+            set
+            {
+                _PeoplePlayer = value;
+            }
+        }
+
+        public int NbUnit
+        {
+            get { return _NbUnit; }
+            set { _NbUnit = value; }
+        }
         public bool Turn
         {
             get { return _Turn; }
             set { _Turn = value; }
         }
-        public int Map
-        {
-            get { return _Map; }
-            set { _Map = value; }
 
-        }
-        public int People
-        {
-            get { return _People; }
-            set { _People = value;  }
-        }    
+ 
         public string Name
         {
             get { return _Name; }
             set { _Name = value; } 
         }
 
-        public People PeopleImpl
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+
 
         /**
          * \brief      Default constructor  
@@ -56,19 +56,17 @@ namespace PROJECTUML
          * \param    name   name of the player
          * \param    map    choice of the map
          * \param   people  choice of the people
-         */        
-        public PlayerImpl(string name, int map, int people)
+         */
+        public PlayerImpl(string name, PeopleType people)
         {
-            
 
-            Name= name;
-            _Turn = false;
-            _Map = map;
-            _People = people;
+
+            Name = name;
+            Turn = false;
 
             PeopleFactory fact = new PeopleFactoryImpl();
-            PeopleImpl = fact.createPeople(people);
-            
+            PeoplePlayer = fact.createPeople(people);
+
         }
 
         /**
@@ -77,7 +75,7 @@ namespace PROJECTUML
          */
         public void addUnitPlayer(int nbUnit)
         {
-            PeopleImpl.addUnit(nbUnit);
+            PeoplePlayer.addUnit(nbUnit);
         }
 
 
@@ -86,11 +84,18 @@ namespace PROJECTUML
      
     public interface Player
     {
-        int People { get; set; }
-        int Map { get; set; }
+        int NbUnit
+        {
+            get;
+            set;
+        }
+        People PeoplePlayer
+        {
+            get;
+            set;
+        }
         bool Turn { get; set; }
 
-        People PeopleImpl { get; set; }
         string Name { get; set; }
         void addUnitPlayer(int nbUnit);
 

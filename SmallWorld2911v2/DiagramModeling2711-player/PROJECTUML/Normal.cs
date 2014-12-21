@@ -13,7 +13,7 @@ namespace PROJECTUML
     
         public Map execute()
         {
-            return new MapImpl(2);
+            return new MapImpl(MapType.NORMAL);
             throw new System.NotImplementedException();
         }
     }

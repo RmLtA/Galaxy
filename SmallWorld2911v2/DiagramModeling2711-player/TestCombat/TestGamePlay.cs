@@ -15,8 +15,12 @@ namespace TestCombat
 
             
             GamePlayBuilder builder_new = new NewGamePlayImpl();
-            GamePlay newgame = builder_new.start();
+            GamePlay newgame = builder_new.start( MapType.DEMO,"nour", PeopleType.ELF, "marc",PeopleType.ORC);
+            //Assert.AreEqual(newgame.Map.UnitNumber, 4); 
 
+            
+
+            /******************************************************************************
             //récupération de la liste des joueurs
             List<Player> l = new List<Player>();
             l = newgame._ListPlayer;
@@ -35,7 +39,7 @@ namespace TestCombat
             //Test de placeUnits
             newgame._Map.placeUnits(l_unit1, l_unit2);
 
-            /*
+            
             //changement des points de vie des unités
             int nbUnit = newgame._Map.UnitNumber;
             for (int i = 0; i < nbUnit; i++)
@@ -46,7 +50,7 @@ namespace TestCombat
             {
                 l_unit2[i].LifePoint = l_unit1[i].LifePoint + 1;
             }
-            */
+            
 
             //Test juxtaposedSquare
             newgame._Map.juxtaposedSquare(l_unit1[1], 0, 0);
@@ -67,7 +71,7 @@ namespace TestCombat
             //Test startCombat
            newgame.startCombat(newgame._Map.returnSquare(0, 0).ListUnitImpl[0], 0, 0);
 
-
+            **********************************************************************************************************/
 
 
 

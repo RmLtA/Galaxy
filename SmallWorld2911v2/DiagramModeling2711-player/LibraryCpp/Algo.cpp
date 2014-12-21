@@ -1,66 +1,37 @@
-
+#include "stdafx.h"
 #include "Algo.h"
 #include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <algorithm>
+#include <time.h> 
 using namespace std;
 
-/**
-* \brief    Constructor of the board of the game which is a matrix[nbsquare,nbsquare]
-* \return   bool winned
-*/
-AlgoMap::AlgoMap()
-{
-	tab = new int*[];
+
+Algo::Algo(){
+
 }
 
-
-/**
-* \brief    Fill the Map with an integer which indicates the nature of the square (0 : forest, 1 : Plain, 2 : Desert)
-* \return   int[row][column] the board game filled
-*/
-int** AlgoMap::fillMap(int nb){
+int* Algo::fillMap(int Ncases){
 	int i;
-	int j;
-	for (i = 0; i<nb; i++){
-		for (j = 0; j<nb; j++){
-			if (i % 2 == 0){ tab[i][j] = 0; }
-			else {
-				if (i % 3 == 0)
-					tab[i][j] = 1;
-				else
-					tab[i][j] = 2;
-			}
-		}
-	}									
+	int * tab = new int[Ncases*Ncases];                     // l'allocation de la matrice
+
+	srand((unsigned int)time(NULL));
+	int type;
+	for (i = 0; i < Ncases*Ncases; i++){
+		type = rand() % 2;
+		tab[i] = type;
+	}								// remplissage  de la matrice avec des entiers : 0->foret ,1->plaine,2->deser
 	return tab;
 }
 
-void AlgoMap::displayMatrix(int nbsquare){     
-	int i, j;
-	for (i = 0; i<nbsquare; i++){
-		for (j = 0; j<nbsquare; j++){ cout << tab[i][j] << "   "; }
-		cout << endl;
-	}
-}
 
-AlgoMap::~AlgoMap()
+Algo::~Algo()
 {
 }
 
-
-AlgoMap* Algo_new(){ 
-	return new AlgoMap(); 
-}
-
-
-void Algo_delete(AlgoMap* algo){ 
-	delete algo; 
-}
+Algo* Algo_new(){ return new Algo(); }
+void Algo_delete(Algo* algo){ delete algo; }
+int* Algo_fillMap(Algo* algo, int Ncases){ return algo->fillMap(Ncases); };
 
 
-int** Algo_fillMap(AlgoMap* algo, int nbsquare){ 
-	return algo->fillMap(nbsquare); 
-}
-
-void Algo_display(AlgoMap* algo, int nbsquare){ 
-	algo->displayMatrix(nbsquare); 
-}

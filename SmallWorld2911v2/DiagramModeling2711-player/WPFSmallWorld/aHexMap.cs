@@ -23,8 +23,8 @@ namespace WPFSmallWorld
 
         int hexCols = 3;
         int hexRows = 3;
-        const int HEX_WIDTH = 200;
-        const int HEX_HEIGHT = 200;
+        const int HEX_WIDTH = 20;
+        const int HEX_HEIGHT = 20;
         const int HEX_GAP = 5;
 
         public aHexMap(TextBlock tb, ScrollViewer scroller)
@@ -32,7 +32,7 @@ namespace WPFSmallWorld
             aText = tb;
             myScroller = scroller;
             _children = new VisualCollection(this);
-            aBackground = TryFindResource("Resources/grass") as BitmapImage;
+            aBackground = TryFindResource("civ4") as BitmapImage;
             drawBackground();
 
             this.PreviewMouseUp += mouseClicked;
@@ -72,6 +72,8 @@ namespace WPFSmallWorld
                     string hexName = string.Format("hex [{0},{1}]", col, row);
                     int x_off, y_off;
                     computeHexOffsets(col, row, out x_off, out y_off);
+                    ImageBrush myBrush = new ImageBrush();
+                   
                     aHex tmpHex = new aHex(x_off, y_off,
                         HEX_WIDTH, HEX_HEIGHT, Brushes.White, hexName);
                     _children.Add(tmpHex);

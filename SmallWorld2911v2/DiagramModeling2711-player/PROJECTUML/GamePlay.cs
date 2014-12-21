@@ -7,25 +7,43 @@ namespace PROJECTUML
 {
     public class GamePlayImpl : GamePlay
     {
-        public MapImpl _Map
+        private MapImpl _Map;
+        private List<Player> _ListPlayer;
+        private MapType _TypeMap;
+
+        public MapImpl Map
         {
             get
             {
-                throw new System.NotImplementedException();
+                return _Map;
             }
             set
             {
+                _Map = value;
             }
         }
 
-        public List<Player> _ListPlayer
+        public List<Player> ListPlayer
         {
             get
             {
-                throw new System.NotImplementedException();
+                return _ListPlayer;
             }
             set
             {
+                _ListPlayer = value;
+            }
+        }
+
+        public MapType TypeMap
+        {
+            get
+            {
+                return _TypeMap;
+            }
+            set
+            {
+                _TypeMap = value;
             }
         }
 
@@ -34,10 +52,11 @@ namespace PROJECTUML
          * \param    m  Map of the game
          * \param    l List of Player
          */
-        public GamePlayImpl(Map m, List<Player> l)
+        public GamePlayImpl(Map m, List<Player> l, MapType typeMap)
         {
-            _Map =(MapImpl) m;
-            _ListPlayer = l;
+            Map =(MapImpl) m;
+            ListPlayer = l;
+            _TypeMap = typeMap;
 
         }
 
@@ -51,15 +70,15 @@ namespace PROJECTUML
          */
         public void gotoNextPlayer()
         {
-            if (_ListPlayer[0].Turn == false)
+            if (ListPlayer[0].Turn == false)
             {
-                _ListPlayer[0].Turn = true;
-                _ListPlayer[1].Turn = false;
+                ListPlayer[0].Turn = true;
+                ListPlayer[1].Turn = false;
             }
             else
             {
-                _ListPlayer[1].Turn = true;
-                _ListPlayer[0].Turn = false;
+                ListPlayer[1].Turn = true;
+                ListPlayer[0].Turn = false;
             }
             throw new System.NotImplementedException();
         }
@@ -83,21 +102,21 @@ namespace PROJECTUML
             else
             {
                 //vérification si les cases sont juxtaposées.
-                if (_Map.juxtaposedSquare(u, row, column))
+                if (Map.juxtaposedSquare(u, row, column))
                 {
                     //choisir le nombre de combats
-                    if (_Map.returnSquare(row, column).ListUnitImpl.Count == 1)
+                    if (Map.returnSquare(row, column).ListUnitImpl.Count == 1)
                     {
-                        return u.engageCombat(u, _Map.returnSquare(row, column).ListUnitImpl[0]);
+                        return u.engageCombat(u, Map.returnSquare(row, column).ListUnitImpl[0]);
                     }
                     else
                     {
                         int index = 0;
-                        int nbCombat = _Map.chooseNbCombat(row, column);
+                        int nbCombat = Map.chooseNbCombat(row, column);
                         bool result = false;
                         while (nbCombat > 0)
                         {
-                            u.engageCombat(u, _Map.returnSquare(row, column).ListUnitImpl[index]);
+                            u.engageCombat(u, Map.returnSquare(row, column).ListUnitImpl[index]);
                             index++;
                             nbCombat--;
                         }
@@ -122,7 +141,7 @@ namespace PROJECTUML
             Square s;
             if (u.MovePoint >= 1)
             {
-                s = _Map.returnSquare(row, column);
+                s = Map.returnSquare(row, column);
                 if (u is ElfUnit)
                 {
                     if (s is Forest)
@@ -172,9 +191,10 @@ namespace PROJECTUML
 
     public interface GamePlay
     {
-        MapImpl _Map { get; set; }
+        MapImpl Map { get; set; }
 
-        List<Player> _ListPlayer { get; set; }
+        List<Player> ListPlayer { get; set; }
+        MapType TypeMap { get; set; }
        
         void gotoNextPlayer();
 

@@ -7,7 +7,7 @@ namespace PROJECTUML
 {
     public interface LoadGamePlay : GamePlayBuilder
     {
-        GamePlay start();
+        GamePlay start(MapType map, string player1, PeopleType people1, string player2, PeopleType people2);
 
         void fillInSquare();
     }

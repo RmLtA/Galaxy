@@ -75,9 +75,9 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WrapperSmallWorld\WrapperSmallWorld.vcxproj">
-      <Project>{7a7166e6-7a59-4014-b207-0043a3a660aa}</Project>
-      <Name>WrapperSmallWorld</Name>
+    <ProjectReference Include="..\WrapperCpp\WrapperCpp.vcxproj">
+      <Project>{68fadbb6-5846-4f30-a76b-f5624d6301d0}</Project>
+      <Name>WrapperCpp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

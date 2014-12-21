@@ -7,56 +7,24 @@ namespace PROJECTUML
 {
     public class SquareFactoryImpl : SquareFactory
     {
-        public ForestImpl Forest
-        {
-            get
-            {
-                return Forest;
-            }
-            set
-            {
-                Forest = value;
-            }
-        }
-
-        public DesertImpl Desert
-        {
-            get
-            {
-                return Desert;
-            }
-            set
-            {
-                Desert = value;
-            }
-        }
-
-        public PlainImpl Plain
-        {
-            get
-            {
-                return Plain;
-            }
-            set
-            {
-                Plain = value;
-            }
-        }
+        public ForestImpl _Forest = new ForestImpl();
+        public DesertImpl _Desert = new DesertImpl();
+        public PlainImpl _Plain = new PlainImpl();
 
         public Plain createPlain()
         {
-            return Plain;
+            return _Plain;
         }
 
 
         public Desert createDesert()
         {
-            return Desert;
+            return _Desert;
         }
 
         public Forest createForest()
         {
-            return Forest;
+            return _Forest;
         }
     }
 

@@ -13,7 +13,6 @@ namespace PROJECTUML
             AttackPoint = 2;
             LifePoint = 5;
             DefensePoint = 1;
-            throw new System.NotImplementedException();
         }
 
         /**
@@ -73,7 +72,7 @@ namespace PROJECTUML
                 Row = x;
                 Column = y;
             }
-            throw new System.NotImplementedException();
+
         }
     }
 

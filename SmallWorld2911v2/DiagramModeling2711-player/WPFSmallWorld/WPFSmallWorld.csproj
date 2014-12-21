@@ -64,6 +64,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Hex.cs" />
+    <Compile Include="HexagonGrid.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -111,29 +113,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\HexagonGridTest\HexagonGridTest\HexagonGridTest.csproj">
+      <Project>{60ff4c73-b3d4-4af8-a3e7-3c0f8df7d431}</Project>
+      <Name>HexagonGridTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PROJECTUML\Game.csproj">
       <Project>{e9c6b13b-acbb-4b6d-ae78-e69ab14e27af}</Project>
       <Name>Game</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WrapperSmallWorld\WrapperSmallWorld.vcxproj">
-      <Project>{7a7166e6-7a59-4014-b207-0043a3a660aa}</Project>
-      <Name>WrapperSmallWorld</Name>
+    <ProjectReference Include="..\WrapperCpp\WrapperCpp.vcxproj">
+      <Project>{68fadbb6-5846-4f30-a76b-f5624d6301d0}</Project>
+      <Name>WrapperCpp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\desert.png" />
+    <Resource Include="resources\grass.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\foret.png" />
+    <Resource Include="resources\civbit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\plaine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\civ4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\grass.png" />
+    <Resource Include="resources\desert.png" />
+    <Resource Include="resources\foret.png" />
+    <Resource Include="resources\plaine.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,16 +6,17 @@ using System.Text;
 namespace PROJECTUML
 {
     public abstract class SquareImpl : Square
-    { 
-
+    {
+        private List<Unit> _ListUnitImpl = new List<Unit>(100);
         public List<Unit> ListUnitImpl
         {
             get
             {
-                throw new System.NotImplementedException();
+                return _ListUnitImpl;
             }
             set
             {
+                _ListUnitImpl = value;
             }
         }
 
@@ -24,9 +25,12 @@ namespace PROJECTUML
          */
         public void addInSquare(List<Unit> l)
         {
-            for (int i = 0; i < l.Count; i++) 
+            if (l!=null)
             {
-                ListUnitImpl.Add(l[i]);
+                for (int i = 0; i < l.Count; i++)
+                {
+                    ListUnitImpl.Add(l[i]);
+                }
             }
         }
 

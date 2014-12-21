@@ -7,20 +7,21 @@ namespace PROJECTUML
 {
     public class PeopleFactoryImpl : PeopleFactory
     {
+       
         /**
          * \brief   return a People
          * \param people People choosed
          * \return Elf, Orc or Nain people
          */
-        public People createPeople(int people)
+        public People createPeople(PeopleType people)
         {
             switch (people)
             {
-                case 0:
+                case PeopleType.ELF:
                     return new ElfImpl();
-                case 1:
+                case PeopleType.ORC:
                     return new OrcImpl();
-                case 2:
+                case PeopleType.NAIN:
                     return new NainImpl();
             }
             throw new System.NotImplementedException();
@@ -29,6 +30,7 @@ namespace PROJECTUML
 
     public interface PeopleFactory
     {
-        People createPeople(int people);
+
+        People createPeople(PeopleType people);
     }
 }

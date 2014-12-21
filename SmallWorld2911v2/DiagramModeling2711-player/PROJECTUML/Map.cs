@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
-using WrapperSmallWorld;
+using WrapperCPP;
 
 namespace PROJECTUML
 {
+    public enum MapType { SMALL = 0, NORMAL = 1, DEMO = 2 };
     public class MapImpl : Map
     {
         private int _TurnNumber;
         private int _UnitNumber;
         private int _SquareNumber;
         private Square[,] _BoardGame;
+        
         public int TurnNumber
         {
             get { return _TurnNumber; }
@@ -55,14 +57,14 @@ namespace PROJECTUML
          * \brief    Constructor of the Map
          * \param   map : Demo : 0; Petite : 1; Normal : 2
          */
-        public unsafe MapImpl(int map)
+        public unsafe MapImpl(MapType map)
         {
-            WrapperAlgo wrapper = new WrapperAlgo();
+            Wrapper wrapper = new Wrapper();
             
             switch (map)
             {
                 /* version Demo*/
-                case 0:
+                case MapType.DEMO:
                     TurnNumber = 5;
                     UnitNumber = 4;
                     SquareNumber = 5;
@@ -70,14 +72,14 @@ namespace PROJECTUML
 
 
                 /* version Petite*/
-                case 1:
+                case MapType.SMALL:
                     TurnNumber = 20;
                     UnitNumber = 6;
                     SquareNumber = 10;
                     break;
 
                 /* version Normal*/
-                case 2:
+                case MapType.NORMAL:
                     TurnNumber = 30;
                     UnitNumber = 8;
                     SquareNumber = 15;
@@ -86,15 +88,24 @@ namespace PROJECTUML
 
 
             BoardGame = new SquareImpl[SquareNumber, SquareNumber];
-            int** tab = wrapper.fillMap(SquareNumber);
+            int* tab = wrapper.fillMap(SquareNumber);
+            int[,] tab2 = new int[SquareNumber, SquareNumber];
+            //transformer en [,]
+            for (int ligne = 0; ligne < SquareNumber; ligne++)
+            {
+                for (int colonne = 0; colonne < SquareNumber; colonne++)
+                {
+                    tab2[ligne, colonne] = tab[ligne * SquareNumber + colonne];
+                }
+            }
+
 
             SquareFactory factory = new SquareFactoryImpl();
-            factory.createDesert();
             for (int i = 0; i < SquareNumber; i++)
             {
                 for (int j = 0; j < SquareNumber; j++)
                 {
-                    int square = tab[i][j];
+                    int square = tab2[i,j];
                     switch (square)
                     {
                         case 0:
@@ -113,6 +124,7 @@ namespace PROJECTUML
                 }
             }
 
+
         }
 
         /**
@@ -123,7 +135,20 @@ namespace PROJECTUML
         public void placeUnits(List<Unit> l1, List<Unit> l2)
         {
             BoardGame[0,0].addInSquare(l1);
-            BoardGame[SquareNumber, SquareNumber].addInSquare(l2);
+            //il y a un probleme d'overflow
+            BoardGame[SquareNumber-1,SquareNumber-1].addInSquare(l2);
+
+            for (int i = 0; i < l1.Count; i++)
+            {
+                l1[i].Column = 0;
+                l1[i].Row = 0;
+            }
+
+            for (int i = 0; i < l2.Count; i++)
+            {
+                l2[i].Column = 4;
+                l2[i].Row = 4;
+            }
         }
 
 
@@ -209,6 +234,12 @@ namespace PROJECTUML
             set;
         }
         int SquareNumber
+        {
+            get;
+            set;
+        }
+
+        Square[,] BoardGame
         {
             get;
             set;

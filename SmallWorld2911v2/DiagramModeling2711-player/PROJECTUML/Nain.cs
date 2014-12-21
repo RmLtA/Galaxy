@@ -21,7 +21,7 @@ namespace PROJECTUML
         public NainUnit createUnit()
         {
             return new NainUnitImpl();
-            throw new System.NotImplementedException();
+
         }
 
         /**

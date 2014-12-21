@@ -73,7 +73,7 @@ namespace PROJECTUML
                 Row = x;
                 Column = y;
             }
-            throw new System.NotImplementedException();
+
         }
     }
 
