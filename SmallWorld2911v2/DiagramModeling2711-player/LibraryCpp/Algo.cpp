@@ -9,7 +9,6 @@ using namespace std;
 
 
 Algo::Algo(){
-
 }
 
 int* Algo::fillMap(int Ncases){
@@ -19,7 +18,7 @@ int* Algo::fillMap(int Ncases){
 	srand((unsigned int)time(NULL));
 	int type;
 	for (i = 0; i < Ncases*Ncases; i++){
-		type = rand() % 2;
+		type = rand() % 3;
 		tab[i] = type;
 	}								// remplissage  de la matrice avec des entiers : 0->foret ,1->plaine,2->deser
 	return tab;

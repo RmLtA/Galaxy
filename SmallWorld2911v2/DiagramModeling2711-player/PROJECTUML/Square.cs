@@ -34,6 +34,24 @@ namespace PROJECTUML
             }
         }
 
+        public void addUnitInSquare(Unit u)
+        {
+            ListUnitImpl.Add(u);
+        }
+        public void removeFromSquare(Unit u)
+        {
+            if (u != null)
+            {
+                for (int i = 0; i < ListUnitImpl.Count; i++)
+                {
+                    if (u == ListUnitImpl[i])
+                    {
+                        ListUnitImpl.Remove(ListUnitImpl[i]);
+                    }
+                }
+            }
+        }
+
         /**
          * \brief    return the unit which have the best LifePoint in a square (which ave a list of units)
          * \return   Unit 
@@ -84,7 +102,9 @@ namespace PROJECTUML
 
         Unit returnUnitBestLife();
         Unit returnUnitBestDefense();
+        void removeFromSquare(Unit u);
 
+        void addUnitInSquare(Unit u);
         
     }
 }

@@ -16,44 +16,58 @@ namespace TestCombat
             
             GamePlayBuilder builder_new = new NewGamePlayImpl();
             GamePlay newgame = builder_new.start( MapType.DEMO,"nour", PeopleType.ELF, "marc",PeopleType.ORC);
-            //Assert.AreEqual(newgame.Map.UnitNumber, 4); 
+            Assert.AreEqual(newgame.Map.UnitNumber, 6);
+
+            /*Vérification des points des unités*/
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint, 1);
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].LifePoint, 5);
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].AttackPoint, 2);
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].DefensePoint, 1);
+
+            /*Vérifiaction des coordonnées*/
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].Row, 0);
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].Column, 0);
+            Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Row, newgame.Map.SquareNumber - 1);
+            Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Column, newgame.Map.SquareNumber-1);
+
+            /*Test de moveUnitOrder et moveUnit*/
+            newgame.moveUnitOrder(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], 0, 1);
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].Row, 0);
+            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].Column, 1);
+
+            /*Test de juxtaposedSquare*/
+            newgame.moveUnitOrder(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0], 0, 2);
+            Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Row, 0);
+            Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Column, 2);
+
+            bool flag = newgame.Map.juxtaposedSquare(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], 0, 2);
+            Assert.AreEqual(flag, true);
+
+            /*Test de startCombat*/
+            int move1 = newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint;
+            int attack1 = newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].AttackPoint;
+            int life1 = newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].LifePoint;
+
+            int move2 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].MovePoint;
+            int attack2 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].AttackPoint;
+            newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint = newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint + 3;
+            newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint-3;
+
+            /*bool flag1 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].
+                engageCombat(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], newgame.ListPlayer[1].PeoplePlayer.ListUnit[0]);
+            Assert.AreEqual(flag1, false);
+            bool flag3 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].
+                engageCombat(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0], newgame.ListPlayer[0].PeoplePlayer.ListUnit[0]);
+            Assert.AreEqual(flag3, true);
+
+            bool flag1 = newgame.startCombat(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], 0, 2);
+            Assert.AreEqual(flag1, true); 
+             * /
+
 
             
 
             /******************************************************************************
-            //récupération de la liste des joueurs
-            List<Player> l = new List<Player>();
-            l = newgame._ListPlayer;
-
-            int people1 = l[0].People;
-            int people2 = l[1].People;
-
-            
-            //récupération des peuples
-            //récupération de la liste d'unités pour pouvoir être manipulée pour les tests pour le combat
-            List<Unit> l_unit1 = new List<Unit>();
-            l_unit1 = l[0].PeopleImpl.ListUnit;
-            List<Unit> l_unit2 = new List<Unit>();
-            l_unit2 = l[1].PeopleImpl.ListUnit;
-            
-            //Test de placeUnits
-            newgame._Map.placeUnits(l_unit1, l_unit2);
-
-            
-            //changement des points de vie des unités
-            int nbUnit = newgame._Map.UnitNumber;
-            for (int i = 0; i < nbUnit; i++)
-            {
-                l_unit1[i].LifePoint = l_unit1[i].LifePoint + 1;
-            }
-            for (int i = 0; i < nbUnit; i++)
-            {
-                l_unit2[i].LifePoint = l_unit1[i].LifePoint + 1;
-            }
-            
-
-            //Test juxtaposedSquare
-            newgame._Map.juxtaposedSquare(l_unit1[1], 0, 0);
 
             //Test returnUnitBestLife
            newgame._Map.returnSquare(0,0).returnUnitBestLife();

@@ -146,8 +146,8 @@ namespace PROJECTUML
 
             for (int i = 0; i < l2.Count; i++)
             {
-                l2[i].Column = 4;
-                l2[i].Row = 4;
+                l2[i].Column = SquareNumber - 1;
+                l2[i].Row = SquareNumber - 1;
             }
         }
 
@@ -174,16 +174,18 @@ namespace PROJECTUML
          */
         public bool juxtaposedSquare(Unit u, int row, int column)
         {
-            // les cases sont juxtaposées si elles sont sur la même ligne mais à i et i+1eme colonne
-            if (u.Row == row)
+            Square s = returnSquare(row,column);
+            if (s.ListUnitImpl != null)
             {
-                if ((column == u.Column+1) || (column == u.Column-1))
+                if (u.Row == row)
                 {
-                    return true;
+                    if ((column == u.Column + 1) || (column == u.Column - 1))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
-            throw new System.NotImplementedException();
         }
 
         /**
@@ -215,7 +217,7 @@ namespace PROJECTUML
         */
         public void upDateMap(Unit u, int row, int column)
         {
-            u.move(row, column);
+            /*u.move(row, column);*/
             throw new System.NotImplementedException();
         }
     }

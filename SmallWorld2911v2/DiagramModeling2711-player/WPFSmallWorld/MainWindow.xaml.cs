@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading.Tasks;
 using PROJECTUML;
 
 namespace WPFSmallWorld
@@ -20,15 +21,14 @@ namespace WPFSmallWorld
     /// </summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
+ 
 
-
-    // ajouter un scroller
-    //chager le type des cases
     public partial class MainWindow : Window
     {
-        private Hex hex;
+ 
         GamePlay game;
+       
+
         public MainWindow(GamePlay game)
         {
             this.game = game;
@@ -72,6 +72,7 @@ namespace WPFSmallWorld
                     }
                 }
             }
+
             initInformations();
             updateGraphiqueUnite(game.ListPlayer[0], 0);
             updateGraphiqueUnite(game.ListPlayer[1], 1);
@@ -93,7 +94,12 @@ namespace WPFSmallWorld
             Name1.Content = game.ListPlayer[0].Name;
             Name2.Content = game.ListPlayer[1].Name;
 
+            game.ListPlayer[0].Turn = true;
+            game.ListPlayer[1].Turn = false;
+
         }
+
+
         //crér un polygone et le placer dans la grid
         public Polygon createPolygon(int l, int c, int n)
         {
@@ -120,8 +126,8 @@ namespace WPFSmallWorld
             myPointCollection.Add(Point5);
             myPointCollection.Add(Point6);
             myPolygon.Points = myPointCollection;
-            HexagonGrid.SetColumn(myPolygon, c);
-            HexagonGrid.SetRow(myPolygon, l);
+            Grid.SetColumn(myPolygon, c);
+            Grid.SetRow(myPolygon, l);
             switch (n)
             {
                 case 0:
@@ -132,14 +138,14 @@ namespace WPFSmallWorld
                             new Uri(@"E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\WPFSmallWorld\resources\desert.png", UriKind.RelativeOrAbsolute)
                             );
                         myPolygon.Fill = imageb;
-                        return myPolygon;
+                        break;
                     }
                 case 1:
                     {
                         ImageBrush imagef = new ImageBrush();
                         imagef.ImageSource =
                         new BitmapImage(
-                            new Uri(@"E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\WPFSmallWorld\resources\forest.png", UriKind.RelativeOrAbsolute)
+                            new Uri(@"E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\WPFSmallWorld\resources\foret.png", UriKind.RelativeOrAbsolute)
                             );
                         myPolygon.Fill = imagef;
                         break;
@@ -157,8 +163,11 @@ namespace WPFSmallWorld
                 default:
                     break;
             }
+            myPolygon.MouseLeftButtonDown += new MouseButtonEventHandler(polygon_MouseLeftButtonDown);
             return myPolygon;
         }
+
+
         //dessiner les unites //
         private void updateGraphiqueUnite(PROJECTUML.Player p, int numJoueur)
         {
@@ -168,24 +177,111 @@ namespace WPFSmallWorld
                 int y = u.Row;
                 int x = u.Column;
                 var element = createEllipse(x, y, numJoueur);
-                //myGrid.Children.Add(element);// c'est cette fonction qui permet l'affichage de l'ellipse
-            }
-        }
-        //dessiner les unités 
-        private void creationGraphiqueUnite(List<Unit> li, int column, int row, int numJoueur)
-        {
-            foreach (Unit u in li)
-            {
-                // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse et le tag i+j permettant d'identifier l'ellipse à une unite.
-                var element = createEllipse(column, row, numJoueur);
-                //myGrid.Children.Add(element);// c'est cette fonction qui permet l'affichage de l'ellipse
-                u.Column = column;
-                u.Row = row;
+                myGrid.Children.Add(element);
             }
         }
 
-        //creat l'ellipse
-        private Ellipse createEllipse(int c, int l, int numJoueur)
+        private int selectionUnit(PROJECTUML.Player p)
+        {
+            //suggestion de déplacement --> seul les mouvements en diagonal sont autorisés 
+            if (p != null)
+            {
+                for (int i = 0; i < p.PeoplePlayer.ListUnit.Count; i++)
+                {
+                    if (p.PeoplePlayer.ListUnit[i] != null)
+                    {
+                        return i;
+                    }
+                }
+            }
+            return 0;
+
+        }
+
+        private int indexTurnPlayer()
+        {
+            if (game.whoseturn() == game.ListPlayer[0])
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        private void updateUnitUI(int row, int column)
+        {
+            var currentPlayer = game.whoseturn();
+            var index = selectionUnit(currentPlayer);
+            var square = game.Map.returnSquare(game.whoseturn().PeoplePlayer.ListUnit[index].Row, game.whoseturn().PeoplePlayer.ListUnit[index].Column);
+
+            if (currentPlayer.PeoplePlayer.ListUnit[index] != null)
+            {
+                    game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+
+                    //supprime le premier ellipse instancié
+                    myGrid.Children.Remove(myGrid.Children[game.Map.SquareNumber * game.Map.SquareNumber]); 
+
+                    var element = createEllipse(row, column, indexTurnPlayer());
+                    myGrid.Children.Add(element);
+                    Grid.SetColumn(myGrid.Children[index], column);
+                    Grid.SetRow(myGrid.Children[index], row);
+            }
+            
+
+        }
+
+
+        /// <summary>
+        /// Délégué : réponse à l'evt click gauche sur le rectangle, affichage des informations de la tuile
+        /// </summary>
+        /// <param name="sender"> le rectangle (la source) </param>
+        /// <param name="e"> l'evt </param>
+        void polygon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var polygon = sender as Polygon;
+            var tile = polygon.Tag as Square;
+
+            int column = Grid.GetColumn(polygon);
+            int row = Grid.GetRow(polygon);
+
+            
+
+            // V2 : gestion avec Binding
+            // Mise à jour du rectangle selectionné => le label sera mis à jour automatiquement par Binding
+            Grid.SetColumn(selectionPolygon, column);
+            Grid.SetRow(selectionPolygon, row);
+            selectionPolygon.Tag = tile;
+            selectionPolygon.Visibility = System.Windows.Visibility.Visible;
+            updateUnitUI(row, column);
+            e.Handled = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // création d'un thread pour lancer le calcul du tour suivant sans que cela soit bloquant pour l'IHM
+            Task.Factory.StartNew(() =>
+            {
+
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+
+                    // On "touche" au rectangle de selection pour provoquer un rafraichissemnt via le Binding
+                    var selected = selectionPolygon.Tag;
+                    selectionPolygon.Tag = null;
+                    selectionPolygon.Tag = selected;
+                }));
+
+                game.gotoNextPlayer(); 
+            });
+
+        }
+
+
+
+        //create l'ellipse
+        private Ellipse createEllipse(int l, int c, int numJoueur)
         {
             Ellipse ellipse = new Ellipse();
 

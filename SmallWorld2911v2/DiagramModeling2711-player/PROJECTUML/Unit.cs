@@ -7,10 +7,10 @@ namespace PROJECTUML
 {
     public abstract class UnitImpl : Unit
     {
-        private int _MovePoint;
-        private int _LifePoint;
-        private int _DefensePoint;
-        private int _AttackPoint;
+        private int _MovePoint = 1;
+        private int _LifePoint = 5;
+        private int _DefensePoint = 1;
+        private int _AttackPoint = 2;
         private int _Column;
         private int _Row;
 
@@ -60,11 +60,16 @@ namespace PROJECTUML
          * \brief    change the position of the unit
          * \param   x row
          * \param   y column
-         */
+         
         public void move(int x, int y)
         {
-            throw new System.NotImplementedException();
+            if (MovePoint >= 1)
+            {
+                Row = x;
+                Column = y;
+            }
         }
+         **/
 
         public void upDateUnit()
         {
@@ -76,7 +81,7 @@ namespace PROJECTUML
 
     public interface Unit
     {
-        void move(int row, int column);
+        /*void move(int row, int column);*/
 
         bool engageCombat(Unit u_attack, Unit u_defense);
 

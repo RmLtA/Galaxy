@@ -29,10 +29,10 @@ namespace PROJECTUML
             double defense = 0;
 
             //re-calcul des points d'attaque
-            percentLife_u_attack = (100 * u_attack.LifePoint) / LifePointTotal;
+            percentLife_u_attack =  u_attack.LifePoint / LifePointTotal;
             attack = u_attack.AttackPoint * percentLife_u_attack;
 
-            percentLife_u_defense = (100 * u_defense.LifePoint) / LifePointTotal;
+            percentLife_u_defense =  u_defense.LifePoint / LifePointTotal;
             defense = u_defense.AttackPoint * percentLife_u_attack;
 
             //egalité en attaque et en défense
@@ -56,29 +56,14 @@ namespace PROJECTUML
 
             //l'attaquant a perdu ou les deux adversaire sont à égalité, il n'y a pas de gagnant
             return false;
-            throw new System.NotImplementedException();
-        }
-
-        /**
-         * \brief    change the position of the unit
-         * \param   x row
-         * \param   y column
-         */
-        public void move(int x, int y)
-        {
-
-            if (MovePoint >= 1)
-            {
-                Row = x;
-                Column = y;
-            }
 
         }
+
+
     }
 
     public interface OrcUnit : Unit
     {
         bool engageCombat(Unit u_attack, Unit u_defense);
-        void move(int x, int y);
     }
 }

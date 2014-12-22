@@ -127,9 +127,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\grass.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="resources\civbit.png" />
   </ItemGroup>
   <ItemGroup>

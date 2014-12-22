@@ -35,11 +35,18 @@ namespace PROJECTUML
                 ListUnit.Add(createUnit());
             }
         }
+
+        public void addUnitInList(Unit u)
+        {
+            ListUnit.Add(u);
+        }
     }
 
     public interface Orc : People
     {
         OrcUnit createUnit();
         void addUnit(int nbUnit);
+
+        void addUnitInList(Unit u);
     }
 }

@@ -1,14 +1,24 @@
-﻿La génération a démarré 21/12/2014 20:55:06.
+﻿La génération a démarré 22/12/2014 23:34:39.
      1>Projet "E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\libraryCpp\libraryCpp.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\libraryCpp.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Algo.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\libraryCpp.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Algo.cpp Interface.cpp
+         Interface.cpp
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\interface.cpp(1): warning C4627: '#include "Interface.h"' : ignoré lors de la recherche d'une utilisation d'un en-tête précompilé
+                 Ajoutez la directive à 'stdafx.h' ou régénérez l'en-tête précompilé
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\interface.cpp(2): warning C4627: '#include "Common.h"' : ignoré lors de la recherche d'une utilisation d'un en-tête précompilé
+                 Ajoutez la directive à 'stdafx.h' ou régénérez l'en-tête précompilé
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\interface.cpp(3): warning C4627: '#include "Algo.h"' : ignoré lors de la recherche d'une utilisation d'un en-tête précompilé
+                 Ajoutez la directive à 'stdafx.h' ou régénérez l'en-tête précompilé
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\interface.cpp(8): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\interface.cpp(8): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\interface.cpp(11): error C2061: erreur de syntaxe : identificateur 'Algo'
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\interface.cpp(12): error C2228: la partie gauche de '.fillMap' doit avoir un class/struct/union
+                 le type est 'int *'
          Algo.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\Debug\libraryCpp.lib" /NOLOGO Debug\Algo.obj
-         Debug\stdafx.obj
-         libraryCpp.vcxproj -> E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\Debug\libraryCpp.lib
-     1>Génération du projet "E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\libraryCpp\libraryCpp.vcxproj" terminée (Build cible(s)).
+     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\algo.h(3): error C3381: 'Algo' : les spécificateurs d'accès à l'assembly ne sont disponibles que dans le code compilé à l'aide de l'option /clr
+         Génération de code en cours...
+     1>Génération du projet "E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\libraryCpp\libraryCpp.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
 
-La génération a réussi.
+ÉCHEC de la build.
 
-Temps écoulé 00:00:02.46
+Temps écoulé 00:00:02.33

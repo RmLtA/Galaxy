@@ -27,6 +27,11 @@ namespace PROJECTUML
             throw new NotImplementedException();
         }
 
+        public void addUnitInList(Unit u) 
+        {
+            throw new NotImplementedException();
+        }
+
 
 
         public PeopleImpl()
@@ -42,6 +47,8 @@ namespace PROJECTUML
 
         void addUnit(int nbUnit);
         List<Unit> ListUnit { get; set; }
+
+        void addUnitInList(Unit u);
       
     }
 }

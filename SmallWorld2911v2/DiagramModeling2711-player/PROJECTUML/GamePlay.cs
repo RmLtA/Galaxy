@@ -80,8 +80,20 @@ namespace PROJECTUML
                 ListPlayer[1].Turn = true;
                 ListPlayer[0].Turn = false;
             }
-            throw new System.NotImplementedException();
         }
+
+        public Player whoseturn()
+        {
+            for (int i = 0; i < ListPlayer.Count; i++)
+            {
+                if (ListPlayer[i].Turn == true)
+                {
+                    return ListPlayer[i];
+                }
+            }
+            return null;
+        }
+
 
         public void registerGamePlay()
         {
@@ -124,9 +136,7 @@ namespace PROJECTUML
                     }
                 }
             }
-            
-            
-            throw new System.NotImplementedException();
+            return false;
         }
 
 
@@ -139,53 +149,72 @@ namespace PROJECTUML
         public void moveUnitOrder(Unit u, int row, int column)
         {
             Square s;
-            if (u.MovePoint >= 1)
+            int previous_row;
+            int previous_column;
+            Unit unit_move = u;
+            if (unit_move.MovePoint >= 1)
             {
                 s = Map.returnSquare(row, column);
-                if (u is ElfUnit)
+                if (unit_move is ElfUnit)
                 {
                     if (s is Forest)
                     {
-                        u.MovePoint = u.MovePoint / 2;
+                        unit_move.MovePoint = u.MovePoint / 2;
                     }
                     if (s is Desert)
                     {
-                        u.MovePoint = u.MovePoint * 2;
+                        unit_move.MovePoint = u.MovePoint * 2;
                     }
                     if (s is Plain)
                     {
-                        u.MovePoint = u.MovePoint - 1 ;
+                        unit_move.MovePoint = u.MovePoint - 1;
                     }
                 }
 
-                if (u is OrcUnit)
+                if (unit_move is OrcUnit)
                 {
                     if (s is Desert)
                     {
-                        u.MovePoint = u.MovePoint - 1;
+                        unit_move.MovePoint = u.MovePoint - 1;
                     }
                     if (s is Plain)
                     {
-                        u.MovePoint = u.MovePoint / 2;
+                        unit_move.MovePoint = u.MovePoint / 2;
+                    }
+                    if (s is Forest)
+                    {
+                        unit_move.MovePoint = u.MovePoint * 2;
                     }
                 }
 
-                if (u is NainUnit)
+                if (unit_move is NainUnit)
                 {
                     if (s is Desert)
                     {
-                        u.MovePoint = u.MovePoint - 1;
+                        unit_move.MovePoint = u.MovePoint - 1;
+                    }
+                    if (s is Forest)
+                    {
+                        unit_move.MovePoint = u.MovePoint / 2;
                     }
                     if (s is Plain)
                     {
-                        u.MovePoint = u.MovePoint / 2;
+                        unit_move.MovePoint = u.MovePoint * 2;
                     }
                 }
 
-                u.move(row, column);
+                previous_row = u.Row;
+                previous_column = u.Column;
+                Map.BoardGame[previous_row, previous_column].removeFromSquare(u);
+
+                unit_move.Row = row;
+                unit_move.Column = column;
+                Map.BoardGame[row, column].addUnitInSquare(unit_move);
+
+                
             }
 
-            throw new System.NotImplementedException();
+
         }
     }
 
@@ -205,6 +234,7 @@ namespace PROJECTUML
         void registerGamePlay();
 
         void moveUnitOrder(Unit u, int row, int column);
+        Player whoseturn();
 
       
     }
