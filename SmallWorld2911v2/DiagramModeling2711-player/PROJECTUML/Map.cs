@@ -14,6 +14,16 @@ namespace PROJECTUML
         private int _UnitNumber;
         private int _SquareNumber;
         private Square[,] _BoardGame;
+        private Wrapper _wrapper;
+
+        public Wrapper wrapper
+        {
+            get
+            {
+                return _wrapper;
+            }
+            set { _wrapper = value; }
+        }
         
         public int TurnNumber
         {
@@ -59,7 +69,7 @@ namespace PROJECTUML
          */
         public unsafe MapImpl(MapType map)
         {
-            Wrapper wrapper = new Wrapper();
+            wrapper = new Wrapper();
             
             switch (map)
             {
@@ -246,6 +256,7 @@ namespace PROJECTUML
             get;
             set;
         }
+        Wrapper wrapper { get; set; }
         int chooseNbCombat(int row, int column);
 
         bool juxtaposedSquare(Unit u, int row, int column);
@@ -256,6 +267,7 @@ namespace PROJECTUML
         void placeUnits(List<Unit> l1, List<Unit> l2);
 
         Square returnSquare(int row, int column);
+        
 
     }
 }

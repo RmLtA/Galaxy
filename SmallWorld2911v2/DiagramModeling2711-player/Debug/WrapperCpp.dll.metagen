@@ -11,4 +11,6 @@ Class WrapperCPP.Wrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     System.IDisposable
   Methods:
     fillMap(Int32): PrivateScope, Public, HideBySig
+    fillsuggestMap(CaseType**, Int32): PrivateScope, Public, HideBySig
+    suggestion(vector<std::tuple<int\,int\,int>\,std::allocator<std::tuple<int\,int\,int> > >*, UnitType**, Int32, Int32, Double, UnitType): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

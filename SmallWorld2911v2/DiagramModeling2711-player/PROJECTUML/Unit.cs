@@ -2,9 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
+using System.Runtime.Serialization;
+
+using WrapperCPP;
 
 namespace PROJECTUML
 {
+    /// <summary>
+    /// Enumeration of possible Unit Type, including None
+    /// </summary>
+    public enum UnitType { None, Elf, Orc, Nain }
+
+    /// <summary>
+    /// Move type possible in suggestions
+    /// </summary>
+    public enum MoveType { Impossible = 0, Possible, Suggested }
+    [Serializable()]
     public abstract class UnitImpl : Unit
     {
         private int _MovePoint = 1;
@@ -13,7 +27,14 @@ namespace PROJECTUML
         private int _AttackPoint = 2;
         private int _Column;
         private int _Row;
+        private Point _currentPosition;
 
+
+        public Point CurrentPosition
+        {
+            get;
+            set;
+        }
         
         public int MovePoint
         {
@@ -56,20 +77,25 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        /**
-         * \brief    change the position of the unit
-         * \param   x row
-         * \param   y column
-         
-        public void move(int x, int y)
+        public unsafe List<Tuple<Point, MoveType>> getSuggestedPoints()
         {
-            if (MovePoint >= 1)
+            // Get tiles suggestion
+            Map map = GamePlay.Instance.Map;
+            UnitType unitEnum = (UnitType)Enum.Parse(typeof(UnitType), this.GetType().Name, true);
+
+            var raw_points = map.wrapper.suggestion(map.NativeUnits, CurrentPosition.x, CurrentPosition.y,
+                                                                    this.MovePoint, (int)unitEnum);
+
+            // Construct a list of Point
+            var points = new List<Tuple<Point, MoveType>>();
+            foreach (Tuple<int, int, int> pt in raw_points)
             {
-                Row = x;
-                Column = y;
+                MoveType mt = (MoveType)pt.Item3;
+                points.Add(new Tuple<Point, MoveType>(new Point(pt.Item1, pt.Item2), mt));
             }
+
+            return points;
         }
-         **/
 
         public void upDateUnit()
         {

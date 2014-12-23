@@ -10,6 +10,18 @@ namespace PROJECTUML
         private MapImpl _Map;
         private List<Player> _ListPlayer;
         private MapType _TypeMap;
+        private static GamePlay _instance;
+
+        public  GamePlay Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new GamePlayImpl();
+
+                return _instance;
+            }
+        }
 
         public MapImpl Map
         {
@@ -22,6 +34,8 @@ namespace PROJECTUML
                 _Map = value;
             }
         }
+
+        private GamePlayImpl() { }
 
         public List<Player> ListPlayer
         {
@@ -236,6 +250,8 @@ namespace PROJECTUML
         void moveUnitOrder(Unit u, int row, int column);
         Player whoseturn();
 
-      
+
+
+        static GamePlay Instance { get; set; }
     }
 }

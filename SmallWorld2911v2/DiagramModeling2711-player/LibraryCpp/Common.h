@@ -19,6 +19,13 @@ enum UnitType
 	Nain
 };
 
+enum MoveType
+{
+	Impossible = 0,
+	Possible,
+	Suggested
+};
+
 struct Point {
 	int x;
 	int y;
