@@ -99,6 +99,12 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
+        public void move(int x, int y)
+        {
+            Row = x;
+            Column = y;
+        }
+
 
     }
 
@@ -109,6 +115,7 @@ namespace PROJECTUML
         bool engageCombat(Unit u_attack, Unit u_defense);
         unsafe int* getSuggestedPointsX(Map map);
         unsafe int* getSuggestedPointsY(Map map);
+        void move(int x, int y);
 
         int DefensePoint { get; set; }
         int LifePoint { get; set; }

@@ -188,15 +188,26 @@ namespace PROJECTUML
         public bool juxtaposedSquare(Unit u, int row, int column)
         {
             Square s = returnSquare(row,column);
-            if (s.ListUnitImpl != null)
+            if (s != null)
             {
-                if ((u.Row == row) || (row == u.Row+1))
-                {
-                    if ((column == u.Column + 1) || (column == u.Column - 1))
-                    {
-                        return true;
-                    }
+                if((row == u.Row) && ((column +1) == u.Column )){
+                    return true;
                 }
+                if ((row == u.Row) && ((column -1)  == u.Column))
+                {
+                    return true;
+                }
+                if ((row  == u.Row +1) && ((column + 1) == u.Column))
+                {
+                    return true;
+                }
+                if ((row  == u.Row +1) && (column -1 == u.Column ))
+                {
+                    return true;
+                }
+                System.Console.WriteLine("ICI");
+                return false;
+                
             }
             return false;
         }

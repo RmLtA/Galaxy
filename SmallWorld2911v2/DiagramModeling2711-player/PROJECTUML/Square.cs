@@ -46,6 +46,7 @@ namespace PROJECTUML
                 {
                     if (u == ListUnitImpl[i])
                     {
+
                         ListUnitImpl.Remove(ListUnitImpl[i]);
                     }
                 }

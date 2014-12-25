@@ -230,7 +230,7 @@ namespace PROJECTUML
                 unit_move.Column = column;
                 Map.BoardGame[row, column].addUnitInSquare(unit_move);
 
-                
+                u.move(row, column);
             }
 
 

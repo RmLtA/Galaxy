@@ -39,12 +39,31 @@ namespace TestCombat
 
 
                 /*Test de juxtaposedSquare*/
-                newgame.moveUnitOrder(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0], 0, 2);
+            newgame.moveUnitOrder(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0], 0, 2);
             Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Row, 0);
             Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Column, 2);
 
             bool flag = newgame.Map.juxtaposedSquare(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], 0, 2);
             Assert.AreEqual(flag, true);
+
+            ElfUnit u = new ElfUnitImpl();
+            u.Row = 0;
+            u.Column = 0;
+            bool test1 = newgame.Map.juxtaposedSquare(u, 0, 1);
+            Assert.AreEqual(test1, true);
+
+            ElfUnit u1 = new ElfUnitImpl();
+            u1.Row = 1;
+            u1.Column = 0;
+            /*bool test2 = newgame.Map.juxtaposedSquare(u1, 0, 0);
+            Assert.AreEqual(test2, true);
+            bool test3 = newgame.Map.juxtaposedSquare(u1, 1, 0);
+            Assert.AreEqual(test3, true);*/
+            bool test4 = newgame.Map.juxtaposedSquare(u1, 0, 2);
+            Assert.AreEqual(test4, false);
+            //bool test5 = newgame.Map.juxtaposedSquare(u1, 1, 2);
+            //Assert.AreEqual(test5, true);
+
 
             /*Test de startCombat*/
             int move1 = newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint;

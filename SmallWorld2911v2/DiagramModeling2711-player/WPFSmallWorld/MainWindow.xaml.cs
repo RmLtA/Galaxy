@@ -192,7 +192,7 @@ namespace WPFSmallWorld
                 
             }
             System.Console.WriteLine("---NON JUXTAPOSEE-----");
-            return 0;
+            return 777;
 
         }
 
@@ -211,39 +211,16 @@ namespace WPFSmallWorld
         private unsafe void updateUnitUI(int row, int column)
         {
             var index = selectionUnit(row,column);
-            var possibleX = game.whoseturn().PeoplePlayer.ListUnit[index].getSuggestedPointsX(game.Map);
-            for (int w=0; w < 4; w++)
+
+            if (index != 777)
             {
-                System.Console.WriteLine(possibleX[w]);
+                System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
+                game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+                System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
+                Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], row);
+                Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], column);
+                
             }
-
-                System.Console.WriteLine("--");
-
-            var possibleY = game.whoseturn().PeoplePlayer.ListUnit[index].getSuggestedPointsY(game.Map);
-            for (int w = 0; w < 4; w++)
-            {
-                System.Console.WriteLine(possibleY[w]);
-            }
-
-
-            for (int i = 0; i < 4; i++)
-            {
-                if (possibleX[i] == row)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        if (possibleY[j] == column)
-                        {
-                            game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
-                            Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], column);
-                            Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], row);
-                        }
-                    }
-                }
-            }
-
-
-                System.Console.WriteLine("-----------------");
 
 
         }
