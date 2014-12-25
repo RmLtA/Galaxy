@@ -21,20 +21,13 @@ namespace PROJECTUML
     [Serializable()]
     public abstract class UnitImpl : Unit
     {
-        private int _MovePoint = 1;
+        private int _MovePoint = 300;
         private int _LifePoint = 5;
         private int _DefensePoint = 1;
         private int _AttackPoint = 2;
         private int _Column;
         private int _Row;
-        private Point _currentPosition;
 
-
-        public Point CurrentPosition
-        {
-            get;
-            set;
-        }
         
         public int MovePoint
         {
@@ -77,24 +70,28 @@ namespace PROJECTUML
             throw new System.NotImplementedException();
         }
 
-        public unsafe List<Tuple<Point, MoveType>> getSuggestedPoints()
+        public unsafe int* getSuggestedPointsX(Map map)
         {
-            // Get tiles suggestion
-            Map map = GamePlay.Instance.Map;
-            UnitType unitEnum = (UnitType)Enum.Parse(typeof(UnitType), this.GetType().Name, true);
 
-            var raw_points = map.wrapper.suggestion(map.NativeUnits, CurrentPosition.x, CurrentPosition.y,
-                                                                    this.MovePoint, (int)unitEnum);
 
-            // Construct a list of Point
-            var points = new List<Tuple<Point, MoveType>>();
-            foreach (Tuple<int, int, int> pt in raw_points)
+            if (map != null)
             {
-                MoveType mt = (MoveType)pt.Item3;
-                points.Add(new Tuple<Point, MoveType>(new Point(pt.Item1, pt.Item2), mt));
+                int* tab = map.wrapper.moveAroundX(Row);
+                return tab;
             }
+            return null;   
+        }
 
-            return points;
+        public unsafe int* getSuggestedPointsY(Map map)
+        {
+
+
+            if (map != null)
+            {
+                int* tab = map.wrapper.moveAroundY(Column);
+                return tab;
+            }
+            return null;
         }
 
         public void upDateUnit()
@@ -110,6 +107,8 @@ namespace PROJECTUML
         /*void move(int row, int column);*/
 
         bool engageCombat(Unit u_attack, Unit u_defense);
+        unsafe int* getSuggestedPointsX(Map map);
+        unsafe int* getSuggestedPointsY(Map map);
 
         int DefensePoint { get; set; }
         int LifePoint { get; set; }
@@ -120,5 +119,6 @@ namespace PROJECTUML
         int Column { get; set; }
 
         int Row { get; set; }
+
     }
 }

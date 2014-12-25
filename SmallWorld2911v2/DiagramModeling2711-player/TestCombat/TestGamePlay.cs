@@ -35,8 +35,11 @@ namespace TestCombat
             Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].Row, 0);
             Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].Column, 1);
 
-            /*Test de juxtaposedSquare*/
-            newgame.moveUnitOrder(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0], 0, 2);
+            /*Test pour la suggestion des cases*/
+
+
+                /*Test de juxtaposedSquare*/
+                newgame.moveUnitOrder(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0], 0, 2);
             Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Row, 0);
             Assert.AreEqual(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].Column, 2);
 
@@ -51,7 +54,9 @@ namespace TestCombat
             int move2 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].MovePoint;
             int attack2 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].AttackPoint;
             newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint = newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint + 3;
-            newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint-3;
+            newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint - 3;
+
+
 
             /*bool flag1 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].
                 engageCombat(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], newgame.ListPlayer[1].PeoplePlayer.ListUnit[0]);
@@ -62,10 +67,15 @@ namespace TestCombat
 
             bool flag1 = newgame.startCombat(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], 0, 2);
             Assert.AreEqual(flag1, true); 
-             * /
-
+             */
+              
+             
+              
+              
 
             
+
+
 
             /******************************************************************************
 

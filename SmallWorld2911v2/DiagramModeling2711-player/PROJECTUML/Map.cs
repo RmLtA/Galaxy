@@ -16,6 +16,7 @@ namespace PROJECTUML
         private Square[,] _BoardGame;
         private Wrapper _wrapper;
 
+
         public Wrapper wrapper
         {
             get
@@ -58,6 +59,7 @@ namespace PROJECTUML
             }
         }
 
+
         public unsafe MapImpl()
         {
 
@@ -99,6 +101,7 @@ namespace PROJECTUML
 
             BoardGame = new SquareImpl[SquareNumber, SquareNumber];
             int* tab = wrapper.fillMap(SquareNumber);
+
             int[,] tab2 = new int[SquareNumber, SquareNumber];
             //transformer en [,]
             for (int ligne = 0; ligne < SquareNumber; ligne++)
@@ -187,7 +190,7 @@ namespace PROJECTUML
             Square s = returnSquare(row,column);
             if (s.ListUnitImpl != null)
             {
-                if (u.Row == row)
+                if ((u.Row == row) || (row == u.Row+1))
                 {
                     if ((column == u.Column + 1) || (column == u.Column - 1))
                     {
@@ -257,6 +260,8 @@ namespace PROJECTUML
             set;
         }
         Wrapper wrapper { get; set; }
+
+
         int chooseNbCombat(int row, int column);
 
         bool juxtaposedSquare(Unit u, int row, int column);
@@ -267,6 +272,7 @@ namespace PROJECTUML
         void placeUnits(List<Unit> l1, List<Unit> l2);
 
         Square returnSquare(int row, int column);
+
         
 
     }

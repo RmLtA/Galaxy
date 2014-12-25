@@ -181,19 +181,17 @@ namespace WPFSmallWorld
             }
         }
 
-        private int selectionUnit(PROJECTUML.Player p)
+        private int selectionUnit(int row, int column)
         {
-            //suggestion de déplacement --> seul les mouvements en diagonal sont autorisés 
-            if (p != null)
+            for (int i = 0; i < game.whoseturn().PeoplePlayer.ListUnit.Count; i++)
             {
-                for (int i = 0; i < p.PeoplePlayer.ListUnit.Count; i++)
+                if (game.Map.juxtaposedSquare(game.whoseturn().PeoplePlayer.ListUnit[i], row, column) == true)
                 {
-                    if (p.PeoplePlayer.ListUnit[i] != null)
-                    {
-                        return i;
-                    }
+                    return i;
                 }
+                
             }
+            System.Console.WriteLine("---NON JUXTAPOSEE-----");
             return 0;
 
         }
@@ -210,25 +208,43 @@ namespace WPFSmallWorld
             }
         }
 
-        private void updateUnitUI(int row, int column)
+        private unsafe void updateUnitUI(int row, int column)
         {
-            var currentPlayer = game.whoseturn();
-            var index = selectionUnit(currentPlayer);
-            var square = game.Map.returnSquare(game.whoseturn().PeoplePlayer.ListUnit[index].Row, game.whoseturn().PeoplePlayer.ListUnit[index].Column);
-
-            if (currentPlayer.PeoplePlayer.ListUnit[index] != null)
+            var index = selectionUnit(row,column);
+            var possibleX = game.whoseturn().PeoplePlayer.ListUnit[index].getSuggestedPointsX(game.Map);
+            for (int w=0; w < 4; w++)
             {
-                    game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
-
-                    //supprime le premier ellipse instancié
-                    myGrid.Children.Remove(myGrid.Children[game.Map.SquareNumber * game.Map.SquareNumber]); 
-
-                    var element = createEllipse(row, column, indexTurnPlayer());
-                    myGrid.Children.Add(element);
-                    Grid.SetColumn(myGrid.Children[index], column);
-                    Grid.SetRow(myGrid.Children[index], row);
+                System.Console.WriteLine(possibleX[w]);
             }
-            
+
+                System.Console.WriteLine("--");
+
+            var possibleY = game.whoseturn().PeoplePlayer.ListUnit[index].getSuggestedPointsY(game.Map);
+            for (int w = 0; w < 4; w++)
+            {
+                System.Console.WriteLine(possibleY[w]);
+            }
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (possibleX[i] == row)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if (possibleY[j] == column)
+                        {
+                            game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+                            Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], column);
+                            Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], row);
+                        }
+                    }
+                }
+            }
+
+
+                System.Console.WriteLine("-----------------");
+
 
         }
 

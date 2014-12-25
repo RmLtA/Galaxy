@@ -6,6 +6,10 @@
 //#include "C:\Users\Romdhane\Desktop\Nouveau dossier (3)\SmallWorldTestMapV3\DiagramModeling2711-player\ConsoleApplication1.lib"
 #pragma comment(lib, "../Debug/libraryCpp.lib")
 
+
+#include <iostream>
+
+using namespace System::Collections::Generic;
 using namespace System;
 
 namespace WrapperCPP{
@@ -13,19 +17,17 @@ namespace WrapperCPP{
 	{
 	private:
 		MapGenerator* algo_map;
+
 	public:
 		Wrapper(){ algo_map = MapGenerator_new(); }
 
-		~Wrapper(){ MapGenerator_delete(algo_map); }
 
 		int* fillMap(int n){ return algo_map->fillMap(n); }
 
-		void fillsuggestMap(CaseType** map, int mapSize){ algo_map->fillsuggestMap(map, mapSize); }
+		int* moveAroundX(int x){ return algo_map->moveAroundX(x); }
+		int* moveAroundY(int y){ return algo_map->moveAroundX(y); }
 
-		std::vector<tuple<int, int, int>> suggestion(UnitType** units, int currentX,
-			int currentY, double ptDepl, UnitType currentNation){
-			return algo_map->suggestion(units, currentX, currentY, ptDepl, currentNation);
-		}
+
 
 	};
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PROJECTUML
 {
-    class Point
+    class PointImpl : Point
     {
         public int x
         {
@@ -18,5 +18,17 @@ namespace PROJECTUML
             get;
             set;
         }
+
+        public PointImpl(int ab, int od)
+        {
+            x = ab;
+            y = od;
+        }
+    }
+
+    public interface Point
+    {
+        int x { get; set; }
+        int y { get; set; }
     }
 }

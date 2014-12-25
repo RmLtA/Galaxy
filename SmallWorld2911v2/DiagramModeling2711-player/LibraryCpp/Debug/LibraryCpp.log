@@ -1,11 +1,8 @@
-﻿La génération a démarré 23/12/2014 23:47:04.
+﻿La génération a démarré 25/12/2014 21:02:08.
      1>Projet "E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\libraryCpp\libraryCpp.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\libraryCpp.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MapGenerator.cpp
          MapGenerator.cpp
-     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\mapgenerator.cpp(68): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\mapgenerator.cpp(77): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-     1>e:\4info\poo\github\galaxy\smallworld2911v2\diagrammodeling2711-player\librarycpp\mapgenerator.cpp(80): warning C4101: 'coords' : variable locale non référencée
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\Debug\libraryCpp.lib" /NOLOGO Debug\MapGenerator.obj
          Debug\stdafx.obj
@@ -14,4 +11,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:03.84
+Temps écoulé 00:00:02.83

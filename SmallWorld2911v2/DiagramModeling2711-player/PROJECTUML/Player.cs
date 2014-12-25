@@ -11,6 +11,13 @@ namespace PROJECTUML
         private string _Name;
         private int _NbUnit;
         private People _PeoplePlayer;
+        private PeopleType _PeopleType;
+
+        public PeopleType PeopleType
+        {
+            get;
+            set;
+        }
 
         public People PeoplePlayer
         {
@@ -92,6 +99,12 @@ namespace PROJECTUML
             set;
         }
         People PeoplePlayer
+        {
+            get;
+            set;
+        }
+
+        PeopleType PeopleType
         {
             get;
             set;
