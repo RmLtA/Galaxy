@@ -27,18 +27,20 @@ namespace WPFSmallWorld
     {
  
         GamePlay game;
+        int rank_graphique;
        
 
-        public MainWindow(GamePlay game)
+        public MainWindow(GamePlay game1)
         {
-            this.game = game;
+            this.game = game1;
+            rank_graphique = 0;
             InitializeComponent();
 
         }
         
         private void Loaded_Window(object sender, RoutedEventArgs e)
         {
-            SquareFactory factory = new SquareFactoryImpl();
+            //SquareFactory factory = new SquareFactoryImpl();
             Map map = game.Map;
             int size = map.SquareNumber;
             Square[,] mat = map.BoardGame;
@@ -103,7 +105,7 @@ namespace WPFSmallWorld
         //crér un polygone et le placer dans la grid
         public Polygon createPolygon(int l, int c, int n)
         {
-            
+
 
             Polygon myPolygon = new Polygon();
             myPolygon.Stroke = System.Windows.Media.Brushes.Black;
@@ -176,6 +178,8 @@ namespace WPFSmallWorld
             {
                 int y = u.Row;
                 int x = u.Column;
+                u.Rank = rank_graphique;
+                rank_graphique++;
                 var element = createEllipse(x, y, numJoueur);
                 myGrid.Children.Add(element);
             }
@@ -210,16 +214,82 @@ namespace WPFSmallWorld
 
         private unsafe void updateUnitUI(int row, int column)
         {
-            var index = selectionUnit(row,column);
+            //var index = selectionUnit(row,column);
+            var index = 0;
+            int turn;
 
             if (index != 777)
             {
-                System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
-                game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
-                System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
-                Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], row);
-                Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index], column);
-                
+                var square = game.Map.returnSquare(row, column);
+                System.Console.WriteLine("!!!!!!!!!!!!!!!!!!!!SQUARE ::" + square.ListUnitImpl.Count);
+                if (square.ListUnitImpl.Count == 0)
+                {
+                    //System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
+                    game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+                    //System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
+                    if (indexTurnPlayer() == 0)
+                    {
+                        turn = 0;
+                    }
+                    else
+                    {
+                        turn = game.Map.UnitNumber;
+                    }
+
+                    Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], row);
+                    Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], column);
+                }
+                else
+                { /*
+                    List<Unit> l = game.Map.returnSquare(row, column).ListUnitImpl;
+                    
+                    if (game.startCombat(game.whoseturn().PeoplePlayer.ListUnit[index], row, column) == true)
+                    {
+                        game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+
+                        
+                            if (game.Map.returnSquare(row, column).ListUnitImpl.Count==0)
+                            {
+                                if (indexTurnPlayer() == 0)
+                                {
+                                    turn = 0;
+                                    for (int i = 0; i < l.Count; i++)
+                                    {
+                                        Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], game.Map.SquareNumber-1);
+                                        Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], game.Map.SquareNumber - 1);
+                                    }
+                                }
+                                else
+                                {
+                                    turn = game.Map.UnitNumber;
+                                    for (int i = 0; i < l.Count; i++)
+                                    {
+                                        Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], 0);
+                                        Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], 0);
+                                    }
+                                }
+                                
+
+                                Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], row);
+                                Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], column);
+                            }
+
+                    }
+                    else
+                    {
+                        if (indexTurnPlayer() == 0)
+                        {
+                            turn = 0;
+                        }
+                        else
+                        {
+                            turn = game.Map.UnitNumber;
+                        }
+                        Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], 0);
+                        Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], 0);
+                    }
+                }*/
+                }
             }
 
 

@@ -3,7 +3,7 @@
   <Class Name="PROJECTUML.PlayerImpl">
     <Position X="0.5" Y="1.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAEAAAAAACIAQAICAgAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAIAAQAAAQEAAAAAACIAQAICAgAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -11,7 +11,7 @@
   <Class Name="PROJECTUML.GamePlayImpl">
     <Position X="4.75" Y="0.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAACAAAAAAAACAAAAgAEAAgAAAAIAgAAA=</HashCode>
+      <HashCode>AABEAIAAABAAACAAAAAAAQCAAAAgAEAAwAAEAIAgAIA=</HashCode>
       <FileName>GamePlay.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -20,76 +20,73 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.PeopleImpl">
-    <Position X="1.25" Y="5.5" Width="2" />
+    <Position X="1" Y="6.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
       <FileName>People.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.ElfImpl">
-    <Position X="0.5" Y="8.5" Width="2" />
+    <Position X="0.5" Y="11.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
       <FileName>Elf.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.OrcImpl">
-    <Position X="2.75" Y="8.5" Width="2" />
+    <Position X="2.75" Y="11.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
       <FileName>Orc.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.NainImpl">
-    <Position X="5" Y="8.5" Width="2.25" />
+    <Position X="5" Y="11.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
       <FileName>Nain.cs</FileName>
       <NewMemberFileName>Nains.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.UnitImpl">
-    <Position X="8" Y="5.5" Width="3" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+    <Position X="8" Y="9" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAgCAIAFIEQAAAAAAAmAAAAAAAQEAAIA=</HashCode>
+      <HashCode>AABhAAAAAAABAgCAIAFIEQEAAAAAAmAAAAAAAQEAAIA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.ElfUnitImpl">
-    <Position X="5.5" Y="11" Width="2.5" />
+    <Position X="5.5" Y="14.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>ElfUnit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.OrcUnitImpl">
-    <Position X="8.25" Y="11" Width="2.25" />
+    <Position X="8.25" Y="14.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>OrcUnit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.NainUnitImpl">
-    <Position X="11" Y="11" Width="2.75" />
+    <Position X="10.75" Y="14.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>NainUnit.cs</FileName>
       <NewMemberFileName>NainsUnit.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.NewGamePlayImpl">
-    <Position X="10.5" Y="3" Width="3.75" />
+    <Position X="10.75" Y="5.5" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAEAgAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>New.cs</FileName>
@@ -97,7 +94,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.LoadGamePlayImpl">
-    <Position X="7.25" Y="3.5" Width="3" />
+    <Position X="7.5" Y="5.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Load.cs</FileName>
@@ -137,7 +134,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.SquareFactoryImpl">
-    <Position X="16.75" Y="7" Width="2.75" />
+    <Position X="17.75" Y="10" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAEAAyAAAAAIAAAA=</HashCode>
       <FileName>SquareFactory.cs</FileName>
@@ -145,25 +142,25 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.ForestImpl">
-    <Position X="20.5" Y="10" Width="3.25" />
+    <Position X="22" Y="15" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Forest.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.DesertImpl">
-    <Position X="16.75" Y="10" Width="3" />
+    <Position X="18.5" Y="15" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Desert.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.PlainImpl">
-    <Position X="13.25" Y="10" Width="2.5" />
+    <Position X="15.5" Y="15" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Plain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -171,7 +168,7 @@
   <Class Name="PROJECTUML.MapImpl">
     <Position X="14.5" Y="0.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AABAABAAABAgAAAQDAABAAAAAAAYEgABAAAAQAAAAAA=</HashCode>
+      <HashCode>AABEABAAABAgAAAQDAABAAAAAAAYMgABAAAAQAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -180,9 +177,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.SquareImpl">
-    <Position X="12" Y="5.75" Width="3" />
+    <Position X="13" Y="10.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAJAAAAAABAAAAAAAABAAAAAAAACAAAAAIgAAAAAAQA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -196,7 +193,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PROJECTUML.PeopleFactoryImpl">
-    <Position X="4" Y="5.75" Width="2.75" />
+    <Position X="3.75" Y="7" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PeopleFactory.cs</FileName>
@@ -213,21 +210,21 @@
   <Interface Name="PROJECTUML.People">
     <Position X="28" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
       <FileName>People.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.Player">
     <Position X="27.5" Y="1" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAACAAQAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAEAAAAAACAAQAIAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.GamePlay">
     <Position X="30.5" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAACAAAAAAAACAAAAgAEAAgAAAAIAgAAA=</HashCode>
+      <HashCode>AABAAAAAABAAACAAAAAAAQCAAAAgAEAAwAAAAIAgAAA=</HashCode>
       <FileName>GamePlay.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -241,7 +238,7 @@
   <Interface Name="PROJECTUML.Map">
     <Position X="37.25" Y="0.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAABAgAAAABAABAAAAAAAYEgAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AAAAABAAABAgAAAABAABAAAAAAAYMgAAAAAAQAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -269,7 +266,7 @@
   <Interface Name="PROJECTUML.Square">
     <Position X="41" Y="6.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAJAAAAAAAAAAAAAAABAAAAAAAAAAAAAAIgAAAAAAQA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -283,54 +280,54 @@
   <Interface Name="PROJECTUML.Nain">
     <Position X="31" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
       <FileName>Nain.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.Orc">
     <Position X="29" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
       <FileName>Orc.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.Elf">
     <Position X="27" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAI=</HashCode>
       <FileName>Elf.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.Plain">
     <Position X="39.25" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Plain.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.Desert">
     <Position X="41.75" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Desert.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.Forest">
     <Position X="44" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Forest.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.OrcUnit">
     <Position X="35.25" Y="10.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>OrcUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.PeopleFactory">
-    <Position X="30.25" Y="3.5" Width="2.5" />
+    <Position X="30.25" Y="4.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PeopleFactory.cs</FileName>
@@ -356,14 +353,14 @@
   <Interface Name="PROJECTUML.ElfUnit">
     <Position X="33.5" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>ElfUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.NainUnit">
     <Position X="37.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>NainUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>

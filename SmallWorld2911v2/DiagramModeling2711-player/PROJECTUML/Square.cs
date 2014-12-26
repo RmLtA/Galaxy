@@ -7,7 +7,7 @@ namespace PROJECTUML
 {
     public abstract class SquareImpl : Square
     {
-        private List<Unit> _ListUnitImpl = new List<Unit>(100);
+        private List<Unit> _ListUnitImpl = new List<Unit>();
         public List<Unit> ListUnitImpl
         {
             get
@@ -62,16 +62,29 @@ namespace PROJECTUML
             int max = 0;
             for (int i = 1; i < ListUnitImpl.Count; i++)
             {
-                if (ListUnitImpl[i - 1].LifePoint < ListUnitImpl[i].LifePoint)
-                {
-                    max = i;
-                }
-                else
-                {
-                    max = i - 1;
-                }
+                max = max_int(ListUnitImpl[i].LifePoint, ListUnitImpl[i - 1].LifePoint);
             }
-            return ListUnitImpl[max];
+            if (max < ListUnitImpl.Count)
+            {
+                if (ListUnitImpl[max] != null)
+                {
+                    return ListUnitImpl[max];
+                }
+
+            }
+            return null;
+            
+
+            
+        }
+
+        public int max_int(int a, int b)
+        {
+            if (a < b)
+            {
+                return a;
+            }
+            else { return b; }
         }
 
         /**

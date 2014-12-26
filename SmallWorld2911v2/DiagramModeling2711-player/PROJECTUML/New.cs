@@ -45,7 +45,7 @@ namespace PROJECTUML
             GamePlay p = new GamePlayImpl(m, l, map);
             return p;
          
-            throw new System.NotImplementedException();
+            
         }
 
 

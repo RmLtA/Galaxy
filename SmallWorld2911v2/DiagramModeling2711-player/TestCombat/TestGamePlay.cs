@@ -20,8 +20,8 @@ namespace TestCombat
 
             /*Vérification des points des unités*/
             Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].MovePoint, 1);
-            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].LifePoint, 5);
-            Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].AttackPoint, 2);
+            //Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].LifePoint, 5);
+            //Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].AttackPoint, 2);
             Assert.AreEqual(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0].DefensePoint, 1);
 
             /*Vérifiaction des coordonnées*/
@@ -58,7 +58,7 @@ namespace TestCombat
             /*bool test2 = newgame.Map.juxtaposedSquare(u1, 0, 0);
             Assert.AreEqual(test2, true);
             bool test3 = newgame.Map.juxtaposedSquare(u1, 1, 0);
-            Assert.AreEqual(test3, true);*/
+            c*/
             bool test4 = newgame.Map.juxtaposedSquare(u1, 0, 2);
             Assert.AreEqual(test4, false);
             //bool test5 = newgame.Map.juxtaposedSquare(u1, 1, 2);
@@ -76,45 +76,35 @@ namespace TestCombat
             newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint - 3;
 
 
+            /*Test de returnUnitBestLife()*/
+            Square testSquare = new DesertImpl();
+            ElfUnit uelf1 = new ElfUnitImpl();
+            uelf1.LifePoint = 3;
+            ElfUnit uelf2 = new ElfUnitImpl();
+            uelf2.LifePoint = 7;
+            ElfUnit uelf3 = new ElfUnitImpl();
+            uelf3.LifePoint = 2;
+            testSquare.ListUnitImpl.Add(uelf1);
+             testSquare.ListUnitImpl.Add(uelf2);
+             testSquare.ListUnitImpl.Add(uelf3);
 
-            /*bool flag1 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].
-                engageCombat(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], newgame.ListPlayer[1].PeoplePlayer.ListUnit[0]);
-            Assert.AreEqual(flag1, false);
-            bool flag3 = newgame.ListPlayer[1].PeoplePlayer.ListUnit[0].
-                engageCombat(newgame.ListPlayer[1].PeoplePlayer.ListUnit[0], newgame.ListPlayer[0].PeoplePlayer.ListUnit[0]);
-            Assert.AreEqual(flag3, true);
+            int  bestLife = testSquare.returnUnitBestLife().LifePoint;
+            Assert.AreEqual(bestLife, 7);
+             Assert.AreEqual(uelf2.LifePoint, 7);
+             Assert.AreEqual(uelf1.LifePoint, 3);
+             Assert.AreEqual(uelf3.LifePoint, 2);
 
-            bool flag1 = newgame.startCombat(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], 0, 2);
-            Assert.AreEqual(flag1, true); 
-             */
-              
-             
-              
-              
+            /*Test de engageCombat(attack, defense)*/
+             ElfUnit attack = new ElfUnitImpl();
+             attack.AttackPoint = 1;
+             OrcUnit defense = new OrcUnitImpl();
+             defense.AttackPoint = 9;
 
-            
+             bool testCombat = attack.engageCombat(defense, attack);
+             Assert.AreEqual(testCombat, true);
 
-
-
-            /******************************************************************************
-
-            //Test returnUnitBestLife
-           newgame._Map.returnSquare(0,0).returnUnitBestLife();
-           newgame._Map.returnSquare(0, 0).returnUnitBestDefense();
-           newgame._Map.unitBestDefense(0,0);
-
-
-            //Test chooseNbCombat(0,0)
-           int result = newgame._Map.chooseNbCombat(0, 0);
-
-            //Test engageCombat(attacke,defense)
-           newgame._Map.returnSquare(0, 0).ListUnitImpl[0].engageCombat(newgame._Map.returnSquare(0, 0).ListUnitImpl[0], 
-               newgame._Map.returnSquare(0, 0).ListUnitImpl[1]);
-
-            //Test startCombat
-           newgame.startCombat(newgame._Map.returnSquare(0, 0).ListUnitImpl[0], 0, 0);
-
-            **********************************************************************************************************/
+            /*Test startCombat(u,row,column)*/
+             newgame.startCombat(newgame.ListPlayer[0].PeoplePlayer.ListUnit[0], 0, 1);
 
 
 
@@ -135,25 +125,6 @@ namespace TestCombat
 
 
 
-
-
-            /*************************************************************
-            // demande entre LoadGameplay et NewGamePlay
-            switch (choix_game)
-            {
-                case 0:
-                    //NewGamePlay
-                    GamePlayBuilder builder_new = new NewGamePlayImpl();
-                    GamePlay game_new=builder_new.start(p1, p2);
-                    break;
-                case 1:
-                    //LoadGamePlay
-                    GamePlayBuilder builder_load = new LoadGamePlayImpl();
-                    GamePlay game_load=builder_load.start(p1, p2);
-                    break;
-
-            }
-            */
 
             
         }

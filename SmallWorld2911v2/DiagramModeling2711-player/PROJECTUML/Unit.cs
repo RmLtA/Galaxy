@@ -21,12 +21,19 @@ namespace PROJECTUML
     [Serializable()]
     public abstract class UnitImpl : Unit
     {
-        private int _MovePoint = 300;
-        private int _LifePoint = 5;
-        private int _DefensePoint = 1;
-        private int _AttackPoint = 2;
+        private int _MovePoint;
+        private int _LifePoint;
+        private int _DefensePoint;
+        private int _AttackPoint;
         private int _Column;
         private int _Row;
+        private int _Rank;
+
+        public int Rank
+        {
+            get;
+            set;
+        }
 
         
         public int MovePoint
@@ -106,6 +113,8 @@ namespace PROJECTUML
         }
 
 
+
+
     }
 
     public interface Unit
@@ -122,6 +131,7 @@ namespace PROJECTUML
         int MovePoint { get; set; }
 
         int AttackPoint { get; set; }
+        int Rank { get; set; }
 
         int Column { get; set; }
 

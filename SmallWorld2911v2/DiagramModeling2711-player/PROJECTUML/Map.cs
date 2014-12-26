@@ -10,9 +10,9 @@ namespace PROJECTUML
     public enum MapType { SMALL = 0, NORMAL = 1, DEMO = 2 };
     public class MapImpl : Map
     {
-        private int _TurnNumber;
-        private int _UnitNumber;
-        private int _SquareNumber;
+        private int _TurnNumber=0;
+        private int _UnitNumber=0;
+        private int _SquareNumber=0;
         private Square[,] _BoardGame;
         private Wrapper _wrapper;
 
@@ -148,7 +148,6 @@ namespace PROJECTUML
         public void placeUnits(List<Unit> l1, List<Unit> l2)
         {
             BoardGame[0,0].addInSquare(l1);
-            //il y a un probleme d'overflow
             BoardGame[SquareNumber-1,SquareNumber-1].addInSquare(l2);
 
             for (int i = 0; i < l1.Count; i++)
@@ -172,13 +171,25 @@ namespace PROJECTUML
         public int chooseNbCombat(int row, int column)
         {
             Square s = BoardGame[row, column];
-            Unit u = s.returnUnitBestLife();
+            Unit u;
+            int result = 0;
+            if (s.ListUnitImpl != null) { 
+                u =  s.returnUnitBestLife();
+                Random random = new Random();
+                if (u != null)
+                {
+                    result = random.Next(3, u.LifePoint + 2);
+                }
+                return result;
 
-            Random random = new Random();
-            int result = random.Next(3, u.LifePoint+2);
+            }
+            else
+            {
+                return 0;
+            }
+                 
 
-            return result;
-            throw new System.NotImplementedException();
+            
         }
 
         /**

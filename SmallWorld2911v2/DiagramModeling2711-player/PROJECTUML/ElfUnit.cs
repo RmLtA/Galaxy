@@ -9,12 +9,14 @@ namespace PROJECTUML
     {
         public ElfUnitImpl()
         {
-            MovePoint = 1;
+            MovePoint = 500;
             AttackPoint = 2;
             LifePoint = 5;
             DefensePoint = 1;
             
         }
+
+ 
 
         /**
          * \brief    calculates the percentage of chance that attacking unit wins against a defensive unit
@@ -49,20 +51,25 @@ namespace PROJECTUML
 
             }
 
-            if (percent > 0.5)
+            if (percent >= 0.5)
             {
                 //l'attaquant a gagné
                 return true;
             }
 
-            //l'attaquant a perdu ou les deux adversaire sont à égalité, il n'y a pas de gagnant
+            //l'attaquant a perdu 
             return false;
         }
 
+
+
     }
+
+    
 
     public interface ElfUnit : Unit
     {
         bool engageCombat(Unit u_attack, Unit u_defense);
+
     }
 }

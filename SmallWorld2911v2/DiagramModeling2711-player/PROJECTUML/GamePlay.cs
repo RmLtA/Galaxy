@@ -125,40 +125,91 @@ namespace PROJECTUML
          */
         public bool startCombat(Unit u, int row, int column)
         {
-            //vérification du nombre de point de déplacement
-            if (u.MovePoint < 1)
-            {
-                return false;
-            }
-            else
-            {
-                //vérification si les cases sont juxtaposées.
-                if (Map.juxtaposedSquare(u, row, column))
+            if (u != null)
+            { 
+                if (u.MovePoint < 1)
                 {
-                    //choisir le nombre de combats
-                    if (Map.returnSquare(row, column).ListUnitImpl.Count == 1)
+                    return false;
+                }
+                else
+                {
+                    if (Map.returnSquare(row, column) != null)
                     {
-                        return u.engageCombat(u, Map.returnSquare(row, column).ListUnitImpl[0]);
-                    }
-                    else
-                    {
-                        int index = 0;
-                        int nbCombat = Map.chooseNbCombat(row, column);
-                        bool result = false;
-                        while (nbCombat > 0)
+                        if (Map.juxtaposedSquare(u, row, column))
                         {
-                            u.engageCombat(u, Map.returnSquare(row, column).ListUnitImpl[index]);
-                            index++;
-                            nbCombat--;
+                            if (Map.returnSquare(row, column).ListUnitImpl.Count == 1)
+                            {
+                                return isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[0]);
+                            }
+                            else
+                            {
+                                int index = 0;
+                                int nbCombat = Map.chooseNbCombat(row, column);
+                                bool result = false;
+                                while ((nbCombat > 0 ) && (index < Map.returnSquare(row, column).ListUnitImpl.Count))
+                                {
+                                    isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[index]);
+                                    index++;
+                                    nbCombat--;
+                                }
+                                return result;
+                            }
                         }
-                        return result; 
                     }
+                    else { return false; }
                 }
             }
             return false;
         }
 
+        public bool isCombatWinned(Unit attack, Unit defense)
+        {
+            if (attack.engageCombat(attack, defense) == true)
+            {
+                attack.LifePoint++;
+                if (defense.LifePoint > 0)
+                {
+                    defense.LifePoint--;
+                    if (whoseturn() == ListPlayer[0])
+                    {
 
+                        moveUnitOrder(defense, Map.SquareNumber - 1, Map.SquareNumber - 1);
+                    }
+                    else
+                    {
+                        moveUnitOrder(defense, 0, 0);
+                    }
+                }
+                else
+                {
+                    delete(defense);
+                }
+                return true;
+            }
+            defense.LifePoint++;
+            if (attack.LifePoint > 0)
+            {
+                attack.LifePoint--;
+                if (whoseturn() == ListPlayer[0])
+                {
+                    moveUnitOrder(attack, 0, 0);
+                }
+                else
+                {
+                    moveUnitOrder(attack, Map.SquareNumber-1, Map.SquareNumber-1);
+                }
+            }
+            else
+            {
+                delete(attack);
+            }
+            return false;
+        }
+
+        public void delete(Unit u)
+        {
+            Map.returnSquare(u.Row, u.Column).removeFromSquare(u);
+        }
         /**
          * \brief    change the position of the unit and calculate the bonus and the malus
          * \param   u unit
@@ -254,6 +305,8 @@ namespace PROJECTUML
 
         void moveUnitOrder(Unit u, int row, int column);
         Player whoseturn();
+
+        void delete(Unit u);
 
          GamePlay Instance { get; set; }
 

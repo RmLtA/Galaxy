@@ -9,7 +9,7 @@ namespace PROJECTUML
     {
         public OrcUnitImpl()
         {
-            MovePoint = 1;
+            MovePoint = 500;
             AttackPoint = 2;
             LifePoint = 5;
             DefensePoint = 1;

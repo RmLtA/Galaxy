@@ -20,7 +20,7 @@ namespace WPFSmallWorld
     /// </summary>
     public partial class Player : Window
     {
-        GamePlay game;
+        
         string player1, player2;
         PeopleType people1, people2;
         string peopleType1, peopleType2;
@@ -134,6 +134,7 @@ namespace WPFSmallWorld
 
         private void startGame(object sender, RoutedEventArgs e)
         {
+            GamePlay game;
             GamePlayBuilder builder = new NewGamePlayImpl();
             game = builder.start(map,player1, people1,player2, people2);
             MainWindow window = new MainWindow(game);
