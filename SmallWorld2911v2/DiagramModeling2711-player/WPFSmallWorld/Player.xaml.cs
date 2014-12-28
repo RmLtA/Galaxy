@@ -134,11 +134,20 @@ namespace WPFSmallWorld
 
         private void startGame(object sender, RoutedEventArgs e)
         {
-            GamePlayBuilder builder = new NewGamePlayImpl();
-            game = builder.start(map,player1, people1,player2, people2);
-            MainWindow window = new MainWindow(game);
-            window.Show();
-            this.Close();
+            if ((Ok1.IsChecked.Value) && (Ok2.IsChecked.Value))
+            {
+
+                GamePlayBuilder builder = new NewGamePlayImpl();
+                game = builder.start(map, player1, people1, player2, people2);
+                //GamePlayImpl.Instance = game;
+                MainWindow window = new MainWindow(game);
+                window.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("check Ok !! ");
+            }
 
         }
 

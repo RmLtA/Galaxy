@@ -43,6 +43,7 @@ namespace PROJECTUML
 
             //placer sur la map les unites de joueurs 
             GamePlay p = new GamePlayImpl(m, l, map);
+            GamePlayImpl.Instance = p;
             return p;
          
             throw new System.NotImplementedException();

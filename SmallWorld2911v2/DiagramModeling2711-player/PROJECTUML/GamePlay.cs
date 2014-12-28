@@ -20,7 +20,7 @@ namespace PROJECTUML
         private Map _Map;
         private List<Player> _ListPlayer;
         private MapType _TypeMap;
-        private GamePlay _instance;
+        //private GamePlay _instance;
 
         public static GamePlay Instance
         {
@@ -30,6 +30,10 @@ namespace PROJECTUML
                     instance = new GamePlayImpl();
 
                 return instance;
+            }
+            set
+            {
+                instance = value;
             }
         }
 
@@ -81,6 +85,7 @@ namespace PROJECTUML
             Map =(MapImpl) m;
             ListPlayer = l;
             _TypeMap = typeMap;
+
             GamePlayImpl.instance = this;
 
         }
@@ -149,12 +154,17 @@ namespace PROJECTUML
         */
         public void registerGamePlay(string destination)
         {
-            Stream stream = File.Open(destination, FileMode.Create);
-            BinaryFormatter bformat = new BinaryFormatter();
+            try
+            {
+                Stream stream = File.Open(destination, FileMode.Create);
+                BinaryFormatter bformat = new BinaryFormatter();
 
-            bformat.Serialize(stream, GamePlayImpl.Instance);
-            stream.Close();
+                bformat.Serialize(stream, GamePlayImpl.instance);
+                stream.Close();
+            }
+            catch (Exception e) { Console.WriteLine("erreur"); }
         }
+
 
         /// <summary>
         /// Serialization of a game instance 
@@ -306,7 +316,7 @@ namespace PROJECTUML
         bool startCombat(Unit u, int row, int column);
 
         void registerGamePlay(string destination);
-        public void LoadGame(string saveFile);
+        void LoadGame(string saveFile);
 
         void moveUnitOrder(Unit u, int row, int column);
         Player whoseturn();

@@ -8,7 +8,7 @@
     <Grid>
         <Button Content="Start" HorizontalAlignment="Left" Margin="75,63,0,0" VerticalAlignment="Top" Width="144" Click="Button_Click"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="75,173,0,0" VerticalAlignment="Top" Width="144"/>
-        <Button Content="Load" HorizontalAlignment="Left" Margin="75,116,0,0" VerticalAlignment="Top" Width="144"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="75,116,0,0" VerticalAlignment="Top" Width="144" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
