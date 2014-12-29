@@ -36,7 +36,7 @@ namespace PROJECTUML
             attack = u_attack.AttackPoint * percentLife_u_attack;
 
             percentLife_u_defense =  u_defense.LifePoint/ LifePointTotal;
-            defense = u_defense.AttackPoint * percentLife_u_attack;
+            defense = u_defense.DefensePoint * percentLife_u_defense;
 
             //egalité en attaque et en défense
             if (attack == defense)

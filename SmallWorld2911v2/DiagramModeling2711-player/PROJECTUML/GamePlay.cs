@@ -146,12 +146,15 @@ namespace PROJECTUML
                                 int index = 0;
                                 int nbCombat = Map.chooseNbCombat(row, column);
                                 bool result = false;
-                                while ((nbCombat > 0 ) && (index < Map.returnSquare(row, column).ListUnitImpl.Count))
+                                //index --> pour vérifier qu'on ne sort pas du tableau
+                                while ((nbCombat > 0) && (index < Map.returnSquare(row, column).ListUnitImpl.Count))
                                 {
                                     isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[index]);
                                     index++;
                                     nbCombat--;
+                                    
                                 }
+                                result = true;
                                 return result;
                             }
                         }
@@ -166,13 +169,13 @@ namespace PROJECTUML
         {
             if (attack.engageCombat(attack, defense) == true)
             {
-                attack.LifePoint++;
+ 
                 if (defense.LifePoint > 0)
                 {
                     defense.LifePoint--;
                     if (whoseturn() == ListPlayer[0])
                     {
-
+                        // retour à la case de départ
                         moveUnitOrder(defense, Map.SquareNumber - 1, Map.SquareNumber - 1);
                     }
                     else
@@ -186,7 +189,7 @@ namespace PROJECTUML
                 }
                 return true;
             }
-            defense.LifePoint++;
+
             if (attack.LifePoint > 0)
             {
                 attack.LifePoint--;
@@ -208,6 +211,14 @@ namespace PROJECTUML
 
         public void delete(Unit u)
         {
+            if (whoseturn() == ListPlayer[0])
+            {
+                ListPlayer[0].PeoplePlayer.deleteInList(u);
+            }
+            else
+            {
+                ListPlayer[1].PeoplePlayer.deleteInList(u);
+            }
             Map.returnSquare(u.Row, u.Column).removeFromSquare(u);
         }
         /**

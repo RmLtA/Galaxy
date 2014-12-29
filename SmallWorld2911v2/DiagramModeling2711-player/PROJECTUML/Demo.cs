@@ -14,8 +14,7 @@ namespace PROJECTUML
     
         public Map execute()
         {
-            return new MapImpl(0);
-            throw new System.NotImplementedException();
+            return new MapImpl(MapType.DEMO);
         }
     }
 

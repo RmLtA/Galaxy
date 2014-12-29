@@ -7,23 +7,26 @@ namespace PROJECTUML
 {
     public class SquareFactoryImpl : SquareFactory
     {
-        public ForestImpl _Forest = new ForestImpl();
-        public DesertImpl _Desert = new DesertImpl();
-        public PlainImpl _Plain = new PlainImpl();
+        public ForestImpl _Forest;
+        public DesertImpl _Desert;
+        public PlainImpl _Plain;
 
         public Plain createPlain()
         {
+            _Plain = new PlainImpl();
             return _Plain;
         }
 
 
         public Desert createDesert()
         {
+            _Desert = new DesertImpl();
             return _Desert;
         }
 
         public Forest createForest()
         {
+            _Forest = new ForestImpl();
             return _Forest;
         }
     }

@@ -32,6 +32,21 @@ namespace PROJECTUML
             throw new NotImplementedException();
         }
 
+        public void deleteInList(Unit u)
+        {
+            if (u != null)
+            {
+                for (int i = 0; i < ListUnit.Count; i++)
+                {
+                    if (u == ListUnit[i])
+                    {
+
+                        ListUnit.Remove(ListUnit[i]);
+                    }
+                }
+            }
+        }
+
 
 
         public PeopleImpl()
@@ -49,6 +64,7 @@ namespace PROJECTUML
         List<Unit> ListUnit { get; set; }
 
         void addUnitInList(Unit u);
+        void deleteInList(Unit u);
       
     }
 }

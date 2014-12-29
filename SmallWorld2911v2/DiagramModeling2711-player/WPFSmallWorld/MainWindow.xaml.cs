@@ -14,8 +14,8 @@ using System.Windows.Shapes;
 using System.Threading.Tasks;
 using PROJECTUML;
 
-namespace WPFSmallWorld
-{
+namespace WPFSmallWorld{
+
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
@@ -76,6 +76,7 @@ namespace WPFSmallWorld
             }
 
             initInformations();
+            updateInfo();
             updateGraphiqueUnite(game.ListPlayer[0], 0);
             updateGraphiqueUnite(game.ListPlayer[1], 1);
 
@@ -85,6 +86,20 @@ namespace WPFSmallWorld
 
         public void initInformations()
         {
+            if (game.ListPlayer[0].Name!=null)
+            Name1.Content = game.ListPlayer[0].Name.ToString();
+            if(game.ListPlayer[1].Name!=null)
+            Name2.Content = game.ListPlayer[1].Name.ToString();
+
+
+
+            game.ListPlayer[0].Turn = true;
+            game.ListPlayer[1].Turn = false;
+
+        }
+
+        public void updateInfo()
+        {
             int n1, n2;
             n1 = game.ListPlayer[0].NbUnit;
             n2 = game.ListPlayer[1].NbUnit;
@@ -93,12 +108,16 @@ namespace WPFSmallWorld
                 NbUnite1.Content = game.ListPlayer[0].NbUnit.ToString();
                 NbUnite2.Content = game.ListPlayer[1].NbUnit.ToString();
             }
-            Name1.Content = game.ListPlayer[0].Name;
-            Name2.Content = game.ListPlayer[1].Name;
+            if (game.ListPlayer[0].PeoplePlayer.ListUnit[0]!=null)
+            LifePoint11.Content = game.ListPlayer[0].PeoplePlayer.ListUnit[0].LifePoint.ToString();
+            if (game.ListPlayer[1].PeoplePlayer.ListUnit[0]!=null)
+            LifePoint12.Content = game.ListPlayer[1].PeoplePlayer.ListUnit[0].LifePoint.ToString();
 
-            game.ListPlayer[0].Turn = true;
-            game.ListPlayer[1].Turn = false;
+            Ligne11.Content = game.ListPlayer[0].PeoplePlayer.ListUnit[0].Row.ToString();
+            Ligne12.Content = game.ListPlayer[1].PeoplePlayer.ListUnit[0].Row.ToString();
 
+            Colonne11.Content = game.ListPlayer[0].PeoplePlayer.ListUnit[0].Column.ToString();
+            Colonne12.Content = game.ListPlayer[1].PeoplePlayer.ListUnit[0].Column.ToString();
         }
 
 
@@ -214,19 +233,18 @@ namespace WPFSmallWorld
 
         private unsafe void updateUnitUI(int row, int column)
         {
-            //var index = selectionUnit(row,column);
-            var index = 0;
-            int turn;
-
+            var index = selectionUnit(row, column);
+            System.Console.WriteLine("--index---"+index);
             if (index != 777)
             {
+                int turn;
+
                 var square = game.Map.returnSquare(row, column);
-                System.Console.WriteLine("!!!!!!!!!!!!!!!!!!!!SQUARE ::" + square.ListUnitImpl.Count);
+
                 if (square.ListUnitImpl.Count == 0)
                 {
-                    //System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
+
                     game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
-                    //System.Console.WriteLine(game.whoseturn().PeoplePlayer.ListUnit[index].Row + " Unit " + game.whoseturn().PeoplePlayer.ListUnit[index].Column);
                     if (indexTurnPlayer() == 0)
                     {
                         turn = 0;
@@ -236,64 +254,71 @@ namespace WPFSmallWorld
                         turn = game.Map.UnitNumber;
                     }
 
-                    Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], row);
-                    Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], column);
+                    System.Console.WriteLine("-TURN- "+turn);
+                    Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 1 + index + turn], row);
+                    Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 1 + index + turn], column);
                 }
                 else
-                { /*
+                {
                     List<Unit> l = game.Map.returnSquare(row, column).ListUnitImpl;
-                    
+
+                    //si le combat est gagné
                     if (game.startCombat(game.whoseturn().PeoplePlayer.ListUnit[index], row, column) == true)
                     {
-                        game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+                        System.Console.WriteLine("COMBAT GAGNE");
 
-                        
-                            if (game.Map.returnSquare(row, column).ListUnitImpl.Count==0)
+
+                        //s'il n'y a plus d'unité dans la case ennemi
+                        if (game.Map.returnSquare(row, column).ListUnitImpl.Count == 0)
+                        {
+                            //le déplacer sur le graphique
+                            if (indexTurnPlayer() == 0)
                             {
-                                if (indexTurnPlayer() == 0)
-                                {
-                                    turn = 0;
-                                    for (int i = 0; i < l.Count; i++)
-                                    {
-                                        Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], game.Map.SquareNumber-1);
-                                        Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], game.Map.SquareNumber - 1);
-                                    }
-                                }
-                                else
-                                {
-                                    turn = game.Map.UnitNumber;
-                                    for (int i = 0; i < l.Count; i++)
-                                    {
-                                        Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], 0);
-                                        Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank], 0);
-                                    }
-                                }
-                                
+                                turn = 0;
 
-                                Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], row);
-                                Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], column);
                             }
+                            else
+                            {
+                                turn = game.Map.UnitNumber;
+
+                            }
+
+                            //changement de coordonnées dans le modèle
+                            game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+                            Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2+ index + turn], row);
+                            Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], column);
+                        }
+
 
                     }
                     else
                     {
-                        if (indexTurnPlayer() == 0)
+                        //le combat est perdu 
+                        System.Console.WriteLine("COMBAT PERDU");
+
+                        if (game.whoseturn().PeoplePlayer.ListUnit[index].LifePoint == 0)
                         {
-                            turn = 0;
+                            if (indexTurnPlayer() == 0)
+                            {
+                                turn = game.Map.UnitNumber;
+
+                            }
+                            else
+                            {
+                                turn = 0;
+
+                            }
+                            myGrid.Children.Remove(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn]);
                         }
-                        else
-                        {
-                            turn = game.Map.UnitNumber;
-                        }
-                        Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], 0);
-                        Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + index + turn], 0);
+
                     }
-                }*/
                 }
+
             }
-
-
         }
+
+
+        
 
 
         /// <summary>
@@ -318,6 +343,7 @@ namespace WPFSmallWorld
             selectionPolygon.Tag = tile;
             selectionPolygon.Visibility = System.Windows.Visibility.Visible;
             updateUnitUI(row, column);
+            updateInfo();
             e.Handled = true;
         }
 
