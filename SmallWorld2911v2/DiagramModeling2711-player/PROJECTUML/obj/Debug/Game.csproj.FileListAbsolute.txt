@@ -27,3 +27,10 @@ C:\Users\Romdhane\Desktop\Galaxy-v_liantsoa\SmallWorld2911v2\DiagramModeling2711
 C:\Users\Romdhane\Desktop\Galaxy-v_liantsoa\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\Game.csprojResolveAssemblyReference.cache
 C:\Users\Romdhane\Desktop\Galaxy-v_liantsoa\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.dll
 C:\Users\Romdhane\Desktop\Galaxy-v_liantsoa\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\PROJECTUML.pdb
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\WrapperCpp.dll
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\bin\Debug\WrapperCpp.pdb
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.dll
+C:\Users\Romdhane\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\PROJECTUML\obj\Debug\PROJECTUML.pdb

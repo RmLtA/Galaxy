@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace PROJECTUML
 {
-    public class GamePlayImpl : GamePlay, ISerializable
+    public class GamePlayImpl : GamePlay
     {
         // Singleton attribute - Private instance
         private static GamePlay instance;
@@ -125,27 +125,25 @@ namespace PROJECTUML
         }
         // Load a saved Game
 
-         public void LoadGame(string saveFile)
+         public GamePlay LoadGame(string saveFile)
         {
             Stream stream = File.Open(saveFile, FileMode.Open);
             BinaryFormatter bformat = new BinaryFormatter();
-
+            GamePlay game = new GamePlayImpl();
 
             // Try to deserialize the file. In case of exception, check if
             // the exception is due to a bad format file or it's unknown.
             try
             {
-                bformat.Deserialize(stream);
+               game=(GamePlayImpl) bformat.Deserialize(stream);
             }
             catch (Exception e)
             {
-                if (e is SerializationException || e is System.Reflection.TargetInvocationException)
-                    throw new Exception();
-                else
-                    throw;
+                Console.WriteLine("erreur loading");
 
             }
             stream.Close();
+            return game;
         }
     
 
@@ -162,27 +160,11 @@ namespace PROJECTUML
                 bformat.Serialize(stream, GamePlayImpl.instance);
                 stream.Close();
             }
-            catch (Exception e) { Console.WriteLine("erreur"); }
+            catch (Exception e) { Console.WriteLine("erreur saving"); }
         }
 
 
-        /// <summary>
-        /// Serialization of a game instance 
-        /// </summary>
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("GamePlayers", this.ListPlayer);
-            info.AddValue("GameMap", this.Map);
-        }
-          // Deserialization constructor.
-        public GamePlayImpl(SerializationInfo info, StreamingContext ctxt)
-        {
-            this.ListPlayer = (List <Player>) info.GetValue("GamePlayers", typeof(List <Player>));
-            this.Map = (Map) info.GetValue("GameMap", typeof(Map));
-            
-            // Overwrite the current game with the new one created
-            GamePlayImpl.instance = this;
-        }
+      
 
         /**
          * \brief    return true if the attacking unit winned against unit(s) in the square[row,column]
@@ -316,7 +298,7 @@ namespace PROJECTUML
         bool startCombat(Unit u, int row, int column);
 
         void registerGamePlay(string destination);
-        void LoadGame(string saveFile);
+        GamePlay LoadGame(string saveFile);
 
         void moveUnitOrder(Unit u, int row, int column);
         Player whoseturn();
