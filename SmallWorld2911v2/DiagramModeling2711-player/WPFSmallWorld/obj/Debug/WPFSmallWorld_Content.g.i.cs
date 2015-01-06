@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/desert.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/foret.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/plaine.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/dwarf.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/viking.png")]
 
 

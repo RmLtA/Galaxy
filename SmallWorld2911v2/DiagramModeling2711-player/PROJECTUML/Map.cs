@@ -201,22 +201,20 @@ namespace PROJECTUML
             Square s = returnSquare(row,column);
             if (s != null)
             {
-                if((row == u.Row) && ((column +1) == u.Column )){
-                    return true;
-                }
-                if ((row == u.Row) && ((column -1)  == u.Column))
+                if (((u.Row == row) && (u.Column == column + 1)) || ((u.Row == row) && (u.Column == column - 1)))
                 {
                     return true;
                 }
-                if ((row  == u.Row +1) && ((column + 1) == u.Column))
+
+                if (((u.Column == column) && (u.Row == row + 1)) || ((u.Column== column) && (u.Row == row - 1)))
                 {
                     return true;
                 }
-                if ((row  == u.Row +1) && (column -1 == u.Column ))
+
+                if (((u.Column == column - 1) && (u.Row == row + 1)) || ((u.Column == column - 1) && (u.Row == row - 1)))
                 {
                     return true;
                 }
-                System.Console.WriteLine("ICI");
                 return false;
                 
             }

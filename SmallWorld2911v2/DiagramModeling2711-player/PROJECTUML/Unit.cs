@@ -72,9 +72,52 @@ namespace PROJECTUML
             set { _Row = value; }
         }
 
-        public bool engageCombat(Unit u, Unit ue)
+        public bool engageCombat(Unit u_attack, Unit u_defense)
         {
-            throw new System.NotImplementedException();
+            double percent = 0;
+            int LifePointTotal = 5;
+            double percentLife_u_attack = 0;
+            double percentLife_u_defense = 0;
+            double attack = 0;
+            double defense = 0;
+
+            //re-calcul des points d'attaque
+            percentLife_u_attack = u_attack.LifePoint / LifePointTotal;
+            attack = u_attack.AttackPoint * percentLife_u_attack;
+
+            percentLife_u_defense = u_defense.LifePoint / LifePointTotal;
+            defense = u_defense.AttackPoint * percentLife_u_attack;
+
+            //egalité en attaque et en défense
+            if (attack == defense)
+            {
+                //deux unités égales ont 50% de chance de gagner
+                percent = 50 / 100;
+                System.Console.WriteLine("PERCENT COMBAT EGALITE " + percent);
+            }
+            else
+            {
+                percent = (attack / defense) * 0.5;
+                percent = 0.5 * percent;
+                System.Console.WriteLine("PERCENT COMBAT " + percent);
+
+            }
+
+            if (percent >= 0.5)
+            {
+                System.Console.WriteLine("COMBAT GAGNE ");
+                //l'attaquant a gagné
+                return true;
+            }
+            else
+            {
+                System.Console.WriteLine("COMBAT PERDU ");
+                //l'attaquant a perdu ou les deux adversaire sont à égalité, il n'y a pas de gagnant
+                return false;
+            }
+
+            
+            
         }
 
         public unsafe int* getSuggestedPointsX(Map map)

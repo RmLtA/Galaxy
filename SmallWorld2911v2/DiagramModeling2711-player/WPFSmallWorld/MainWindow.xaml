@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WPFSmallWorld"
-        Title="Small World" Height="500" Width="500"
+        Title="Small World" Height="600
+        " Width="600"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Loaded_Window">
     <Window.Resources>
 
@@ -67,43 +68,46 @@
         </Style>
     </Window.Resources>
     <DockPanel>
-        <Grid  DockPanel.Dock="Bottom" Height="158" >
+        <Grid  DockPanel.Dock="Bottom" Height="158" Background="#BECFCD" >
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="181*"/>
                 <ColumnDefinition Width="184*"/>
                 <ColumnDefinition Width="109*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Nom : " HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="10,18,0,0" VerticalAlignment="Top" Width="48"/>
-            <Label Content="Nom : " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="10,18,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" x:Name="Name1" BorderThickness="2" HorizontalAlignment="Left" Height="28" Margin="63,67,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" x:Name="Name2" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="80,18,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="Unités restantes : " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="10,52,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" x:Name="NbUnite2" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="141,52,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="Nom : " HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="10,-401,0,0" VerticalAlignment="Top" Width="48"/>
+            <Label Content="Nom : " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="192,-401,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="2.414,0.717" Grid.ColumnSpan="2"/>
+            <Label Content="" x:Name="Name1" BorderThickness="2" HorizontalAlignment="Left" Height="28" Margin="72,-401,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="" x:Name="Name2" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="2" Height="29" Margin="15,-402,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="2.414,0.717"/>
+
+            <Label Content="Number of remaining units : " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="" x:Name="NbUnite2" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="180,10,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="2.414,0.717"/>
 
 
-            <Label Content="Unités restantes : " HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="10,49,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="NbUnite1" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="129,49,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="Number of remaining units " HorizontalAlignment="Left"  Grid.Column="0" Height="34" Margin="0,10,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="" Name="NbUnite1" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,15,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="LifePoint Unité 1: " HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="10,77,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="LifePoint11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="129,74,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="Unit LifePoint: " HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="10,77,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="" Name="LifePoint11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,77,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="LifePoint Unité 1: " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="10,80,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="LifePoint12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="139,86,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="Unit LifePoint: " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="10,80,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="" Name="LifePoint12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="180,77,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="Ligne : " HorizontalAlignment="Left" Height="29" Margin="0,106,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="Ligne11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="57,106,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="MovePoint: " HorizontalAlignment="Left" Height="29" Margin="10,106,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="" Name="Ligne11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,106,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="Colonne  : " HorizontalAlignment="Left" Height="29" Margin="0,129,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="Colonne11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="72,129,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="AttackPoint : " HorizontalAlignment="Left" Height="29" Margin="10,129,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="" Name="Colonne11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,129,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="Ligne : " HorizontalAlignment="Left" Height="29" Margin="10,106,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717" Grid.Column="1"/>
-            <Label Content="" Name="Ligne12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="59,106,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
+            <Label Content="MovePoint : " HorizontalAlignment="Left" Height="29" Margin="10,106,0,0" VerticalAlignment="Top" Width="44" RenderTransformOrigin="2.414,0.717" Grid.Column="1"/>
+            <Label Content="" Name="Ligne12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="180,106,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="Colonne  : " HorizontalAlignment="Left" Height="29" Margin="10,129,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717" Grid.Column="1"/>
-            <Label Content="" Name="Colonne12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="71,129,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-            <Button Content="End turn " HorizontalAlignment="Left" Margin="37,83,0,0" Grid.Column="2" VerticalAlignment="Top" Width="66" Height="20" Click="Button_Click"/>
+            <Label Content="AttackPoint  : " HorizontalAlignment="Left" Height="29" Margin="10,129,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="2.414,0.717" Grid.Column="1"/>
+            <Label Content="" Name="Colonne12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="178,129,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
+            <Button Content="End turn " HorizontalAlignment="Left" Margin="37,24,0,0" Grid.Column="2" VerticalAlignment="Top" Width="79" Height="20" Click="Button_Click"/>
+            <Button Content="Save and Quit" HorizontalAlignment="Left" Margin="37,59,0,0" Grid.Column="2" VerticalAlignment="Top" Width="79" Height="20" />
+            <Button Content="Exit" HorizontalAlignment="Left" Margin="37,89,0,0" Grid.Column="2" VerticalAlignment="Top" Width="79" Height="20" />
         </Grid>
         <Grid  DockPanel.Dock="Top" >
 
@@ -113,7 +117,7 @@
         <local:HexagonGrid Name="myGrid" Margin="0,-1,0,0" Width="600"
                            RenderTransformOrigin="0.637,0.429">
         -->
-        <Grid  Name="myGrid" Margin="0,-1,0,0" Width="480"
+        <Grid  Name="myGrid" Margin="0,45,0,21" Width="536"
                            RenderTransformOrigin="0.637,0.429">
 
             <local:HexagonGrid    Rows="5" Columns="4" HexagonSideLength="40">

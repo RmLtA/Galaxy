@@ -36,20 +36,14 @@ namespace PROJECTUML
 
         public void addUnitInSquare(Unit u)
         {
+            if(u!=null)
             ListUnitImpl.Add(u);
         }
         public void removeFromSquare(Unit u)
         {
             if (u != null)
             {
-                for (int i = 0; i < ListUnitImpl.Count; i++)
-                {
-                    if (u == ListUnitImpl[i])
-                    {
-
-                        ListUnitImpl.Remove(ListUnitImpl[i]);
-                    }
-                }
+                ListUnitImpl.Remove(u);
             }
         }
 

@@ -22,7 +22,7 @@
   <Class Name="PROJECTUML.PeopleImpl">
     <Position X="1" Y="6.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAACAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
       <FileName>People.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -210,7 +210,7 @@
   <Interface Name="PROJECTUML.People">
     <Position X="28" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAACAAAAAAAAAAEAAAAgAAAAAAI=</HashCode>
       <FileName>People.cs</FileName>
     </TypeIdentifier>
   </Interface>

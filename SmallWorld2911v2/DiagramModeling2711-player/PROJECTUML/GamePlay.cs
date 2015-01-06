@@ -135,13 +135,7 @@ namespace PROJECTUML
                 {
                     if (Map.returnSquare(row, column) != null)
                     {
-                        if (Map.juxtaposedSquare(u, row, column))
-                        {
-                            if (Map.returnSquare(row, column).ListUnitImpl.Count == 1)
-                            {
-                                return isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[0]);
-                            }
-                            else
+                            if (Map.returnSquare(row, column).ListUnitImpl.Count > 1)
                             {
                                 int index = 0;
                                 int nbCombat = Map.chooseNbCombat(row, column);
@@ -152,14 +146,21 @@ namespace PROJECTUML
                                     isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[index]);
                                     index++;
                                     nbCombat--;
-                                    
+
                                 }
                                 result = true;
                                 return result;
+                                
                             }
-                        }
+                            else
+                            {
+                                return isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[0]); 
+                            }
+                       
                     }
-                    else { return false; }
+                    else {
+                        System.Console.WriteLine("Pas de combat");
+                        return false; }
                 }
             }
             return false;
@@ -170,43 +171,34 @@ namespace PROJECTUML
             if (attack.engageCombat(attack, defense) == true)
             {
  
-                if (defense.LifePoint > 0)
+                if (defense.LifePoint == 0)
                 {
-                    defense.LifePoint--;
-                    if (whoseturn() == ListPlayer[0])
-                    {
-                        // retour à la case de départ
-                        moveUnitOrder(defense, Map.SquareNumber - 1, Map.SquareNumber - 1);
-                    }
-                    else
-                    {
-                        moveUnitOrder(defense, 0, 0);
-                    }
+                    System.Console.WriteLine("COMBAT GAGNE DELETE DEFENSE");
+                    delete(defense);
                 }
                 else
                 {
-                    delete(defense);
+                    defense.LifePoint--;
+                    System.Console.WriteLine("COMBAT GAGNE LIFEDEFENSE DIMINUE");
                 }
                 return true;
             }
-
-            if (attack.LifePoint > 0)
+            else
             {
-                attack.LifePoint--;
-                if (whoseturn() == ListPlayer[0])
+                if (attack.LifePoint == 0)
                 {
-                    moveUnitOrder(attack, 0, 0);
+                    System.Console.WriteLine("COMBAT GAGNE DELETE ATTACK");
+                    delete(attack);
                 }
                 else
                 {
-                    moveUnitOrder(attack, Map.SquareNumber-1, Map.SquareNumber-1);
+                    attack.LifePoint--;
+                    System.Console.WriteLine("COMBAT PERDU LIFEATTACK DIMINUE");
                 }
+                return false;
             }
-            else
-            {
-                delete(attack);
-            }
-            return false;
+
+            
         }
 
         public void delete(Unit u)
@@ -284,14 +276,18 @@ namespace PROJECTUML
                     }
                 }
 
+                //On enlève l'unité de sa case d'avant
                 previous_row = u.Row;
                 previous_column = u.Column;
                 Map.BoardGame[previous_row, previous_column].removeFromSquare(u);
-
+                //System.Console.WriteLine("NB UNIT SQUARE DEPART APRES :" + Map.BoardGame[previous_row, previous_column].ListUnitImpl.Count);
+                //on rajoute l'unité dans le nouveau square
                 unit_move.Row = row;
                 unit_move.Column = column;
                 Map.BoardGame[row, column].addUnitInSquare(unit_move);
+                //System.Console.WriteLine("NB UNIT SQUARE ARRIVEE APRES :" + Map.BoardGame[row, column].ListUnitImpl.Count);
 
+                //on change les coordonnées de l'unité
                 u.move(row, column);
             }
 
