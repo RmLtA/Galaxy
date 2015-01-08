@@ -24,8 +24,8 @@ namespace WrapperCPP{
 
 		int* fillMap(int n){ return algo_map->fillMap(n); }
 
-		int* moveAroundX(int x){ return algo_map->moveAroundX(x); }
-		int* moveAroundY(int y){ return algo_map->moveAroundX(y); }
+		int* moveAroundX(){ return algo_map->moveAroundX(); }
+		int* moveAroundY(){ return algo_map->moveAroundX(); }
 
 
 

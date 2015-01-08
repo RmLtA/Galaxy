@@ -10,7 +10,13 @@ namespace PROJECTUML
         public ForestImpl _Forest;
         public DesertImpl _Desert;
         public PlainImpl _Plain;
+        public MountainImpl _Mountain;
 
+        public Mountain createMountain()
+        {
+            _Mountain = new MountainImpl();
+            return _Mountain;
+        }
         public Plain createPlain()
         {
             _Plain = new PlainImpl();
@@ -29,6 +35,8 @@ namespace PROJECTUML
             _Forest = new ForestImpl();
             return _Forest;
         }
+
+
     }
 
     public interface SquareFactory
@@ -38,5 +46,7 @@ namespace PROJECTUML
         Desert createDesert();
 
         Forest createForest();
+
+        Mountain createMountain();
     }
 }

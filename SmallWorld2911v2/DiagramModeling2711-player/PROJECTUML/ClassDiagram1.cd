@@ -11,7 +11,7 @@
   <Class Name="PROJECTUML.GamePlayImpl">
     <Position X="4.75" Y="0.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AABEAIAAABAAACAAAAAAAQCAAAAgAEAAwAAEAIAgAIA=</HashCode>
+      <HashCode>AABMAIAAABAAACAAAAAAAQCAAAAgAEAAwIAEAIAgAIA=</HashCode>
       <FileName>GamePlay.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -55,7 +55,7 @@
   <Class Name="PROJECTUML.UnitImpl">
     <Position X="8" Y="9" Width="3" />
     <TypeIdentifier>
-      <HashCode>AABhAAAAAAABAgCAIAFIEQEAAAAAAmAAAAAAAQEAAIA=</HashCode>
+      <HashCode>AABhAAAAAAABAgCAIAFIEQEAAAACAmAAAAAAAQEAAIA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -63,7 +63,7 @@
   <Class Name="PROJECTUML.ElfUnitImpl">
     <Position X="5.5" Y="14.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ElfUnit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -71,7 +71,7 @@
   <Class Name="PROJECTUML.OrcUnitImpl">
     <Position X="8.25" Y="14.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OrcUnit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -79,7 +79,7 @@
   <Class Name="PROJECTUML.NainUnitImpl">
     <Position X="10.75" Y="14.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NainUnit.cs</FileName>
       <NewMemberFileName>NainsUnit.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -200,6 +200,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="PROJECTUML.MountainImpl">
+    <Position X="26" Y="15" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mountain.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="PROJECTUML.Strategy">
     <Position X="41.25" Y="1" Width="1.5" />
     <TypeIdentifier>
@@ -224,7 +232,7 @@
   <Interface Name="PROJECTUML.GamePlay">
     <Position X="30.5" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAABAAACAAAAAAAQCAAAAgAEAAwAAAAIAgAAA=</HashCode>
+      <HashCode>AABMAAAAABAAACAAAAAAAQCAAAAgAEAAwIAAAIAgAAA=</HashCode>
       <FileName>GamePlay.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -322,7 +330,7 @@
   <Interface Name="PROJECTUML.OrcUnit">
     <Position X="35.25" Y="10.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OrcUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -353,15 +361,22 @@
   <Interface Name="PROJECTUML.ElfUnit">
     <Position X="33.5" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ElfUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PROJECTUML.NainUnit">
     <Position X="37.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NainUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PROJECTUML.Mountain">
+    <Position X="46" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mountain.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

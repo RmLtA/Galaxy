@@ -19,52 +19,66 @@ int* MapGenerator::fillMap(int Ncases){
 	srand((unsigned int)time(NULL));
 	int type;
 	for (i = 0; i < Ncases*Ncases; i++){
-		type = rand() % 3;
+		type = rand() % 4;
 		tab[i] = type;
 	}								
 	return tab;
 }
 
+/*
 
-
-
-
-int* MapGenerator::moveAroundX(int x)
+if (((u.Row == row) && (u.Column == column + 1)) || ((u.Row == row) && (u.Column == column - 1)))
 {
-	int* suggX = new int[4];
+return true;
+}
+
+if (((u.Column == column) && (u.Row == row + 1)) || ((u.Column== column) && (u.Row == row - 1)))
+{
+return true;
+}
+
+if (((u.Column == column - 1) && (u.Row == row + 1)) || ((u.Column == column - 1) && (u.Row == row - 1)))
+{
+return true;
+}
+*/
+int* MapGenerator::moveAroundY()
+{
+	int* suggY = new int[6];
+	int offsets[6] = { 1, -1, 0, 0, -1, -1 }; 
+
+	//for (int i = 0; i < 6; i++) {
+	//int newY = y - offsets[i];
+	suggY = offsets;
+
+	//}
+
+	return suggY;
+}
+int* MapGenerator::moveAroundX()
+{
+	int* suggX = new int[6];
 	
-	int offsets[4]= { -1,  -1,  0,  0 }; //SUD-OUEST, SUD-EST, NORD-EST, NORD-OUEST
+	int offsets[6]= { 0,  0,  1,  -1, 1 ,-1}; 
 
-	for (int i = 0; i < 4; i++) {
-		int newX = x - offsets[i];
-		suggX[i] = newX;
+	//for (int i = 0; i < 6; i++) {
+		//int newX = x - offsets[i];
+		suggX = offsets;
 
-	}
+	//}
 
 	return suggX;
 }
 
-int* MapGenerator::moveAroundY(int y)
-{
-	int* suggY = new int[4];
-	int offsets[4]={-1 , 1 ,  1 , -1 } ; //SUD-OUEST, SUD-EST, NORD-EST, NORD-OUEST
 
-	for (int i = 0; i < 4; i++) {
-		int newY = y - offsets[i];
-		suggY[i] = newY;
-
-	}
-
-	return suggY;
-}
 
 
 
 MapGenerator* MapGenerator_new(){ return new MapGenerator(); }
 void MapGenerator_delete(MapGenerator* algo){ delete algo; }
 int* MapGenerator_fillMap(MapGenerator* algo, int Ncases){ return algo->fillMap(Ncases); }
-int* MapGenerator_moveAroundX(MapGenerator* algo, int x){ return algo->moveAroundX(x); }
-int* MapGenerator_moveAroundY(MapGenerator* algo, int y){ return algo->moveAroundX(y); }
+int* MapGenerator_moveAroundX(MapGenerator* algo){ return algo->moveAroundX(); }
+int* MapGenerator_moveAroundY(MapGenerator* algo){ return algo->moveAroundX(); }
 
 
 

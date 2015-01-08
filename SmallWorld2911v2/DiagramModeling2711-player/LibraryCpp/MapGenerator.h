@@ -14,11 +14,11 @@ class DLL MapGenerator
 public:
 	MapGenerator();
 	int* fillMap(int n);
-	int* moveAroundX(int x);
-	int* moveAroundY(int y);
+	int* moveAroundX();
+	int* moveAroundY();
 };
 
 EXTERNC DLL MapGenerator* MapGenerator_new();
 EXTERNC DLL int* MapGenerator_fillMap(MapGenerator* algo_map, int n);
-EXTERNC DLL int* MapGenerator_moveAroundX(MapGenerator* algo_map, int x);
-EXTERNC DLL int* MapGenerator_moveAroundY(MapGenerator* algo_map, int y);
+EXTERNC DLL int* MapGenerator_moveAroundX(MapGenerator* algo_map);
+EXTERNC DLL int* MapGenerator_moveAroundY(MapGenerator* algo_map);

@@ -43,7 +43,13 @@ namespace PROJECTUML
         {
             if (u != null)
             {
-                ListUnitImpl.Remove(u);
+                for (int i = 0; i < ListUnitImpl.Count; i++)
+                {
+                    if (u.isequals(u,ListUnitImpl[i]))
+                    {
+                        ListUnitImpl.RemoveAt(i);
+                    }
+                }
             }
         }
 
@@ -90,16 +96,25 @@ namespace PROJECTUML
             int max = 0;
             for (int i = 1; i < ListUnitImpl.Count; i++)
             {
-                if (ListUnitImpl[i - 1].DefensePoint < ListUnitImpl[i].DefensePoint)
+                if (ListUnitImpl[i].DefensePoint == ListUnitImpl[i - 1].DefensePoint)
                 {
-                    max = i;
-                }
-                else
-                {
-                    max = i - 1;
+                    return null;
                 }
             }
-            return ListUnitImpl[max];
+
+           for (int i = 1; i < ListUnitImpl.Count; i++)
+           {
+                    max = max_int(ListUnitImpl[i].DefensePoint, ListUnitImpl[i - 1].DefensePoint);
+                }
+            if (max < ListUnitImpl.Count)
+            {
+                if (ListUnitImpl[max] != null)
+                {
+                    return ListUnitImpl[max];
+                }
+
+            }
+            return null;
         }
     }
 

@@ -3,113 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WPFSmallWorld"
-        Title="Small World" Height="600
-        " Width="600"
+        Title="Small World" Height="600" Width="600"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Loaded_Window">
-    <Window.Resources>
 
-        <DrawingImage x:Key="HexagonImage">
-            <DrawingImage.Drawing>
-                <DrawingGroup>
-                    <GeometryDrawing Brush="White"  
-                           Geometry="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z">
-                        <GeometryDrawing.Pen>
-                            <Pen Brush="Black" Thickness="10" LineJoin="Round"/>
-                        </GeometryDrawing.Pen>
-                    </GeometryDrawing>
-                </DrawingGroup>
-            </DrawingImage.Drawing>
-        </DrawingImage>
-        <DrawingImage x:Key="HexagonHoverImage">
-            <DrawingImage.Drawing>
-                <DrawingGroup>
-                    <GeometryDrawing Brush="Khaki"  
-                           Geometry="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z">
-                        <GeometryDrawing.Pen>
-                            <Pen Brush="Black" Thickness="10" LineJoin="Round"/>
-                        </GeometryDrawing.Pen>
-                    </GeometryDrawing>
-                </DrawingGroup>
-            </DrawingImage.Drawing>
-        </DrawingImage>
-        <DrawingImage x:Key="HexagonPressedImage">
-            <DrawingImage.Drawing>
-                <DrawingGroup>
-                    <GeometryDrawing Brush="Orange"  
-                           Geometry="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z">
-                        <GeometryDrawing.Pen>
-                            <Pen Brush="White" Thickness="10" LineJoin="Round"/>
-                        </GeometryDrawing.Pen>
-                    </GeometryDrawing>
-                </DrawingGroup>
-            </DrawingImage.Drawing>
-        </DrawingImage>
-
-        <Style x:Key="HexagonButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="Khaki"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid>
-                            <Image x:Name="img" Source="{StaticResource HexagonImage}"/>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="img" Property="Source" Value="{StaticResource HexagonHoverImage}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="img" Property="Source" Value="{StaticResource HexagonPressedImage}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-    <DockPanel>
-        <Grid  DockPanel.Dock="Bottom" Height="158" Background="#BECFCD" >
+    <DockPanel Background="Beige">
+        <Grid  x:Name="InfoGrid"   DockPanel.Dock="Bottom" Height="158" Background="Gray" >
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="181*"/>
-                <ColumnDefinition Width="184*"/>
-                <ColumnDefinition Width="109*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="113*"/>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="68*"/>
+
             </Grid.ColumnDefinitions>
 
-            <Label Content="Nom : " HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="10,-401,0,0" VerticalAlignment="Top" Width="48"/>
-            <Label Content="Nom : " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="192,-401,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="2.414,0.717" Grid.ColumnSpan="2"/>
-            <Label Content="" x:Name="Name1" BorderThickness="2" HorizontalAlignment="Left" Height="28" Margin="72,-401,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" x:Name="Name2" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="2" Height="29" Margin="15,-402,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="2.414,0.717"/>
 
-            <Label Content="Number of remaining units : " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" x:Name="NbUnite2" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="180,10,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="2.414,0.717"/>
+            <Button Content="End turn " HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="10,10,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="34" Click="Button_Click" FontFamily="Gabriola" FontSize="20"/>
+            <Button Content="Save and Quit" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="10,49,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="44" FontFamily="Gabriola" FontSize="22" />
+            <Button Content="Exit" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="10,101,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="29" FontFamily="Gabriola" FontSize="22" />
+            <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="10,0,0,0" TextWrapping="Wrap" Text="People :" VerticalAlignment="Top" Width="62" FontFamily="Gabriola" FontSize="22" Background="Beige"/>
+            <TextBox HorizontalAlignment="Left" Height="31" Margin="10,0,0,0" TextWrapping="Wrap" Text="People :" VerticalAlignment="Top" Width="62" FontFamily="Gabriola" FontSize="22" Grid.Column="2" Background="Beige"/>
+            <TextBox Grid.ColumnSpan="2" x:Name="people1" HorizontalAlignment="Left" Height="31" Margin="86,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98" FontFamily="Gabriola" FontSize="22"/>
+            <TextBox x:Name="people2" HorizontalAlignment="Left" Height="31" Margin="90,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98" Grid.Column="2" FontFamily="Gabriola" FontSize="22"/>
 
-
-            <Label Content="Number of remaining units " HorizontalAlignment="Left"  Grid.Column="0" Height="34" Margin="0,10,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="NbUnite1" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,15,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-
-            <Label Content="Unit LifePoint: " HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="10,77,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="LifePoint11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,77,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-
-            <Label Content="Unit LifePoint: " HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="10,80,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="LifePoint12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="180,77,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-
-            <Label Content="MovePoint: " HorizontalAlignment="Left" Height="29" Margin="10,106,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="Ligne11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,106,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-
-            <Label Content="AttackPoint : " HorizontalAlignment="Left" Height="29" Margin="10,129,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="2.414,0.717"/>
-            <Label Content="" Name="Colonne11" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="0" Height="29" Margin="174,129,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-
-            <Label Content="MovePoint : " HorizontalAlignment="Left" Height="29" Margin="10,106,0,0" VerticalAlignment="Top" Width="44" RenderTransformOrigin="2.414,0.717" Grid.Column="1"/>
-            <Label Content="" Name="Ligne12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="180,106,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-
-            <Label Content="AttackPoint  : " HorizontalAlignment="Left" Height="29" Margin="10,129,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="2.414,0.717" Grid.Column="1"/>
-            <Label Content="" Name="Colonne12" BorderThickness="2" HorizontalAlignment="Left"  Grid.Column="1" Height="29" Margin="178,129,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="2.414,0.717"/>
-            <Button Content="End turn " HorizontalAlignment="Left" Margin="37,24,0,0" Grid.Column="2" VerticalAlignment="Top" Width="79" Height="20" Click="Button_Click"/>
-            <Button Content="Save and Quit" HorizontalAlignment="Left" Margin="37,59,0,0" Grid.Column="2" VerticalAlignment="Top" Width="79" Height="20" />
-            <Button Content="Exit" HorizontalAlignment="Left" Margin="37,89,0,0" Grid.Column="2" VerticalAlignment="Top" Width="79" Height="20" />
         </Grid>
-        <Grid  DockPanel.Dock="Top" >
+        <Grid  DockPanel.Dock="Top" Height="48" Background="Gray" >
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="137*"/>
+                <ColumnDefinition Width="159*"/>
+
+            </Grid.ColumnDefinitions>
+            <Label Content="Name : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="10,4,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22"/>
+            <Label Content="Name : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="38,4,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22" Grid.Column="1"/>
+            <Label Content="" x:Name="Name1" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="103,4,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22"/>
+            <Label Content="" x:Name="Name2" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="123,4,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22" Grid.Column="1"/>
+
+
+
+
 
         </Grid>
 
@@ -117,18 +49,12 @@
         <local:HexagonGrid Name="myGrid" Margin="0,-1,0,0" Width="600"
                            RenderTransformOrigin="0.637,0.429">
         -->
-        <Grid  Name="myGrid" Margin="0,45,0,21" Width="536"
+        <Grid  Name="myGrid" Margin="0,5,0,48" Width="360"
                            RenderTransformOrigin="0.637,0.429">
 
-            <local:HexagonGrid    Rows="5" Columns="4" HexagonSideLength="40">
-                <Polygon Name="selectionPolygon" Stroke="blue" Panel.ZIndex="333" Visibility="collapsed"/>
-                <local:HexagonGrid.Resources>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource HexagonButtonStyle}"/>
-                </local:HexagonGrid.Resources>
+            <Polygon Name="selectionPolygon" Stroke="blue" Panel.ZIndex="333" Visibility="collapsed">
 
-            </local:HexagonGrid>
-
-
+            </Polygon>
         </Grid>
 
 

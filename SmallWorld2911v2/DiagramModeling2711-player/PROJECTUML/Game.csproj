@@ -55,6 +55,7 @@
     <Compile Include="Map.cs" />
     <Compile Include="MapStrategy.cs" />
     <Compile Include="MapStrategyImpl.cs" />
+    <Compile Include="Mountain.cs" />
     <Compile Include="Nain.cs" />
     <Compile Include="NainUnit.cs" />
     <Compile Include="New.cs" />

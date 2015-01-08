@@ -133,6 +133,10 @@ namespace PROJECTUML
                             BoardGame[i, j] = factory.createForest();
                             break;
 
+                        case 3:
+                            BoardGame[i, j] = factory.createMountain();
+                            break;
+
                     }
                 }
             }
@@ -198,25 +202,28 @@ namespace PROJECTUML
          */
         public bool juxtaposedSquare(Unit u, int row, int column)
         {
-            Square s = returnSquare(row,column);
-            if (s != null)
+            if ((row < SquareNumber) && (column < SquareNumber) && (row >=0) && (column>=0))
             {
-                if (((u.Row == row) && (u.Column == column + 1)) || ((u.Row == row) && (u.Column == column - 1)))
+                Square s = returnSquare(row, column);
+                if (s != null)
                 {
-                    return true;
-                }
+                    if (((u.Row == row) && (u.Column == column + 1)) || ((u.Row == row) && (u.Column == column - 1)))
+                    {
+                        return true;
+                    }
 
-                if (((u.Column == column) && (u.Row == row + 1)) || ((u.Column== column) && (u.Row == row - 1)))
-                {
-                    return true;
-                }
+                    if (((u.Column == column) && (u.Row == row + 1)) || ((u.Column == column) && (u.Row == row - 1)))
+                    {
+                        return true;
+                    }
 
-                if (((u.Column == column - 1) && (u.Row == row + 1)) || ((u.Column == column - 1) && (u.Row == row - 1)))
-                {
-                    return true;
+                    if (((u.Column == column - 1) && (u.Row == row + 1)) || ((u.Column == column - 1) && (u.Row == row - 1)))
+                    {
+                        return true;
+                    }
+                    return false;
+
                 }
-                return false;
-                
             }
             return false;
         }
@@ -239,7 +246,9 @@ namespace PROJECTUML
          */
         public Square returnSquare(int row, int column)
         {
-            return BoardGame[row, column];
+            if ((row < SquareNumber) && (column < SquareNumber) && (row >= 0) && (column >= 0))
+                return BoardGame[row, column];
+            else return null;
         }
 
         /**

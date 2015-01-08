@@ -38,12 +38,13 @@ namespace PROJECTUML
             {
                 for (int i = 0; i < ListUnit.Count; i++)
                 {
-                    if (u == ListUnit[i])
+                    if (u.isequals(u,ListUnit[i]))
                     {
-
-                        ListUnit.Remove(ListUnit[i]);
+                        ListUnit.RemoveAt(i);
                     }
                 }
+
+                    
             }
         }
 

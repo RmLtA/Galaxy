@@ -72,6 +72,10 @@ namespace PROJECTUML
             set { _Row = value; }
         }
 
+        public bool isequals(Unit u1, Unit u2)
+        {
+            return ((u1.AttackPoint == u2.AttackPoint) && (u1.Column == u2.Column) && (u1.Row == u2.Row) && (u1.Rank == u2.Rank) && (u1.MovePoint == u2.MovePoint) && (u1.LifePoint == u2.LifePoint));
+        }
         public bool engageCombat(Unit u_attack, Unit u_defense)
         {
             double percent = 0;
@@ -89,17 +93,17 @@ namespace PROJECTUML
             defense = u_defense.AttackPoint * percentLife_u_attack;
 
             //egalité en attaque et en défense
-            if (attack == defense)
+            if (u_attack.LifePoint == u_defense.LifePoint)
             {
                 //deux unités égales ont 50% de chance de gagner
-                percent = 50 / 100;
-                System.Console.WriteLine("PERCENT COMBAT EGALITE " + percent);
+                percent = 0.5;
+                //System.Console.WriteLine("PERCENT COMBAT EGALITE " + percent);
             }
             else
             {
                 percent = (attack / defense) * 0.5;
-                percent = 0.5 * percent;
-                System.Console.WriteLine("PERCENT COMBAT " + percent);
+                percent =  0.5 * percent;
+                //System.Console.WriteLine("PERCENT COMBAT " + percent);
 
             }
 
@@ -120,29 +124,6 @@ namespace PROJECTUML
             
         }
 
-        public unsafe int* getSuggestedPointsX(Map map)
-        {
-
-
-            if (map != null)
-            {
-                int* tab = map.wrapper.moveAroundX(Row);
-                return tab;
-            }
-            return null;   
-        }
-
-        public unsafe int* getSuggestedPointsY(Map map)
-        {
-
-
-            if (map != null)
-            {
-                int* tab = map.wrapper.moveAroundY(Column);
-                return tab;
-            }
-            return null;
-        }
 
         public void upDateUnit()
         {
@@ -165,9 +146,9 @@ namespace PROJECTUML
         /*void move(int row, int column);*/
 
         bool engageCombat(Unit u_attack, Unit u_defense);
-        unsafe int* getSuggestedPointsX(Map map);
-        unsafe int* getSuggestedPointsY(Map map);
+
         void move(int x, int y);
+        bool isequals(Unit u1, Unit u2);
 
         int DefensePoint { get; set; }
         int LifePoint { get; set; }

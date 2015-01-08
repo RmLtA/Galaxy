@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace PROJECTUML
 {
     public class GamePlayImpl : GamePlay
@@ -138,19 +139,26 @@ namespace PROJECTUML
                             if (Map.returnSquare(row, column).ListUnitImpl.Count > 1)
                             {
                                 int index = 0;
-                                int nbCombat = Map.chooseNbCombat(row, column);
-                                bool result = false;
-                                //index --> pour vérifier qu'on ne sort pas du tableau
-                                while ((nbCombat > 0) && (index < Map.returnSquare(row, column).ListUnitImpl.Count))
+                                Unit u_defense = Map.returnSquare(row, column).returnUnitBestDefense();
+                                if (u_defense == null)
                                 {
-                                    isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[index]);
-                                    index++;
-                                    nbCombat--;
+                                    int nbCombat = Map.chooseNbCombat(row, column);
+                                    bool result = false;
+                                    
+                                    while ((nbCombat > 0) && (index < Map.returnSquare(row, column).ListUnitImpl.Count))
+                                    {
+                                        isCombatWinned(u, Map.returnSquare(row, column).ListUnitImpl[index]);
+                                        index++;
+                                        nbCombat--;
 
+                                    }
+                                    result = true;
+                                    return result;
                                 }
-                                result = true;
-                                return result;
-                                
+                                else
+                                {
+                                    return isCombatWinned(u, u_defense); 
+                                }
                             }
                             else
                             {
@@ -293,6 +301,42 @@ namespace PROJECTUML
 
 
         }
+
+        public bool belongToPlayer(Unit u, Player p)
+        {
+            for (int i = 0; i < p.PeoplePlayer.ListUnit.Count; i++)
+            {
+                if ((u.Row == p.PeoplePlayer.ListUnit[i].Row) && (u.Column == p.PeoplePlayer.ListUnit[i].Column))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public unsafe  int[] squareSuggestedX(Unit u)
+        {
+            int* tabX = Map.wrapper.moveAroundX();
+            int[] tabXnew = new int[6];
+            for (int i = 0; i < 6; i++)
+            {
+                tabXnew[i] = u.Row + tabX[i];
+            }
+                return tabXnew;
+             
+        }
+
+        public unsafe int[] squareSuggestedY(Unit u)
+        {
+            int* tabY = Map.wrapper.moveAroundY();
+            int[] tabYnew = new int[6];
+            for (int i = 0; i < 6; i++)
+            {
+                tabYnew[i] = u.Column + tabY[i];
+            }
+            return tabYnew;
+
+        }
     }
 
     public interface GamePlay
@@ -314,6 +358,10 @@ namespace PROJECTUML
         Player whoseturn();
 
         void delete(Unit u);
+
+        bool belongToPlayer(Unit u, Player p);
+        unsafe int[] squareSuggestedX(Unit u);
+        unsafe int[] squareSuggestedY(Unit u);
 
          GamePlay Instance { get; set; }
 

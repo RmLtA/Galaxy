@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading.Tasks;
+//using System.Windows.UIElement;
 using PROJECTUML;
 
 namespace WPFSmallWorld{
@@ -29,11 +30,13 @@ namespace WPFSmallWorld{
         GamePlay game;
         int rank_graphique;
         const int NONE = 777;
+        int const_suggested;
 
         public MainWindow(GamePlay game1)
         {
             this.game = game1;
             rank_graphique = 0;
+            const_suggested = 0;
             InitializeComponent();
 
         }
@@ -57,19 +60,44 @@ namespace WPFSmallWorld{
                 {
                     if (mat[l, c] is Desert)
                     {
-                        myGrid.Children.Add(createPolygon(l, c, 0));
+                        var poly = createPolygon(l, c, 0);
+                       /* if (l % 2 != 0) 
+                        poly.Margin = new Thickness(-20);*/
+              
+                            myGrid.Children.Add(poly);
                     }
                     else
                     {
-                        if (mat[l, c]is Forest)
+                        if (mat[l, c] is Forest)
                         {
-                            myGrid.Children.Add(createPolygon(l, c, 1));
+                            var poly = createPolygon(l, c, 1);
+                            /* if (l % 2 != 0)
+                                 poly.Margin = new Thickness(-20);*/
+
+                            myGrid.Children.Add(poly);
+
 
                         }
-                        else if (mat[l, c] is Plain)
+                        else
                         {
-                            myGrid.Children.Add(createPolygon(l, c, 2));
-                        }                        
+                            if (mat[l, c] is Plain)
+                            {
+                                var poly = createPolygon(l, c, 2);
+                                /* if (l % 2 != 0)
+                                     poly.Margin = new Thickness(-20);*/
+
+                                myGrid.Children.Add(poly);
+
+                            }
+                            else if (mat[l, c] is Mountain)
+                            {
+                                var poly = createPolygon(l, c, 3);
+                                /* if (l % 2 != 0)
+                                     poly.Margin = new Thickness(-20);*/
+
+                                myGrid.Children.Add(poly);
+                            }
+                        }
                             
                     }
                 }
@@ -79,6 +107,7 @@ namespace WPFSmallWorld{
             //updateInfo();
             updateGraphiqueUnite(game.ListPlayer[0], 0);
             updateGraphiqueUnite(game.ListPlayer[1], 1);
+           // showSuggestedSquare(game.whoseturn(), 0);
 
         }
 
@@ -91,33 +120,110 @@ namespace WPFSmallWorld{
             if(game.ListPlayer[1].Name!=null)
             Name2.Content = game.ListPlayer[1].Name.ToString();
 
-            int n1, n2;
-            n1 = game.ListPlayer[0].NbUnit;
-            n2 = game.ListPlayer[1].NbUnit;
-            if ((n1 != 0) && (n2 != 0))
+            switch (game.ListPlayer[0].PeopleType)
             {
-                NbUnite1.Content = game.ListPlayer[0].NbUnit.ToString();
-                NbUnite2.Content = game.ListPlayer[1].NbUnit.ToString();
+                case PeopleType.ELF:
+                    people1.Text = "Elf";
+                    break;
+                case PeopleType.ORC:
+                    people1.Text = "Orc";
+                    break;
+                case PeopleType.NAIN:
+                    people1.Text = "Nain";
+                    break;
+            }
+            switch (game.ListPlayer[1].PeopleType)
+            {
+                case PeopleType.NAIN:
+                    people2.Text = "Nain";
+                    break;
+                case PeopleType.ELF:
+                    people2.Text = "Elf";
+                    break;
+                case PeopleType.ORC:
+                    people2.Text = "Orc";
+                    break;
+                
+            }
+
+            foreach (Unit u in game.ListPlayer[0].PeoplePlayer.ListUnit)
+            {
+                InfoGrid.Children.Add(new DisplayUnit(u));
             }
 
             game.ListPlayer[0].Turn = true;
             game.ListPlayer[1].Turn = false;
-
+            
         }
 
-        public void updateInfo(Unit u)
+        public unsafe void showSuggestedSquare(PROJECTUML.Player p, int choice)
         {
-            int n1, n2;
-            n1 = game.ListPlayer[0].NbUnit;
-            n2 = game.ListPlayer[1].NbUnit;
-            if ((n1 != 0) && (n2 != 0))
+            switch (choice)
             {
-                NbUnite1.Content = game.ListPlayer[0].NbUnit.ToString();
-                NbUnite2.Content = game.ListPlayer[1].NbUnit.ToString();
+                case 0:
+                    for (int i = 0; i < p.PeoplePlayer.ListUnit.Count; i++)
+                    {
+                        int[] tabX = { 0, 0, 1, -1, -1, 1 };
+                        int[] tabY = { 1, -1, 0, 0, 1, 1 };
+                        if ((tabX != null) && (tabY != null))
+                        {
+                            for (int j = 0; j < 6; j++)
+                            {
+                                if (game.Map.juxtaposedSquare(p.PeoplePlayer.ListUnit[i], p.PeoplePlayer.ListUnit[i].Row + tabX[j], p.PeoplePlayer.ListUnit[i].Column + tabY[j]) == true)
+                                {
+                                    /* System.Console.WriteLine("SUGGESTED X :" + p.PeoplePlayer.ListUnit[i].Row+tabX[j]);
+                                     System.Console.WriteLine("SUGGESTED Y :" + p.PeoplePlayer.ListUnit[i].Column+tabY[j]);*/
+                                    const_suggested++;
+                                    myGrid.Children.Add(suggestedPolygon(tabX[j], tabY[j]));
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+                    break;
+                case 1:
+                    for (int i = 0; i < const_suggested; i++)
+                    {
+                        if ((i + (game.Map.SquareNumber * game.Map.SquareNumber) +
+                            (game.ListPlayer[0].PeoplePlayer.ListUnit.Count + game.ListPlayer[1].PeoplePlayer.ListUnit.Count) + 1) < myGrid.Children.Count)
+                        {
+                            myGrid.Children.Remove(myGrid.Children[i + (game.Map.SquareNumber * game.Map.SquareNumber) +
+                               (game.ListPlayer[0].PeoplePlayer.ListUnit.Count + game.ListPlayer[1].PeoplePlayer.ListUnit.Count) + 1]);
+                        }
+                    }
+                const_suggested = 0;
+                break;
+
+
             }
-            if (u != null)
+
+            
+
+            
+        }
+
+        public void removeSuggestion()
+        {
+            for (int i = 0; i < const_suggested; i++)
             {
-                if (indexTurnPlayer() == 0)
+                if ((i + (game.Map.SquareNumber * game.Map.SquareNumber) +
+                    (game.ListPlayer[0].PeoplePlayer.ListUnit.Count + game.ListPlayer[1].PeoplePlayer.ListUnit.Count) + 1) < myGrid.Children.Count)
+                {
+                    myGrid.Children.Remove(myGrid.Children[i + (game.Map.SquareNumber * game.Map.SquareNumber) +
+                       (game.ListPlayer[0].PeoplePlayer.ListUnit.Count + game.ListPlayer[1].PeoplePlayer.ListUnit.Count) + 1]);
+                }
+            }
+            //const_suggested = 0;
+        }
+        public void updateInfo(Unit u, int player)
+        {
+            refreshInfo();
+            if (u != null)
+            {/*
+                if (player == 0)
                 {
                     LifePoint11.Content = u.LifePoint.ToString();
                     Ligne11.Content = u.MovePoint.ToString();
@@ -128,13 +234,42 @@ namespace WPFSmallWorld{
                     LifePoint12.Content =u.LifePoint.ToString();
                     Ligne12.Content = u.MovePoint.ToString();
                     Colonne12.Content = u.AttackPoint.ToString();
-                }
+                }*/
                 
             }
         }
 
+        public Polygon suggestedPolygon(int l, int c)
+        {
+            Polygon myPolygon = new Polygon();
+            myPolygon.Stroke = System.Windows.Media.Brushes.Red;
+            
+            myPolygon.StrokeThickness = 4;
+            myPolygon.HorizontalAlignment = HorizontalAlignment.Left;
+            myPolygon.VerticalAlignment = VerticalAlignment.Center;
+            System.Windows.Point Point1 = new System.Windows.Point(25, 0);
+            System.Windows.Point Point2 = new System.Windows.Point(50, 14.43375);
+            System.Windows.Point Point3 = new System.Windows.Point(50, 43.30125);
+            System.Windows.Point Point4 = new System.Windows.Point(25, 57.735);
+            System.Windows.Point Point5 = new System.Windows.Point(0, 43.30125);
+            System.Windows.Point Point6 = new System.Windows.Point(0, 14.43375);
 
-        //crér un polygone et le placer dans la grid
+            PointCollection myPointCollection = new PointCollection();
+            myPointCollection.Add(Point1);
+            myPointCollection.Add(Point2);
+            myPointCollection.Add(Point3);
+            myPointCollection.Add(Point4);
+            myPointCollection.Add(Point5);
+            myPointCollection.Add(Point6);
+            myPolygon.Points = myPointCollection;
+            Grid.SetColumn(myPolygon, c);
+            Grid.SetRow(myPolygon, l);
+
+            myPolygon.MouseLeftButtonDown += new MouseButtonEventHandler(polygon_MouseLeftButtonDown);
+            return myPolygon;
+
+        }
+        //créer un polygone et le placer dans la grid
         public Polygon createPolygon(int l, int c, int n)
         {
 
@@ -194,6 +329,18 @@ namespace WPFSmallWorld{
                         myPolygon.Fill = imagep;
                         break;
                     }
+
+                case 3:
+                    {
+                        ImageBrush imagep = new ImageBrush();
+                        imagep.ImageSource =
+                        new BitmapImage(
+                            new Uri(@"E:\4INFO\POO\GITHUB\Galaxy\SmallWorld2911v2\DiagramModeling2711-player\WPFSmallWorld\resources\ocean.png", UriKind.RelativeOrAbsolute)
+                            );
+                        myPolygon.Fill = imagep;
+                        break;
+                    }
+
                 default:
                     break;
             }
@@ -208,13 +355,16 @@ namespace WPFSmallWorld{
             List<Unit> listunite = p.PeoplePlayer.ListUnit;
             foreach (Unit u in listunite)
             {
-                int y = u.Row;
-                int x = u.Column;
+                int x = u.Row;
+                int y = u.Column;
                 u.Rank = rank_graphique;
                 rank_graphique++;
-                var element = createEllipse(x, y, numJoueur);
+                var element = createEllipse(x,y, numJoueur);
+             // if (x % 2 != 0) element.Margin = new Thickness(-30);
                 myGrid.Children.Add(element);
             }
+
+            
         }
 
         private int selectionUnit(int row, int column)
@@ -244,7 +394,7 @@ namespace WPFSmallWorld{
             }
             else
             {
-                return 1;
+                return game.Map.UnitNumber;
             }
         }
 
@@ -270,89 +420,83 @@ namespace WPFSmallWorld{
 
         private void moveUnitUI(int row, int column, int index)
         {
-            int turn = 0;
             game.moveUnitOrder(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
-            switch (indexTurnPlayer())
-            {
-                case 0:
-                    turn = 0;
-                    break;
-                case 1:
-                    turn = game.Map.UnitNumber;
-                    break;
-            }
-            updateInfo(game.whoseturn().PeoplePlayer.ListUnit[index]);
-            Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 1 + index + turn], row);
-            Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 1 + index + turn], column);
+            updateInfo(game.whoseturn().PeoplePlayer.ListUnit[index], indexTurnPlayer());
+            //if (row % 2 != 0) myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 1 + index + indexTurnPlayer()].Margin = new Thickness(-30);
+            Grid.SetRow(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) +2 + index + indexTurnPlayer()], row);
+            Grid.SetColumn(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) +2 + index + indexTurnPlayer()], column);
+            
         }
         private unsafe void updateUnitUI(int row, int column)
         {
-            //var index = 0;//selectionUnit(row, column);
-
+           
+            var index = selectionUnit(row, column);
             
-            //si les cases sont juxtaposées et que la case d'arrivée est vide
-            //if (index != NONE)
-            //{
-                
-                
-                System.Console.WriteLine("NB UNIT : " + game.Map.BoardGame[row, column].ListUnitImpl.Count);
-                /*switch (c)
+            
+            if (index != NONE)
+            {
+                if ((game.Map.returnSquare(row, column).ListUnitImpl.Count > 0) && (game.belongToPlayer(game.Map.returnSquare(row, column).ListUnitImpl[0], game.whoseturn())) == false)
                 {
-                    case 0:
-                        moveUnitUI(row, column, index);
-                        System.Console.WriteLine("NOMBRE UNITE SQUARE   APRES  --> " + game.Map.returnSquare(row, column).ListUnitImpl.Count);
-                        break;
-                    case 1:
-                        System.Console.WriteLine("NOMBRE UNITE SQUARE   AVANT COMBAT  --> " + game.Map.returnSquare(row, column).ListUnitImpl.Count);
-                        break;
-
-                }*/
-                
-
-                    
-                    /*
-                    if (game.Map.returnSquare(row, column).ListUnitImpl.Count > 0)
-                    /*et que c'est lunité de l'autre joueur*/
-                    /*{
-                        System.Console.WriteLine("COMBAT");
-                        combatUI(index, row, column);
-                    }*/
-                
-
-            //}
+                    combatUI(index, row, column);
+                }
+                else
+                {
+                    moveUnitUI(row, column, index); 
+                }    
+           }
         }
-
-        
+ 
         private void combatUI(int index, int row, int column)
         {
             List<Unit> l = game.Map.returnSquare(row, column).ListUnitImpl;
             bool flag = game.startCombat(game.whoseturn().PeoplePlayer.ListUnit[index], row, column);
+            
             if ( flag == true)
             {
-                System.Console.WriteLine("COMBAT GAGNE");
-                updateInfo(game.whoseturn().PeoplePlayer.ListUnit[index]);
-                //s'il n'y a plus d'unité dans la case ennemi car l'ennemi n'a plus de vie
-                if (game.Map.returnSquare(row, column).ListUnitImpl.Count == 0)
+                
+                //CombatInfo.Content = "COMBAT WINNED";
+                //Info.Content = "LIST COUNT : " + game.Map.returnSquare(row, column).ListUnitImpl.Count;
+                
+                //updateInfo(unite perdant)
+                for (int i = 0; i < l.Count; i++)
                 {
-                    //supprimer l'unité
-                    for (int i = 0; i < l.Count; i++)
+                    if (l[i].LifePoint == 0)
                     {
-                        myGrid.Children.Remove(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + l[i].Rank]);
+                        if(indexTurnPlayer()==0)
+                        myGrid.Children.Remove(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 
+                            1 + game.Map.UnitNumber+l[i].Rank]);
+                        else
+                            myGrid.Children.Remove(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) +
+                            1 + l[i].Rank]);
                     }
-                    moveUnitUI(row, column, index);
                 }
+                      
 
             }
             else
             {
                 //le combat est perdu 
-                System.Console.WriteLine("COMBAT PERDU");
-                updateInfo(game.whoseturn().PeoplePlayer.ListUnit[index]);
+                //CombatInfo.Content = "COMBAT LOST";
+                updateInfo(game.whoseturn().PeoplePlayer.ListUnit[index], indexTurnPlayer());
                 if (game.whoseturn().PeoplePlayer.ListUnit[index].LifePoint == 0)
                 {
-                    myGrid.Children.Remove(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 2 + game.whoseturn().PeoplePlayer.ListUnit[index].Rank]);
+                    //Info1.Content = "Remove unite player turn";
+                    myGrid.Children.Remove(myGrid.Children[(game.Map.SquareNumber * game.Map.SquareNumber) + 1 + game.whoseturn().PeoplePlayer.ListUnit[index].Rank]);
                 }
 
+            }
+            
+        }
+
+        private void refreshInfo()
+        {
+            int n1, n2;
+            n1 = game.ListPlayer[0].PeoplePlayer.ListUnit.Count;
+            n2 = game.ListPlayer[1].PeoplePlayer.ListUnit.Count;
+            if ((n1 != 0) && (n2 != 0))
+            {
+                //NbUnite1.Content = game.ListPlayer[0].PeoplePlayer.ListUnit.Count.ToString();
+                //NbUnite2.Content = game.ListPlayer[1].PeoplePlayer.ListUnit.Count.ToString();
             }
         }
         
@@ -369,7 +513,8 @@ namespace WPFSmallWorld{
 
             int column = Grid.GetColumn(polygon);
             int row = Grid.GetRow(polygon);
-
+            Name1.Content = row;
+            Name2.Content = column;
 
             // V2 : gestion avec Binding
             // Mise à jour du rectangle selectionné => le label sera mis à jour automatiquement par Binding
@@ -377,18 +522,24 @@ namespace WPFSmallWorld{
             Grid.SetRow(selectionPolygon, row);
             selectionPolygon.Tag = tile;
             selectionPolygon.Visibility = System.Windows.Visibility.Visible;
-            System.Console.WriteLine("ROW : " + row);
-            System.Console.WriteLine("COLUMN : " + column);
-            System.Console.WriteLine("NB UNIT : " + game.Map.BoardGame[row, column].ListUnitImpl.Count);
+            
             updateUnitUI(row, column);
-            /*if (game.Map.returnSquare(row, column).ListUnitImpl.Count != 0)
-            {
-                
-                PROJECTUML.Unit u = game.Map.returnSquare(row, column).ListUnitImpl[0];
-                updateInfo(u);
-            }*/
+            refreshInfo();
+            //showSuggestedSquare(game.whoseturn(), 1);
             e.Handled = true;
         }
+        /// <summary>
+        /// Délégué : réaction général à un clic sur la fenetre 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            selectionPolygon.Tag = null;
+            selectionPolygon.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -400,12 +551,16 @@ namespace WPFSmallWorld{
                 {
 
                     // On "touche" au rectangle de selection pour provoquer un rafraichissemnt via le Binding
-                    var selected = selectionPolygon.Tag;
+                    var selectedPol = selectionPolygon.Tag;
+                    
                     selectionPolygon.Tag = null;
-                    selectionPolygon.Tag = selected;
+                    
+                    selectionPolygon.Tag = selectedPol;
+                    
                 }));
 
-                game.gotoNextPlayer(); 
+                game.gotoNextPlayer();
+                //showSuggestedSquare(game.whoseturn(),0);
             });
 
         }
@@ -416,7 +571,8 @@ namespace WPFSmallWorld{
         private Ellipse createEllipse(int l, int c, int numJoueur)
         {
             Ellipse ellipse = new Ellipse();
-
+           // if (l % 2 == 0) ellipse.Margin = new Thickness(-30);
+            
             Grid.SetColumn(ellipse, c);
             Grid.SetRow(ellipse, l);
             ellipse.Tag = numJoueur;
@@ -438,8 +594,9 @@ namespace WPFSmallWorld{
                     );
                 ellipse.Fill = imageb;
             }
-            ellipse.Height = 50;
-            ellipse.Width = 50;
+            ellipse.Height = 30;
+            ellipse.Width = 30;
+            
             return ellipse;
         }
 
