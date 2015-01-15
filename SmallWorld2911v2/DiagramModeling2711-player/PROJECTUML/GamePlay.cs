@@ -232,55 +232,55 @@ namespace PROJECTUML
             Square s;
             int previous_row;
             int previous_column;
-            Unit unit_move = u;
-            if (unit_move.MovePoint >= 1)
+
+            if (u.MovePoint >= 1)
             {
                 s = Map.returnSquare(row, column);
-                if (unit_move is ElfUnit)
+                if (u is ElfUnit)
                 {
                     if (s is Forest)
                     {
-                        unit_move.MovePoint = u.MovePoint / 2;
+                        u.MovePoint = u.MovePoint / 2;
                     }
                     if (s is Desert)
                     {
-                        unit_move.MovePoint = u.MovePoint * 2;
+                        u.MovePoint = u.MovePoint * 2;
                     }
                     if (s is Plain)
                     {
-                        unit_move.MovePoint = u.MovePoint - 1;
+                        u.MovePoint = u.MovePoint - 1;
                     }
                 }
 
-                if (unit_move is OrcUnit)
+                if (u is OrcUnit)
                 {
                     if (s is Desert)
                     {
-                        unit_move.MovePoint = u.MovePoint - 1;
+                        u.MovePoint = u.MovePoint - 1;
                     }
                     if (s is Plain)
                     {
-                        unit_move.MovePoint = u.MovePoint / 2;
+                        u.MovePoint = u.MovePoint / 2;
                     }
                     if (s is Forest)
                     {
-                        unit_move.MovePoint = u.MovePoint * 2;
+                        u.MovePoint = u.MovePoint - 1;
                     }
                 }
 
-                if (unit_move is NainUnit)
+                if (u is NainUnit)
                 {
                     if (s is Desert)
                     {
-                        unit_move.MovePoint = u.MovePoint - 1;
+                        u.MovePoint = u.MovePoint - 1;
                     }
                     if (s is Forest)
                     {
-                        unit_move.MovePoint = u.MovePoint / 2;
+                        u.MovePoint = u.MovePoint - 1;
                     }
                     if (s is Plain)
                     {
-                        unit_move.MovePoint = u.MovePoint * 2;
+                        u.MovePoint = u.MovePoint / 2;
                     }
                 }
 
@@ -290,13 +290,10 @@ namespace PROJECTUML
                 Map.BoardGame[previous_row, previous_column].removeFromSquare(u);
                 //System.Console.WriteLine("NB UNIT SQUARE DEPART APRES :" + Map.BoardGame[previous_row, previous_column].ListUnitImpl.Count);
                 //on rajoute l'unité dans le nouveau square
-                unit_move.Row = row;
-                unit_move.Column = column;
-                Map.BoardGame[row, column].addUnitInSquare(unit_move);
-                //System.Console.WriteLine("NB UNIT SQUARE ARRIVEE APRES :" + Map.BoardGame[row, column].ListUnitImpl.Count);
-
-                //on change les coordonnées de l'unité
                 u.move(row, column);
+                Map.BoardGame[row, column].addUnitInSquare(u);
+                //System.Console.WriteLine("NB UNIT SQUARE ARRIVEE APRES :" + Map.BoardGame[row, column].ListUnitImpl.Count);
+                
             }
 
 
@@ -337,6 +334,15 @@ namespace PROJECTUML
             return tabYnew;
 
         }
+
+        public bool allIsDead(Player p)
+        {
+            foreach (Unit u in p.PeoplePlayer.ListUnit)
+            {
+                if (u.LifePoint != 0) return false;
+            }
+            return true;
+        }
     }
 
     public interface GamePlay
@@ -362,6 +368,7 @@ namespace PROJECTUML
         bool belongToPlayer(Unit u, Player p);
         unsafe int[] squareSuggestedX(Unit u);
         unsafe int[] squareSuggestedY(Unit u);
+        bool allIsDead(Player p);
 
          GamePlay Instance { get; set; }
 

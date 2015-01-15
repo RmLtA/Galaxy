@@ -12,7 +12,13 @@ namespace PROJECTUML
         private int _NbUnit;
         private People _PeoplePlayer;
         private PeopleType _PeopleType;
+        private int _TurnLeft;
 
+        public int TurnLeft
+        {
+            get;
+            set;
+        }
         public PeopleType PeopleType
         {
             get;
@@ -64,13 +70,14 @@ namespace PROJECTUML
          * \param    map    choice of the map
          * \param   people  choice of the people
          */
-        public PlayerImpl(string name, PeopleType people)
+        public PlayerImpl(string name, PeopleType people, int turnLeft)
         {
 
 
             Name = name;
             Turn = false;
-
+            TurnLeft = turnLeft;
+            PeopleType = people;
             PeopleFactory fact = new PeopleFactoryImpl();
             PeoplePlayer = fact.createPeople(people);
 
@@ -112,6 +119,7 @@ namespace PROJECTUML
         bool Turn { get; set; }
 
         string Name { get; set; }
+        int TurnLeft { get; set; }
         void addUnitPlayer(int nbUnit);
 
      

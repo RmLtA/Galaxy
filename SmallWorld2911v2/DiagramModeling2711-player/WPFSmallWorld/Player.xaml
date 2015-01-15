@@ -1,33 +1,31 @@
 ﻿<Window x:Class="WPFSmallWorld.Player"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="SmallWorld" Height="300" Width="300">
+        Title="SmallWorld" Height="400" Width="400">
     <Window.Background>
         <ImageBrush ImageSource="resources/background.png"></ImageBrush>
     </Window.Background>
     <Grid>
-        <Button Content="Play" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="72,234,0,0" VerticalAlignment="Top" Width="141" Click="startGame"/>
-        <Label Content="Player 1 :"  Foreground ="White" HorizontalAlignment="Left" Height="38" Margin="12,110,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.503,0.318" FontFamily="Gabriola" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Player 2 :" Foreground ="White" HorizontalAlignment="Left" Height="38" Margin="171,110,0,0" VerticalAlignment="Top" Width="82" FontFamily="Gabriola" FontSize="18" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Name="Textplayer1" Height="23" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" />
-        <TextBox HorizontalAlignment="Left" Name="Textplayer2" Height="23" Margin="171,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" />
+        <Button Content="Play" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="112,316,0,0" VerticalAlignment="Top" Width="141" Click="startGame" FontFamily="Gabriola" FontSize="18"/>
+        <Label Content="Player 1 :"  Foreground ="White" HorizontalAlignment="Left" Height="38" Margin="49,158,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.503,0.318" FontFamily="Gabriola" FontSize="24" FontWeight="Bold"/>
+        <Label Content="Player 2 :" Foreground ="White" HorizontalAlignment="Left" Height="38" Margin="250,158,0,0" VerticalAlignment="Top" Width="82" FontFamily="Gabriola" FontSize="24" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Name="Textplayer1" Height="23" Margin="47,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" />
+        <TextBox HorizontalAlignment="Left" Name="Textplayer2" Height="23" Margin="250,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" />
 
-        <Grid HorizontalAlignment="Left" Width="267"  Margin="12,66,0,150" Background="Beige" >
-            <Label Content="Choose your map :" FontSize="18" HorizontalAlignment="Left" Height="33" Margin="62,-5,0,0" VerticalAlignment="Top" Width="129" FontFamily="Gabriola"/>
+        <Grid HorizontalAlignment="Left" Width="357"  Margin="12,66,0,227" Background="Beige" >
+            <Label Content="Choose your map :" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="111,-3,0,0" VerticalAlignment="Top" Width="129" FontFamily="Gabriola"/>
 
-            <RadioButton Content="SMALL" Name="SMALL" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Checked="selectMapStrategy" FontFamily="Gabriola"/>
-            <RadioButton Content="DEMO" Name="DEMO" HorizontalAlignment="Left" Margin="95,29,0,0" VerticalAlignment="Top" Checked="selectMapStrategy" FontFamily="Gabriola"/>
-            <RadioButton Content="NORMAL" Name="NORMAL" HorizontalAlignment="Left" Margin="178,28,0,0" VerticalAlignment="Top" Checked="selectMapStrategy" FontFamily="Gabriola"/>
+            <RadioButton Content="SMALL" Name="SMALL" HorizontalAlignment="Left" Margin="21,33,0,-4" VerticalAlignment="Top" Checked="selectMapStrategy" FontFamily="Gabriola" FontSize="20"/>
+            <RadioButton Content="DEMO" Name="DEMO" HorizontalAlignment="Left" Margin="145,30,0,-1" VerticalAlignment="Top" Checked="selectMapStrategy" FontFamily="Gabriola" FontSize="20"/>
+            <RadioButton Content="NORMAL" Name="NORMAL" HorizontalAlignment="Left" Margin="267,29,0,-1" VerticalAlignment="Top" Checked="selectMapStrategy" FontFamily="Gabriola" FontSize="20"/>
 
         </Grid>
-        <RadioButton GroupName="peopleP1" Content="ELF" Foreground ="White" Name="ELF"  HorizontalAlignment="Left" Margin="12,176,0,0" VerticalAlignment="Top" Checked="initPeoplePlayer1" FontWeight="Bold" FontFamily="Gabriola" FontSize="14"/>
-        <RadioButton GroupName="peopleP1" Content="NAIN"  Foreground ="White" Name="NAIN" HorizontalAlignment="Left" Margin="12,216,0,0" VerticalAlignment="Top" Checked="initPeoplePlayer1" FontFamily="Gabriola" FontWeight="Bold"/>
-        <RadioButton GroupName="peopleP1" Content="ORC" Foreground ="White" Name="ORC" HorizontalAlignment="Left" Margin="12,196,0,0" VerticalAlignment="Top" Checked="initPeoplePlayer1" FontFamily="Gabriola" FontWeight="Bold"/>
-        <RadioButton GroupName="peopleP2" Content="ELF" Foreground ="White" Name="ELF2"  HorizontalAlignment="Left" Margin="187,179,0,0" VerticalAlignment="Top" Checked="initPeoplePlayer2" FontFamily="Gabriola" FontWeight="Bold"/>
-        <RadioButton GroupName="peopleP2" Content="NAIN"  Foreground ="White" Name="NAIN2" HorizontalAlignment="Left" Margin="187,216,0,0" VerticalAlignment="Top" Checked="initPeoplePlayer2" FontFamily="Gabriola" FontWeight="Bold"/>
-        <RadioButton GroupName="peopleP2" Content="ORC" Foreground ="White" Name="ORC2" HorizontalAlignment="Left" Margin="187,199,0,0" VerticalAlignment="Top" Checked="initPeoplePlayer2" FontFamily="Gabriola" FontWeight="Bold"/>
-        <CheckBox Content="Ok" Foreground ="White" HorizontalAlignment="Left" Name="Ok1" Margin="10,239,0,0" VerticalAlignment="Top" Checked="copyInfo1"/>
-        <CheckBox Content="Ok" Foreground ="White" HorizontalAlignment="Left" Name="Ok2" Margin="231,239,0,0" VerticalAlignment="Top" Checked="copyInfo2"/>
+        <RadioButton GroupName="P1" Content="ELF" Foreground ="White" x:Name="ELF"  HorizontalAlignment="Left" Margin="57,233,0,0" VerticalAlignment="Top" Checked="unitelf1" FontWeight="Bold" FontFamily="Gabriola" FontSize="18"/>
+        <RadioButton GroupName="P1" Content="NAIN"  Foreground ="White" x:Name="NAIN" HorizontalAlignment="Left" Margin="57,280,0,0" VerticalAlignment="Top" Checked="unitnain1" FontFamily="Gabriola" FontWeight="Bold" FontSize="18"/>
+        <RadioButton GroupName="P1" Content="ORC" Foreground ="White" x:Name="ORC" HorizontalAlignment="Left" Margin="57,256,0,0" VerticalAlignment="Top" Checked="unitorc1" FontFamily="Gabriola" FontWeight="Bold" FontSize="18"/>
+        <RadioButton GroupName="P2" Content="ELF" Foreground ="White" x:Name="ELF2"  HorizontalAlignment="Left" Margin="272,233,0,0" VerticalAlignment="Top" Checked="unitelf2" FontFamily="Gabriola" FontWeight="Bold" FontSize="18"/>
+        <RadioButton  GroupName="P2" Content="NAIN"  Foreground ="White" x:Name="NAIN2" HorizontalAlignment="Left" Margin="272,282,0,0" VerticalAlignment="Top" Checked="unitnain2" FontFamily="Gabriola" FontWeight="Bold" FontSize="18"/>
+        <RadioButton  GroupName="P2" Content="ORC" Foreground ="White" x:Name="ORC2" HorizontalAlignment="Left" Margin="272,258,0,0" VerticalAlignment="Top" Checked="unitorc2" FontFamily="Gabriola" FontWeight="Bold" FontSize="18"/>
 
     </Grid>
 </Window>

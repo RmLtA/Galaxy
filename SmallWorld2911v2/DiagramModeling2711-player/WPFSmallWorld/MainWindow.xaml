@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WPFSmallWorld"
-        Title="Small World" Height="600" Width="600"
+        Title="Small World" Height="696" Width="938"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Loaded_Window">
-
-    <DockPanel Background="Beige">
-        <Grid  x:Name="InfoGrid"   DockPanel.Dock="Bottom" Height="158" Background="Gray" >
+    <Window.Background>
+        <ImageBrush ImageSource="resources/png_background.png"></ImageBrush>
+    </Window.Background>
+    <DockPanel >
+        <Grid  x:Name="InfoGrid"   DockPanel.Dock="Bottom" Height="242" >
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
@@ -18,26 +20,69 @@
             </Grid.ColumnDefinitions>
 
 
-            <Button Content="End turn " HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="10,10,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="34" Click="Button_Click" FontFamily="Gabriola" FontSize="20"/>
-            <Button Content="Save and Quit" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="10,49,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="44" FontFamily="Gabriola" FontSize="22" />
-            <Button Content="Exit" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="10,101,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="29" FontFamily="Gabriola" FontSize="22" />
-            <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="10,0,0,0" TextWrapping="Wrap" Text="People :" VerticalAlignment="Top" Width="62" FontFamily="Gabriola" FontSize="22" Background="Beige"/>
+            <Button Content="End turn " HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="32,83,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="34" Click="Button_Click" FontFamily="Gabriola" FontSize="20"/>
+            <Button Content="Save and Quit" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="32,122,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="44" FontFamily="Gabriola" FontSize="22" />
+            <Button Content="Exit" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="32,171,0,0" Grid.Column="3" VerticalAlignment="Top" Width="106" Height="29" FontFamily="Gabriola" FontSize="22" />
+            <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="10,0,0,211" TextWrapping="Wrap" Text="People :" VerticalAlignment="Bottom" Width="62" FontFamily="Gabriola" FontSize="22" Background="Beige"/>
             <TextBox HorizontalAlignment="Left" Height="31" Margin="10,0,0,0" TextWrapping="Wrap" Text="People :" VerticalAlignment="Top" Width="62" FontFamily="Gabriola" FontSize="22" Grid.Column="2" Background="Beige"/>
             <TextBox Grid.ColumnSpan="2" x:Name="people1" HorizontalAlignment="Left" Height="31" Margin="86,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98" FontFamily="Gabriola" FontSize="22"/>
             <TextBox x:Name="people2" HorizontalAlignment="Left" Height="31" Margin="90,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98" Grid.Column="2" FontFamily="Gabriola" FontSize="22"/>
+            <Grid x:Name="UnitGrid1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="198" Margin="10,34,0,0" VerticalAlignment="Top" Width="206">
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="97*"/>
+                    <ColumnDefinition Width="109*"/>
+
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="29*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="20*"/>
+
+
+                </Grid.RowDefinitions>
+            </Grid>
+
+
+            <Grid x:Name="UnitGrid2" HorizontalAlignment="Left" Height="201" Margin="14,31,0,0" VerticalAlignment="Top" Width="206" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="97*"/>
+                    <ColumnDefinition Width="109*"/>
+
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="51*"/>
+                    <RowDefinition Height="46*"/>
+                    <RowDefinition Height="56*"/>
+                    <RowDefinition Height="48*"/>
+
+
+                </Grid.RowDefinitions>
+            </Grid>
+            <TextBox x:Name="Message" Grid.Column="2" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264" FontFamily="Gabriola" FontSize="22" Grid.ColumnSpan="2" Margin="301,0,0,0" />
 
         </Grid>
-        <Grid  DockPanel.Dock="Top" Height="48" Background="Gray" >
+        <Grid  DockPanel.Dock="Top" Height="48"  >
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="137*"/>
                 <ColumnDefinition Width="159*"/>
 
             </Grid.ColumnDefinitions>
-            <Label Content="Name : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="10,4,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22"/>
-            <Label Content="Name : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="38,4,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22" Grid.Column="1"/>
-            <Label Content="" x:Name="Name1" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="103,4,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22"/>
-            <Label Content="" x:Name="Name2" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="123,4,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22" Grid.Column="1"/>
+            <Label Content="Player 1 : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="10,4,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22"/>
+            <Label Content="Player 2 : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="41,10,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22" Grid.Column="1"/>
+            <Label Content="" x:Name="Name1" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="77,4,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22"/>
+            <Label Content="" x:Name="Name2" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="128,10,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22" Grid.Column="1"/>
+            <Label Content="Turn Left : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="222,7,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22"/>
+            <Label Content="Turn Left : " Foreground="White" HorizontalAlignment="Left" Height="35" Margin="288,10,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="22" Grid.Column="1"/>
+            <Label Content="" x:Name="Turn_left1" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="315,7,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="18"/>
+            <Label Content="" x:Name="Turn_left2" Foreground="White" HorizontalAlignment="Left" Height="35" Margin="385,4,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="2.414,0.717" FontFamily="Gabriola" FontSize="18" Grid.Column="1"/>
 
 
 
@@ -49,10 +94,10 @@
         <local:HexagonGrid Name="myGrid" Margin="0,-1,0,0" Width="600"
                            RenderTransformOrigin="0.637,0.429">
         -->
-        <Grid  Name="myGrid" Margin="0,5,0,48" Width="360"
-                           RenderTransformOrigin="0.637,0.429">
+        <Grid  Name="myGrid" Margin="0,0,0,5" Width="514"
+                           RenderTransformOrigin="0.478,0.559">
 
-            <Polygon Name="selectionPolygon" Stroke="blue" Panel.ZIndex="333" Visibility="collapsed">
+            <Polygon Name="selectionPolygon" Stroke="blue" Panel.ZIndex="333" Visibility="collapsed" Grid.RowSpan="2">
 
             </Polygon>
         </Grid>

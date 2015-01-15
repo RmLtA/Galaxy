@@ -21,8 +21,9 @@ namespace WPFSmallWorld
     public partial class DisplayUnit : UserControl
     {
         private Unit _unit;
+        
 
-        public Unit Unit
+        public Unit unit_display
         {
             get { return this._unit; }
         }
@@ -35,11 +36,11 @@ namespace WPFSmallWorld
            
             // Set Health data
             CurrentHealth.Text = unit.LifePoint.ToString();
-            MaxHealth.Text = "5";
+           
 
             // Set Move data
             CurrentMove.Text = unit.MovePoint.ToString();
-            MaxMove.Text = "5";
+           
         }
     }
 }

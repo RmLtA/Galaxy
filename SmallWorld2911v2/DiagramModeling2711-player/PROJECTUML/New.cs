@@ -19,12 +19,13 @@ namespace PROJECTUML
         public GamePlay start( MapType map,string player1, PeopleType people1, string player2, PeopleType people2)
         {
             
-            //demande des informations aux joueurs via l'interface graphique
-            List<Player> l = new List<Player>(2);
-            Player p1 = createPlayer(player1, people1);
-            Player p2 = createPlayer(player2, people2);
+            
 
             Map m = createMap(map);
+            //demande des informations aux joueurs via l'interface graphique
+            List<Player> l = new List<Player>(2);
+            Player p1 = createPlayer(player1, people1,m.TurnNumber);
+            Player p2 = createPlayer(player2, people2,m.TurnNumber);
 
             //remplissage des unités dans la liste d'un peuple
             p1.addUnitPlayer(m.UnitNumber);
@@ -84,10 +85,10 @@ namespace PROJECTUML
          * \param   map
          * \param   people
          */
-        public Player createPlayer(string name, PeopleType people) 
+        public Player createPlayer(string name, PeopleType people, int turnLeft) 
         {
 
-            return new PlayerImpl(name, people);
+            return new PlayerImpl(name, people, turnLeft);
 
         }
 

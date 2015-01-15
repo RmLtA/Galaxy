@@ -20,7 +20,7 @@ namespace WPFSmallWorld
     /// </summary>
     public partial class Player : Window
     {
-        
+        GamePlay game;
         string player1, player2;
         PeopleType people1, people2;
         string peopleType1, peopleType2;
@@ -30,7 +30,7 @@ namespace WPFSmallWorld
             InitializeComponent();
         }
 
-        private PeopleType initPeople(string content)
+        /*private PeopleType initPeople(string content)
         {
             PeopleType type = 0;
             switch (content)
@@ -48,27 +48,62 @@ namespace WPFSmallWorld
                     throw new ArgumentException("This people is unknown");
             }
             return type;
-        }
-        private void initPeoplePlayer1(object sender, RoutedEventArgs e)
+        }*/
+        private void unitelf1(object sender, RoutedEventArgs e)
         {
-            RadioButton sender1 = (sender as RadioButton);
-            peopleType1 = sender1.Content.ToString();
-
-
-            ELF.ClearValue(TextBox.BorderBrushProperty);
-            NAIN.ClearValue(TextBox.BorderBrushProperty);
-            ORC.ClearValue(TextBox.BorderBrushProperty);
+            enableditems2(ELF2);
+            people1 = PeopleType.ELF;
+         
         }
-        private void initPeoplePlayer2(object sender, RoutedEventArgs e)
+        private void unitnain1(object sender, RoutedEventArgs e)
         {
-            RadioButton sender1 = (sender as RadioButton);
-            peopleType2 = sender1.Content.ToString();
+            enableditems2(NAIN2); 
+            people1 = PeopleType.NAIN;
 
-
-            ELF2.ClearValue(TextBox.BorderBrushProperty);
-            NAIN2.ClearValue(TextBox.BorderBrushProperty);
-            ORC2.ClearValue(TextBox.BorderBrushProperty);
         }
+        private void unitorc1(object sender, RoutedEventArgs e)
+        {
+            enableditems2(ORC2);
+            people1 = PeopleType.ORC;
+
+        }
+        private void unitelf2(object sender, RoutedEventArgs e)
+        {
+            enableditems1(ELF);
+            people2 = PeopleType.ELF;
+
+        }
+        private void unitnain2(object sender, RoutedEventArgs e)
+        {
+            enableditems1(NAIN);
+            people2 = PeopleType.NAIN;
+
+        }
+        private void unitorc2(object sender, RoutedEventArgs e)
+        {
+            enableditems1(ORC);
+            people2 = PeopleType.ORC;
+
+        }
+
+        private void enableditems1(RadioButton b) {
+
+            NAIN.IsEnabled = true;
+            ELF.IsEnabled = true;
+            ORC.IsEnabled = true;
+            b.IsEnabled = false;
+        
+        }
+        private void enableditems2(RadioButton b)
+        {
+
+            NAIN2.IsEnabled = true;
+            ELF2.IsEnabled = true;
+            ORC2.IsEnabled = true;
+            b.IsEnabled = false;
+
+        }
+
 
         private void selectMapStrategy(object sender, RoutedEventArgs e)
         {
@@ -100,14 +135,14 @@ namespace WPFSmallWorld
             if (player2 == null || player2 == "" || player2 == Textplayer1.Text)
             {
                 Textplayer2.BorderBrush = Brushes.Red;
-                Ok2.IsChecked = false;
+                //Ok2.IsChecked = false;
             }
             if (peopleType2 == null)
             {
                 ELF2.BorderBrush = Brushes.Red;
                 ORC2.BorderBrush = Brushes.Red;
                 NAIN2.BorderBrush = Brushes.Red;
-                Ok2.IsChecked = false;
+                //Ok2.IsChecked = false;
             }
         }
 
@@ -120,26 +155,34 @@ namespace WPFSmallWorld
             if (player1 == null || player1 == "" || player1 == Textplayer2.Text)
             {
                 Textplayer1.BorderBrush = Brushes.Red;
-                Ok1.IsChecked = false;
+                //Ok1.IsChecked = false;
             }
             if (peopleType1 == null)
             {
                 ELF.BorderBrush = Brushes.Red;
                 ORC.BorderBrush = Brushes.Red;
                 NAIN.BorderBrush = Brushes.Red;
-                Ok1.IsChecked = false;
+                //Ok1.IsChecked = false;
             }
         }
 
 
         private void startGame(object sender, RoutedEventArgs e)
         {
-            GamePlay game;
-            GamePlayBuilder builder = new NewGamePlayImpl();
-            game = builder.start(map,player1, people1,player2, people2);
-            MainWindow window = new MainWindow(game);
-            window.Show();
-            this.Close();
+            /*if ((Ok1.IsChecked.Value) && (Ok2.IsChecked.Value))
+            {*/
+
+                GamePlayBuilder builder = new NewGamePlayImpl();
+                game = builder.start(map, player1, people1, player2, people2);
+                //GamePlayImpl.Instance = game;
+                MainWindow window = new MainWindow(game);
+                window.Show();
+                this.Close();
+           /* }
+            else
+            {
+                MessageBox.Show("Check Ok !! ");
+            }*/
 
         }
 
