@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFSmallWorld.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Menu" Height="400" Width="400">
+    <Window.Background>
+        <ImageBrush ImageSource="resources/background.png"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Button Content="Start" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="122,90,0,0" VerticalAlignment="Top" Width="144" Click="Button_Click" FontFamily="Gabriola" FontSize="18"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="122,280,0,0" VerticalAlignment="Top" Width="144" FontFamily="Gabriola" FontSize="18" Click="menu_exit_Click"/>
+        <Button Content="Load" HorizontalAlignment="Left" Background="Beige" BorderBrush="DarkGray" BorderThickness="2" Margin="122,146,0,0" VerticalAlignment="Top" Width="144" FontFamily="Gabriola" FontSize="18" Click="Load"/>
+
+    </Grid>
+</Window>
